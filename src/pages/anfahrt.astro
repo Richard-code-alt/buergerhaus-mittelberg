@@ -33,29 +33,23 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
   </section>
 
   <section class="section">
-    <div class="container--wide">
-      <div class="map-card">
-        <div class="map-card__visual" data-map-wrap>
-          <div class="map-placeholder" data-map-placeholder>
-            <svg class="map-placeholder__icon" viewBox="0 0 64 64" aria-hidden="true">
-              <circle cx="32" cy="26" r="9" fill="none" stroke="currentColor" stroke-width="2.5"/>
-              <circle cx="32" cy="26" r="3" fill="currentColor"/>
-              <path d="M 32 35 L 32 52 M 24 47 L 40 47" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-            </svg>
-            <p class="map-placeholder__title">Rotachstraße 8</p>
-            <p class="map-placeholder__sub">87466 Oy-Mittelberg · Allgäu</p>
-            <button type="button" class="btn btn--secondary btn--sm" data-load-map>
-              Karte hier laden
-            </button>
-            <p class="map-placeholder__hint">
-              Datenschutz-konform: Wir laden die Karte erst nach Ihrem Klick.
-            </p>
+    <div class="container--narrow">
+      <div class="route-card">
+        <div class="route-card__address">
+          <svg class="route-card__icon" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="26" r="9" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <circle cx="32" cy="26" r="3" fill="currentColor"/>
+            <path d="M 32 35 L 32 52 M 24 47 L 40 47" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <p class="route-card__title">Rotachstraße 8</p>
+            <p class="route-card__sub">87466 Oy-Mittelberg · Allgäu</p>
           </div>
         </div>
 
-        <div class="map-card__actions">
-          <p class="map-card__heading">Route berechnen</p>
-          <div class="map-card__buttons">
+        <div class="route-card__actions">
+          <p class="route-card__heading">Route berechnen</p>
+          <div class="route-card__buttons">
             <a
               href="https://www.google.com/maps/dir/?api=1&destination=Bürgerhaus+Mittelberg+Rotachstraße+8+Oy-Mittelberg&destination_place_id=B%C3%BCrgerhaus+Mittelberg"
               target="_blank"
@@ -68,14 +62,8 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
               rel="noopener"
               class="btn btn--secondary btn--arrow"
             >Apple Maps</a>
-            <a
-              href="https://www.openstreetmap.org/?mlat=47.6430&mlon=10.4378#map=17/47.6430/10.4378"
-              target="_blank"
-              rel="noopener"
-              class="btn btn--secondary btn--arrow"
-            >OpenStreetMap</a>
           </div>
-          <p class="map-card__note">
+          <p class="route-card__note">
             Klick auf einen Button öffnet Ihre Navi-App mit der Route ab Ihrem Standort.
           </p>
         </div>
@@ -210,81 +198,54 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
     margin-bottom: var(--s-2);
   }
 
-  .map-card {
-    display: grid;
-    grid-template-columns: 1fr;
+  .route-card {
+    display: flex;
+    flex-direction: column;
     gap: var(--s-5);
     border: 1px solid var(--c-line);
     border-radius: var(--r-md);
     overflow: hidden;
+    background: var(--c-cream);
+  }
+
+  .route-card__address {
+    display: flex;
+    align-items: center;
+    gap: var(--s-4);
+    padding: var(--s-6);
     background: var(--c-cream-warm);
+    border-bottom: 1px solid var(--c-line);
   }
-  @media (min-width: 800px) {
-    .map-card {
-      grid-template-columns: 1.4fr 1fr;
-      gap: 0;
-    }
-  }
-
-  .map-card__visual {
-    aspect-ratio: 16 / 10;
-    background:
-      radial-gradient(circle at 30% 40%, rgba(122, 79, 48, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 70% 70%, rgba(29, 79, 125, 0.08) 0%, transparent 50%),
-      var(--c-cream-warm);
-    position: relative;
-    overflow: hidden;
-  }
-  @media (min-width: 800px) {
-    .map-card__visual { aspect-ratio: auto; min-height: 380px; }
-  }
-
-  .map-placeholder {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center; padding: var(--s-6); gap: var(--s-3);
-  }
-  .map-placeholder__icon {
-    width: 56px; height: 56px;
+  .route-card__icon {
+    width: 48px; height: 48px;
     color: var(--c-mokka);
-    margin-bottom: var(--s-2);
+    flex-shrink: 0;
   }
-  .map-placeholder__title {
+  .route-card__title {
     font-family: var(--f-display);
     font-size: var(--t-xl);
     font-weight: 500;
     color: var(--c-anthracite);
     margin: 0;
     letter-spacing: -0.02em;
+    line-height: 1.2;
   }
-  .map-placeholder__sub {
+  .route-card__sub {
     color: var(--c-mid);
-    margin: 0 0 var(--s-3);
+    margin: var(--s-1) 0 0;
     font-size: var(--t-sm);
   }
-  .map-placeholder__hint {
-    font-size: var(--t-xs);
-    color: var(--c-soft);
-    margin: var(--s-2) 0 0;
-    max-width: 26rem;
-  }
-  .map-card__visual iframe {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%; border: 0;
-  }
 
-  .map-card__actions {
+  .route-card__actions {
     padding: var(--s-6);
     display: flex; flex-direction: column;
-    justify-content: center;
     gap: var(--s-4);
-    background: var(--c-cream);
   }
   @media (min-width: 800px) {
-    .map-card__actions { padding: var(--s-7); }
+    .route-card__actions { padding: var(--s-7); }
   }
 
-  .map-card__heading {
+  .route-card__heading {
     font-family: var(--f-body);
     font-weight: 600;
     text-transform: uppercase;
@@ -293,16 +254,16 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
     color: var(--c-mokka);
     margin: 0;
   }
-  .map-card__buttons {
+  .route-card__buttons {
     display: flex;
     flex-direction: column;
     gap: var(--s-3);
   }
-  .map-card__buttons .btn {
+  .route-card__buttons .btn {
     justify-content: space-between;
     width: 100%;
   }
-  .map-card__note {
+  .route-card__note {
     font-size: var(--t-sm);
     color: var(--c-mid);
     margin: 0;
@@ -316,20 +277,3 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
     line-height: 1.5;
   }
 </style>
-
-<script is:inline>
-  (function() {
-    const wrap = document.querySelector('[data-map-wrap]');
-    const btn = document.querySelector('[data-load-map]');
-    if (!wrap || !btn) return;
-    btn.addEventListener('click', () => {
-      const iframe = document.createElement('iframe');
-      iframe.src = 'https://www.openstreetmap.org/export/embed.html?bbox=10.4278%2C47.6380%2C10.4478%2C47.6480&amp;layer=mapnik&amp;marker=47.643%2C10.4378';
-      iframe.title = 'Karte Bürgerhaus Mittelberg';
-      iframe.loading = 'lazy';
-      iframe.allow = 'fullscreen';
-      wrap.innerHTML = '';
-      wrap.appendChild(iframe);
-    });
-  })();
-</script>
