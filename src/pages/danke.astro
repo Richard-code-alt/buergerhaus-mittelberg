@@ -1,24 +1,179 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import kontakt from '../data/kontakt.json';
 
-const title = 'Danke! — Anfrage erhalten | Bürgerhaus Mittelberg';
+const title = 'Anfrage erhalten — danke! | Bürgerhaus Mittelberg';
 const description = 'Wir haben eure Anfrage erhalten und melden uns innerhalb von 48 Stunden.';
+const tel = kontakt.telefon.replace(/\s/g, '').replace(/^0/, '');
 ---
 
 <BaseLayout title={title} description={description} noindex={true}>
-  <section class="section--hero">
-    <div class="container--narrow text-center">
-      <span class="eyebrow">Anfrage erhalten</span>
-      <h1>Danke!</h1>
-      <p class="lead mx-auto">
-        Eure Anfrage ist bei uns angekommen. Wir melden uns innerhalb von 48 Stunden mit
-        einem konkreten Vorschlag und einem Vorschlag für einen Besichtigungstermin.
-      </p>
-      <p class="lead mx-auto mt-4">
-        Bei dringenden Fragen erreicht ihr uns direkt:<br/>
-        <a href="tel:+4983661300"><strong>08366 1300</strong></a>
-      </p>
-      <a href="/" class="btn btn--secondary btn--arrow mt-6">Zurück zur Startseite</a>
+  <section class="danke">
+    <div class="container--narrow">
+      <div class="danke__inner">
+        <img src="/logo.svg" alt="Bürgerhaus Mittelberg" class="danke__logo" />
+
+        <span class="eyebrow">Anfrage erhalten</span>
+        <h1 class="danke__title">Vielen Dank!</h1>
+
+        <p class="danke__lead">
+          Eure Anfrage ist bei uns angekommen.
+        </p>
+
+        <div class="danke__check">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M 18 32 L 28 42 L 46 22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+
+        <div class="danke__steps">
+          <h2 class="danke__sub">Wie es jetzt weitergeht</h2>
+          <ol class="danke__list">
+            <li>
+              <strong>Innerhalb 48 Stunden</strong> melden wir uns per Mail oder Telefon zurück.
+            </li>
+            <li>
+              Im Gespräch klären wir <strong>Datum, Räume und euren konkreten Bedarf</strong>.
+            </li>
+            <li>
+              Wir laden euch zur <strong>Besichtigung vor Ort</strong> ein — vereinbart nach euren Möglichkeiten.
+            </li>
+          </ol>
+        </div>
+
+        <div class="danke__contact">
+          <p>Dringend? Direkt durchklingeln:</p>
+          <a href={`tel:+49${tel}`} class="danke__phone">{kontakt.telefon}</a>
+          <p class="danke__email">
+            oder Mail: <a href={`mailto:${kontakt.email}`}>{kontakt.email}</a>
+          </p>
+        </div>
+
+        <a href="/" class="btn btn--secondary btn--arrow danke__back">Zurück zur Startseite</a>
+      </div>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .danke {
+    min-height: 80vh;
+    padding: var(--s-9) 0 var(--s-10);
+    background:
+      radial-gradient(circle at 80% 20%, rgba(122, 79, 48, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 10% 80%, rgba(29, 79, 125, 0.05) 0%, transparent 50%),
+      var(--c-cream);
+    display: flex; align-items: center;
+  }
+
+  .danke__inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--s-5);
+  }
+
+  .danke__logo {
+    height: 80px;
+    width: auto;
+    margin-bottom: var(--s-4);
+  }
+  @media (min-width: 720px) {
+    .danke__logo { height: 110px; }
+  }
+
+  .danke__title {
+    margin: 0;
+    font-size: var(--t-3xl);
+  }
+
+  .danke__lead {
+    font-size: var(--t-lg);
+    color: var(--c-mid);
+    max-width: 36rem;
+    margin: 0;
+  }
+
+  .danke__check {
+    width: 88px; height: 88px;
+    color: var(--c-mokka);
+    margin: var(--s-3) 0;
+    animation: scale-in 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes scale-in {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .danke__check svg { width: 100%; height: 100%; }
+
+  .danke__steps {
+    background: var(--c-cream-warm);
+    border-radius: var(--r-md);
+    padding: var(--s-6) var(--s-7);
+    text-align: left;
+    width: 100%;
+    max-width: 36rem;
+    margin: var(--s-3) 0;
+  }
+  .danke__sub {
+    font-family: var(--f-display);
+    text-transform: uppercase;
+    font-size: var(--t-md);
+    margin: 0 0 var(--s-4);
+    text-align: center;
+  }
+  .danke__list {
+    counter-reset: step;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-4);
+    list-style: none;
+    padding: 0;
+  }
+  .danke__list li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 3rem;
+    line-height: 1.5;
+    color: var(--c-mid);
+  }
+  .danke__list li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: -2px;
+    width: 2rem; height: 2rem;
+    background: var(--c-mokka);
+    color: var(--c-cream);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--f-body);
+    font-weight: 700;
+    font-size: var(--t-sm);
+  }
+  .danke__list strong { color: var(--c-anthracite); }
+
+  .danke__contact {
+    margin-top: var(--s-3);
+  }
+  .danke__contact p {
+    margin: 0;
+    color: var(--c-mid);
+  }
+  .danke__phone {
+    display: inline-block;
+    font-family: var(--f-display);
+    font-size: var(--t-2xl);
+    color: var(--c-mokka);
+    margin: var(--s-2) 0;
+    letter-spacing: -0.01em;
+  }
+  .danke__phone:hover { color: var(--c-mokka-dark); }
+  .danke__email {
+    font-size: var(--t-sm);
+  }
+
+  .danke__back {
+    margin-top: var(--s-3);
+  }
+</style>

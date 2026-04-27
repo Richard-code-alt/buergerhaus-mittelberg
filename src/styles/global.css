@@ -1,47 +1,59 @@
 /* =====================================================================
-   Bürgerhaus Mittelberg — Globale Styles v2
-   Editorial-alpenländisch, mobile-first responsive, maximale visuelle Tiefe
+   Bürgerhaus Mittelberg — Globale Styles v3
+   Modern, jung, hochwertig. Brand-Blau + Mokka-Akzent.
    ===================================================================== */
 
 @import '@fontsource/anton/400.css';
-@import '@fontsource-variable/fraunces';
-@import '@fontsource-variable/caveat';
+@import '@fontsource-variable/inter';
 
 :root {
+  /* Brand-Farben */
   --c-blue:        #1d4f7d;
   --c-blue-dark:   #143557;
   --c-blue-deep:   #0d2741;
   --c-blue-light:  #d8e6f0;
+
+  /* Cream / Hintergründe */
   --c-cream:       #faf6ee;
-  --c-cream-warm:  #f1e9d9;
-  --c-cream-deep:  #e6d9bf;
+  --c-cream-warm:  #f3ebd9;
+  --c-cream-deep:  #e9dec4;
+
+  /* Anthrazit / Text */
   --c-anthracite:  #1f1f1f;
   --c-mid:         #5a5552;
   --c-soft:        #8c867f;
-  --c-line:        #d9cfb8;
-  --c-line-light:  #ebe2cd;
-  --c-brass:       #a87a3d;
-  --c-brass-light: #c89a5e;
+  --c-line:        #e0d6bf;
+  --c-line-light:  #efe7d2;
 
-  --c-bg: var(--c-cream);
-  --c-fg: var(--c-anthracite);
-  --c-accent: var(--c-blue);
-  --c-accent-2: var(--c-brass);
+  /* Mokka-Palette (NEU statt Gold-Brass) */
+  --c-mokka:       #7a4f30;
+  --c-mokka-dark:  #5b3a23;
+  --c-mokka-light: #a37a55;
+  --c-mokka-soft:  #d4b89c;
+  --c-mokka-pale:  #ede0d0;
 
+  /* Semantik */
+  --c-bg:       var(--c-cream);
+  --c-fg:       var(--c-anthracite);
+  --c-accent:   var(--c-blue);
+  --c-accent-2: var(--c-mokka);
+
+  /* Typografie */
   --f-display: 'Anton', 'Impact', sans-serif;
-  --f-body:    'Fraunces Variable', Georgia, serif;
-  --f-script:  'Caveat Variable', cursive;
+  --f-body:    'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  --t-xs: 0.75rem;
-  --t-sm: 0.875rem;
-  --t-base: 1rem;
-  --t-md: 1.125rem;
-  --t-lg: 1.375rem;
-  --t-xl: 1.75rem;
-  --t-2xl: 2.25rem;
-  --t-3xl: 2.75rem;
-  --t-hero: clamp(2.75rem, 12vw, 7rem);
+  /* Type-Scale */
+  --t-xs:    0.75rem;
+  --t-sm:    0.875rem;
+  --t-base:  1rem;
+  --t-md:    1.125rem;
+  --t-lg:    1.375rem;
+  --t-xl:    1.75rem;
+  --t-2xl:   2.25rem;
+  --t-3xl:   2.75rem;
+  --t-hero:  clamp(2.75rem, 12vw, 7rem);
 
+  /* Spacing */
   --s-1: 0.25rem;
   --s-2: 0.5rem;
   --s-3: 0.75rem;
@@ -53,15 +65,23 @@
   --s-9: 5rem;
   --s-10: 7rem;
 
+  /* Container */
   --w-content: 68rem;
   --w-narrow: 42rem;
   --w-wide: 84rem;
 
+  /* Schatten & Übergänge */
   --shadow-sm: 0 1px 3px rgba(13, 39, 65, 0.06);
   --shadow-md: 0 6px 20px rgba(13, 39, 65, 0.08);
   --shadow-lg: 0 18px 60px rgba(13, 39, 65, 0.12);
 
   --transition: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Border-Radius — modern, etwas weicher */
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 24px;
+  --r-pill: 999px;
 }
 
 @media (min-width: 720px) {
@@ -95,16 +115,19 @@ body {
   color: var(--c-fg);
   background: var(--c-bg);
   font-weight: 400;
-  font-optical-sizing: auto;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-variation-settings: 'opsz' 24, 'SOFT' 50;
   overflow-x: hidden;
 }
 
 img, picture, svg { max-width: 100%; height: auto; display: block; }
-a { color: var(--c-blue); text-decoration: none; transition: color var(--transition); }
-a:hover { color: var(--c-blue-dark); }
+a {
+  color: var(--c-blue);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover { color: var(--c-mokka); }
 button { font: inherit; cursor: pointer; border: 0; background: transparent; color: inherit; }
 ul, ol { list-style: none; }
 table { border-collapse: collapse; width: 100%; }
@@ -129,45 +152,48 @@ h1, h2, h3, h4 {
 h1 { font-size: var(--t-3xl); margin-bottom: var(--s-5); line-height: 0.95; }
 h2 { font-size: var(--t-2xl); margin-bottom: var(--s-5); line-height: 0.98; }
 h3 { font-size: var(--t-xl); margin-bottom: var(--s-3); line-height: 1.05; }
-h4 { font-size: var(--t-lg); margin-bottom: var(--s-3); line-height: 1.1; letter-spacing: 0; }
+h4 {
+  font-size: var(--t-lg); margin-bottom: var(--s-3); line-height: 1.1;
+  letter-spacing: 0;
+  font-family: var(--f-body); font-weight: 600; text-transform: none;
+}
 
 p { margin-bottom: var(--s-4); max-width: 65ch; }
 p:last-child { margin-bottom: 0; }
 
+/* Italic für Kurz-Beschreibungen — Inter italic statt Caveat */
 .script {
-  font-family: var(--f-script); font-weight: 500;
-  text-transform: none; letter-spacing: 0;
-  color: var(--c-blue);
-  font-size: 1.15em;
+  font-family: var(--f-body); font-weight: 500;
+  font-style: italic;
+  text-transform: none; letter-spacing: -0.01em;
+  color: var(--c-mokka);
 }
 
 .eyebrow {
-  font-family: var(--f-display);
+  font-family: var(--f-body);
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.22em;
   font-size: var(--t-xs);
-  color: var(--c-brass);
+  color: var(--c-mokka);
   display: inline-flex; align-items: center; gap: var(--s-3);
   margin-bottom: var(--s-4);
 }
 .eyebrow::before {
   content: ''; display: inline-block;
   width: 1.5rem; height: 1px;
-  background: var(--c-brass);
+  background: var(--c-mokka);
 }
 
 .lead {
   font-size: var(--t-md);
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--c-mid);
   font-weight: 400;
   max-width: 38rem;
 }
 
-.serif-italic {
-  font-style: italic;
-  font-variation-settings: 'opsz' 24, 'SOFT' 100;
-}
+.serif-italic { font-style: italic; }
 
 /* Layout */
 .container { width: 100%; max-width: var(--w-content); padding: 0 var(--s-4); margin-inline: auto; }
@@ -190,6 +216,16 @@ p:last-child { margin-bottom: 0; }
 
 .section--cream-warm { background: var(--c-cream-warm); }
 .section--cream-deep { background: var(--c-cream-deep); }
+.section--mokka {
+  background: var(--c-mokka);
+  color: var(--c-cream);
+  position: relative;
+}
+.section--mokka h1, .section--mokka h2, .section--mokka h3, .section--mokka h4 { color: var(--c-cream); }
+.section--mokka .eyebrow { color: var(--c-mokka-soft); }
+.section--mokka .eyebrow::before { background: var(--c-mokka-soft); }
+.section--mokka .lead, .section--mokka p { color: rgba(250, 246, 238, 0.88); }
+
 .section--blue {
   background: var(--c-blue-deep); color: var(--c-cream);
   position: relative; overflow: hidden;
@@ -197,47 +233,87 @@ p:last-child { margin-bottom: 0; }
 .section--blue::before {
   content: ''; position: absolute; inset: 0;
   background:
-    radial-gradient(circle at 10% 20%, rgba(168, 122, 61, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 10% 20%, rgba(122, 79, 48, 0.18) 0%, transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(29, 79, 125, 0.6) 0%, transparent 50%);
   pointer-events: none;
 }
 .section--blue > .container,
-.section--blue > .container--narrow { position: relative; z-index: 1; }
+.section--blue > .container--narrow,
+.section--blue > .container--wide { position: relative; z-index: 1; }
 .section--blue h1, .section--blue h2, .section--blue h3, .section--blue h4 { color: var(--c-cream); }
-.section--blue .eyebrow { color: var(--c-brass-light); }
-.section--blue .eyebrow::before { background: var(--c-brass-light); }
-.section--blue .lead { color: rgba(250, 246, 238, 0.85); }
-.section--blue p { color: rgba(250, 246, 238, 0.85); }
+.section--blue .eyebrow { color: var(--c-mokka-soft); }
+.section--blue .eyebrow::before { background: var(--c-mokka-soft); }
+.section--blue .lead, .section--blue p { color: rgba(250, 246, 238, 0.88); }
 
-/* Buttons */
+/* ===========================================================
+   BUTTONS — neu: weicher, runder, Mokka als zweite Hauptfarbe
+   =========================================================== */
 .btn {
   display: inline-flex; align-items: center; gap: var(--s-3);
-  padding: var(--s-4) var(--s-6);
-  font-family: var(--f-display); text-transform: uppercase; letter-spacing: 0.1em;
-  font-size: var(--t-sm);
+  padding: 0.95rem 1.75rem;
+  font-family: var(--f-body);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  font-size: var(--t-base);
   border: 1px solid currentColor;
+  border-radius: var(--r-pill);
   transition: all var(--transition);
-  cursor: pointer; text-decoration: none;
+  cursor: pointer;
+  text-decoration: none;
   white-space: nowrap;
   line-height: 1;
 }
+
+/* Primary = Mokka (warm, hochwertig, einladend) */
 .btn--primary {
-  background: var(--c-blue); color: var(--c-cream); border-color: var(--c-blue);
+  background: var(--c-mokka);
+  color: var(--c-cream);
+  border-color: var(--c-mokka);
 }
 .btn--primary:hover {
-  background: var(--c-blue-dark); border-color: var(--c-blue-dark); color: var(--c-cream);
-  transform: translateY(-2px); box-shadow: var(--shadow-md);
+  background: var(--c-mokka-dark);
+  border-color: var(--c-mokka-dark);
+  color: var(--c-cream);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
+
+/* Secondary = transparent mit Blau-Rahmen */
 .btn--secondary {
-  background: transparent; color: var(--c-blue); border-color: var(--c-blue);
+  background: transparent;
+  color: var(--c-blue-deep);
+  border-color: var(--c-blue-deep);
 }
 .btn--secondary:hover {
-  background: var(--c-blue); color: var(--c-cream);
+  background: var(--c-blue-deep);
+  color: var(--c-cream);
+  border-color: var(--c-blue-deep);
 }
+
+/* Ghost = transparent mit Cream-Rahmen, für dunkle Hintergründe */
 .btn--ghost {
-  background: transparent; color: var(--c-cream); border-color: var(--c-cream);
+  background: transparent;
+  color: var(--c-cream);
+  border-color: var(--c-cream);
 }
-.btn--ghost:hover { background: var(--c-cream); color: var(--c-blue-deep); }
+.btn--ghost:hover {
+  background: var(--c-cream);
+  color: var(--c-blue-deep);
+}
+
+/* Cream-Variante für dunklen Mokka- oder Blau-Background */
+.btn--cream {
+  background: var(--c-cream);
+  color: var(--c-blue-deep);
+  border-color: var(--c-cream);
+}
+.btn--cream:hover {
+  background: var(--c-mokka-soft);
+  color: var(--c-blue-deep);
+  border-color: var(--c-mokka-soft);
+  transform: translateY(-2px);
+}
 
 .btn--arrow::after {
   content: '→'; font-family: var(--f-body); font-size: 1.15em;
@@ -246,37 +322,49 @@ p:last-child { margin-bottom: 0; }
 }
 .btn--arrow:hover::after { transform: translateX(4px); }
 
-/* Cards */
+.btn--lg { padding: 1.1rem 2.25rem; font-size: var(--t-md); }
+.btn--sm { padding: 0.65rem 1.25rem; font-size: var(--t-sm); }
+
+/* ===========================================================
+   CARDS — modernisiert
+   =========================================================== */
 .card {
-  background: var(--c-cream); padding: var(--s-6);
+  background: var(--c-cream);
+  padding: var(--s-6);
   border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
   display: flex; flex-direction: column; gap: var(--s-3);
   position: relative;
   transition: all var(--transition);
   height: 100%;
 }
 .card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
+  border-color: var(--c-mokka-soft);
 }
 .card--highlight {
-  border: 1px solid var(--c-brass);
+  border: 2px solid var(--c-mokka);
   background: var(--c-cream);
   box-shadow: var(--shadow-md);
-  position: relative;
 }
 .card--highlight::before {
   content: 'Beliebt';
   position: absolute; top: 0; right: var(--s-5);
-  background: var(--c-brass); color: var(--c-cream);
+  background: var(--c-mokka);
+  color: var(--c-cream);
   padding: var(--s-1) var(--s-4);
-  font-family: var(--f-display); text-transform: uppercase;
-  letter-spacing: 0.14em; font-size: var(--t-xs);
+  font-family: var(--f-body); font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  font-size: var(--t-xs);
+  border-radius: var(--r-pill);
   transform: translateY(-50%);
 }
 
 .divider {
-  display: block; width: 3rem; height: 1px; background: var(--c-brass);
+  display: block; width: 2.5rem; height: 2px;
+  background: var(--c-mokka);
+  border-radius: var(--r-pill);
   margin: 0 0 var(--s-4) 0;
 }
 .divider--center { margin: var(--s-5) auto; }
@@ -305,6 +393,7 @@ p:last-child { margin-bottom: 0; }
 .mx-auto { margin-left: auto; margin-right: auto; }
 .center-text { max-width: 36rem; margin: 0 auto; }
 
+/* Specs-Tabellen */
 table.specs { font-size: var(--t-base); }
 table.specs th, table.specs td {
   text-align: left; padding: var(--s-3) 0;
@@ -312,8 +401,9 @@ table.specs th, table.specs td {
   vertical-align: top;
 }
 table.specs th {
-  font-family: var(--f-display); text-transform: uppercase; letter-spacing: 0.08em;
-  font-weight: 400; color: var(--c-mid); width: 50%;
+  font-family: var(--f-body); font-weight: 600;
+  letter-spacing: 0;
+  color: var(--c-mid); width: 50%;
   font-size: var(--t-sm);
   padding-right: var(--s-4);
 }
@@ -331,23 +421,25 @@ table.specs th {
   aspect-ratio: 4 / 3;
   background: var(--c-cream-warm);
   border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
 }
 .imgph__bg {
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, var(--c-blue-light) 0%, var(--c-cream-warm) 60%, var(--c-cream-deep) 100%);
+  background: linear-gradient(180deg, var(--c-blue-light) 0%, var(--c-cream-warm) 60%, var(--c-mokka-pale) 100%);
 }
 .imgph__svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .imgph__noise {
   position: absolute; inset: 0;
-  opacity: 0.03;
+  opacity: 0.025;
   pointer-events: none;
   background-image: radial-gradient(rgba(31, 31, 31, 0.6) 0.5px, transparent 0.5px);
   background-size: 3px 3px;
 }
 .imgph__caption {
   position: absolute; bottom: var(--s-4); left: var(--s-5);
-  font-family: var(--f-script); font-size: var(--t-lg);
-  color: var(--c-blue-deep); opacity: 0.9;
+  font-family: var(--f-body); font-style: italic; font-weight: 500;
+  font-size: var(--t-md);
+  color: var(--c-blue-deep); opacity: 0.85;
   z-index: 2;
 }
 .imgph--wide  { aspect-ratio: 16 / 9; }
@@ -362,12 +454,12 @@ table.specs th {
 .bullets li { padding: var(--s-2) 0 var(--s-2) var(--s-5); position: relative; }
 .bullets li::before {
   content: ''; position: absolute; left: 0; top: 0.85em;
-  width: 0.75rem; height: 1px; background: var(--c-brass);
+  width: 0.75rem; height: 1px; background: var(--c-mokka);
 }
 .bullets--check li::before {
   content: '✓'; left: 0; top: 0;
   width: auto; height: auto; background: transparent;
-  color: var(--c-blue); font-weight: 700;
+  color: var(--c-mokka); font-weight: 700;
   font-family: var(--f-body); padding-top: var(--s-2);
 }
 .bullets--minus li::before {

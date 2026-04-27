@@ -70,7 +70,7 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
         Egal ob Vereinsfest, Konzert oder etwas Besonderes — fragt einfach an.
         Was wir nicht im Angebot haben, finden wir gemeinsam.
       </p>
-      <a href="/anfragen" class="btn btn--ghost btn--arrow mt-6">Termin anfragen</a>
+      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">Termin anfragen</a>
     </div>
   </section>
 </BaseLayout>
@@ -114,7 +114,7 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
   .anlass-card__kurz {
     color: var(--c-mid);
     font-style: italic;
-    font-variation-settings: 'opsz' 24, 'SOFT' 100;
+    font-weight: 500;
     margin: 0;
   }
   .anlass-card__desc {

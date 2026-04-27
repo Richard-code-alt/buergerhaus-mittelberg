@@ -121,7 +121,7 @@ const schema = {
     <div class="container">
       <div class="text-center mb-8">
         <span class="eyebrow">Aus einer Hand</span>
-        <h2 class="text-balance">{seitentexte.usp_titel}<br/><span class="serif-italic" style="font-family: var(--f-body); font-size: 0.85em; text-transform: none; letter-spacing: 0; color: var(--c-blue);">Alles unter einem Dach.</span></h2>
+        <h2 class="text-balance">{seitentexte.usp_titel}<br/><span style="font-style: italic; font-size: 0.85em; text-transform: none; letter-spacing: -0.02em; color: var(--c-blue); font-family: var(--f-body); font-weight: 400;">Alles unter einem Dach.</span></h2>
         <p class="lead text-balance mx-auto" style="margin: var(--s-5) auto 0;">{seitentexte.usp_lead}</p>
       </div>
 
@@ -258,7 +258,7 @@ const schema = {
         Schreibt uns euer Wunschdatum, eure Gästezahl und was euch wichtig ist. Wir melden uns
         innerhalb von 48 Stunden mit einem konkreten Vorschlag.
       </p>
-      <a href="/anfragen" class="btn btn--ghost btn--arrow mt-6">Termin anfragen</a>
+      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">Termin anfragen</a>
     </div>
   </section>
 </BaseLayout>
@@ -293,15 +293,19 @@ const schema = {
     color: var(--c-anthracite);
   }
   .hero__title-script {
-    font-family: var(--f-script); font-weight: 500;
-    text-transform: none; letter-spacing: 0;
+    font-family: var(--f-body); font-weight: 500;
+    font-style: italic;
+    text-transform: none; letter-spacing: -0.02em;
     color: var(--c-blue);
-    font-size: 0.6em;
+    font-size: 0.5em;
     display: inline-block;
-    transform: translateY(-0.15em);
+    transform: translateY(-0.25em);
     padding-right: 0.15em;
   }
-  .hero__title-end { color: var(--c-brass); display: inline-block; }
+  .hero__title-end {
+    color: var(--c-mokka);
+    display: inline-block;
+  }
 
   .hero__lead {
     font-size: var(--t-md);
