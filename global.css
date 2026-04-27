@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+
+const title = 'Festsaal & Stüble — Räume im Bürgerhaus Mittelberg';
+const description = 'Festsaal für 260 Gäste mit großer Bühne, St. Martins-Stüble für intime Feiern bis 50 Personen. Beide Räume im Detail mit Maßen und Ausstattung.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="section--hero">
+    <div class="container--narrow text-center">
+      <span class="eyebrow">Räume</span>
+      <h1>Unsere Räume</h1>
+      <p class="lead">
+        Zwei Räume unter einem Dach. Den großen Festsaal mit Profibühne für die Hochzeit mit allem,
+        was dazugehört. Das St. Martins-Stüble für Trauung, Sektempfang oder den Tag danach.
+        Beide könnt ihr einzeln oder kombiniert mieten.
+      </p>
+    </div>
+  </section>
+
+  <section id="festsaal" class="section">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center; gap: var(--s-8);">
+        <div>
+          <ImagePlaceholder
+            alt="Festsaal Bürgerhaus Mittelberg, Innenansicht mit Bühne und Tanzfläche"
+            scene="venue"
+            variant="tall"
+          />
+        </div>
+        <div>
+          <span class="eyebrow">Festsaal</span>
+          <h2>260 Plätze, große Bühne</h2>
+          <p>
+            Der Festsaal ist das Herzstück des Bürgerhauses. Alpenländischer Holz-Charakter,
+            moderne Technik, eine Bühne, auf der schon Bigbands, Allgäuer Tanzgruppen und DJs
+            gestanden haben. Für eure Hochzeit heißt das: Platz, Akustik und Atmosphäre für jede
+            Form von Feier — vom feierlichen Drei-Gänge-Menü mit Tischreden bis zur durchgetanzten Nacht.
+          </p>
+
+          <table class="specs mt-6">
+            <tbody>
+              <tr><th>Kapazität bestuhlt</th><td>bis 200 Personen</td></tr>
+              <tr><th>Kapazität (Stehempfang/Konzert)</th><td>bis 260 Personen</td></tr>
+              <tr><th>Fläche</th><td>ca. 280 m²</td></tr>
+              <tr><th>Bühne</th><td>9 × 6 m, fest verbaut</td></tr>
+              <tr><th>Tanzfläche</th><td>ja, vor der Bühne</td></tr>
+              <tr><th>Bar</th><td>ja, im Saal integriert</td></tr>
+              <tr><th>Tonanlage</th><td>fest installiert, mehrkanalig, für Live-Bands geeignet</td></tr>
+              <tr><th>Beamer / Leinwand</th><td>auf Anfrage</td></tr>
+              <tr><th>Bühnenlicht</th><td>DMX-Steuerung, Saalbeleuchtung dimmbar</td></tr>
+              <tr><th>Belüftung</th><td>Lüftungsanlage, beheizbar</td></tr>
+              <tr><th>Barrierefrei</th><td>ebenerdig, behindertengerechtes WC</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <h3>Bestuhlungsoptionen</h3>
+        <ul class="bullets">
+          <li>Bankett (lange Tafeln) — bis 200 Personen</li>
+          <li>Runde Tische à 8–10 — bis 180 Personen</li>
+          <li>Reihenbestuhlung (für freie Trauung) — bis 220 Personen</li>
+          <li>Stehempfang / Konzert — bis 260 Personen</li>
+        </ul>
+        <a href="/anfragen" class="btn btn--primary btn--arrow mt-6">Festsaal anfragen</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="stueble" class="section section--cream-warm">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center; gap: var(--s-8);">
+        <div>
+          <span class="eyebrow">St. Martins-Stüble</span>
+          <h2>bis 50 Plätze, intim</h2>
+          <p>
+            Das Stüble ist der kleine Bruder des Festsaals. Holzvertäfelt, warm, mit Platz für bis zu
+            50 Personen an Tischen. Genau richtig, wenn ihr euch im engsten Kreis traut, euren
+            Sektempfang vor der großen Feier macht oder am Tag nach der Hochzeit nochmal mit der
+            Familie zusammensitzt. Das Stüble lässt sich auch parallel zum Festsaal nutzen — etwa
+            als Rückzugsraum für die Trauzeugen oder Spielzimmer für die Kinder.
+          </p>
+
+          <table class="specs mt-6">
+            <tbody>
+              <tr><th>Kapazität bestuhlt</th><td>bis 50 Personen</td></tr>
+              <tr><th>Fläche</th><td>ca. 60 m²</td></tr>
+              <tr><th>Charakter</th><td>Holzvertäfelung, gemütlich</td></tr>
+              <tr><th>Geeignet für</th><td>freie Trauung, Sektempfang, Vorabend, Brunch</td></tr>
+            </tbody>
+          </table>
+
+          <a href="/anfragen" class="btn btn--secondary btn--arrow mt-6">Stüble anfragen</a>
+        </div>
+        <div>
+          <ImagePlaceholder
+            alt="St. Martins-Stüble im Bürgerhaus Mittelberg, holzvertäfelt"
+            scene="table"
+            variant="tall"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container--narrow">
+      <span class="eyebrow">Außenbereich</span>
+      <h2>Vor dem Haus</h2>
+      <p>
+        Vor dem Bürgerhaus liegt unser Vorplatz mit Blick in die Allgäuer Berge.
+        Geeignet für Sektempfang nach der Trauung, für die Hochzeitsfotos
+        oder als Raucherbereich für die Gäste am Abend.
+      </p>
+      <p>
+        Eine freie Trauung im Freien ist bei gutem Wetter möglich — alternativ als
+        Indoor-Trauung im Stüble oder Festsaal, falls das Wetter nicht mitspielt.
+        Plan B haben wir immer parat.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--blue">
+    <div class="container--narrow text-center">
+      <h2 class="text-balance">Räume besichtigen</h2>
+      <p class="lead" style="color: var(--c-cream); opacity: 0.9;">
+        Persönliche Eindrücke gewinnen. Einfach Termin vereinbaren — wir nehmen uns Zeit.
+      </p>
+      <a href="/anfragen" class="btn btn--ghost btn--arrow mt-6">Termin anfragen</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .bullets { padding-left: var(--s-5); list-style: disc; }
+  .bullets li { padding: var(--s-2) 0; }
+</style>

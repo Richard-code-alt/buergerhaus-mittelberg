@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Impressum — Bürgerhaus Mittelberg';
+const description = 'Impressum gemäß § 5 TMG und § 18 MStV.';
+---
+
+<BaseLayout title={title} description={description} noindex={true}>
+  <section class="section--hero">
+    <div class="container--narrow">
+      <span class="eyebrow">Recht</span>
+      <h1>Impressum</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container--narrow legal">
+
+      <h2>Angaben gemäß § 5 TMG</h2>
+      <p>
+        <strong>Sebastian Künzel</strong><br/>
+        Bürgerhaus Mittelberg<br/>
+        Rotachstraße 8<br/>
+        87466 Oy-Mittelberg<br/>
+        Deutschland
+      </p>
+
+      <h3>Vertreten durch</h3>
+      <p>Sebastian Künzel (Inhaber)</p>
+
+      <h3>Kontakt</h3>
+      <p>
+        Telefon: <a href="tel:+4983661300">08366 1300</a><br/>
+        E-Mail: <a href="mailto:info@buergerhaus-mittelberg.de">info@buergerhaus-mittelberg.de</a>
+      </p>
+
+      <h3>Umsatzsteuer-ID</h3>
+      <p>DE365685582</p>
+
+      <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+      <p>Sebastian Künzel, Rotachstraße 8, 87466 Oy-Mittelberg</p>
+
+      <h2>EU-Streitschlichtung</h2>
+      <p>
+        Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+        <a href="https://ec.europa.eu/consumers/odr/" rel="noopener" target="_blank">ec.europa.eu/consumers/odr/</a>.
+        Unsere E-Mail-Adresse findet ihr oben.
+      </p>
+      <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+      <h2>Haftung für Inhalte</h2>
+      <p>
+        Wir bemühen uns, alle Angaben auf dieser Website korrekt und aktuell zu halten. Für externe Links zu
+        fremden Websites übernehmen wir keine Haftung; verantwortlich sind die jeweiligen Anbieter.
+      </p>
+
+      <h2>Urheberrecht</h2>
+      <p>
+        Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht. Vervielfältigung,
+        Bearbeitung oder kommerzielle Verwendung außerhalb der Grenzen des Urheberrechts erfordern unsere
+        schriftliche Zustimmung.
+      </p>
+      <p>
+        Logo: © Bürgerhaus Mittelberg<br/>
+        Bilder: © Bürgerhaus Mittelberg, soweit nicht anders gekennzeichnet
+      </p>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal h2 { margin-top: var(--s-7); margin-bottom: var(--s-4); font-size: var(--t-xl); }
+  .legal h3 { margin-top: var(--s-5); margin-bottom: var(--s-3); font-size: var(--t-lg); }
+  .legal p { margin-bottom: var(--s-4); }
+</style>

@@ -1,0 +1,21 @@
+{
+  "name": "buergerhaus-mittelberg",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website Bürgerhaus Mittelberg — Hochzeit & Eventlocation in Oy-Mittelberg, Allgäu",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "@fontsource/anton": "^5.1.0",
+    "@fontsource-variable/fraunces": "^5.1.0",
+    "@fontsource-variable/caveat": "^5.1.0",
+    "astro": "^5.1.0"
+  }
+}

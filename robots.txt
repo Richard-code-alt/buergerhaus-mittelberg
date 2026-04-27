@@ -1,0 +1,7 @@
+# GA4 Measurement-ID — wird in Vercel als Environment Variable gesetzt
+# Format: G-XXXXXXXXXX
+PUBLIC_GA4_ID=
+
+# Jotform-Form-ID — die ID des in Phase 5 erstellten Formulars
+# Format: 250123456789012 (15-stellig)
+PUBLIC_JOTFORM_ID=

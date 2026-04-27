@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+
+const title = 'Eigene Küche im Bürgerhaus Mittelberg — Hochzeitscatering Allgäu';
+const description = 'Wir kochen für eure Hochzeit selbst. Regional, frisch, ohne externes Catering. Drei-Gänge-Menüs und Buffets aus dem Bürgerhaus Mittelberg.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="section--hero">
+    <div class="container--narrow text-center">
+      <span class="eyebrow">Catering</span>
+      <h1>Aus unserer Küche, von uns gekocht</h1>
+      <p class="lead">
+        Wir machen das selbst. Keine Catering-Firma, die anrückt und wieder abrückt.
+        Kein Buffet, das auf 50 Hochzeiten gleichzeitig läuft. Sondern eine Küche, ein Team,
+        ein Tag — euer.
+      </p>
+      <p>
+        Sebastian Künzel kocht persönlich für eure Hochzeit. Allgäuer Wurzeln,
+        regional verwurzelt, mit Anspruch an Saisonalität und Frische.
+        Was auf den Tisch kommt, kommt aus unserer eigenen Küche im Bürgerhaus —
+        nicht aus einem Truck, der morgens anrückt und nachmittags wieder weg ist.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3">
+        <article class="card">
+          <span class="eyebrow">Menü 1</span>
+          <h3>Allgäuer Klassik</h3>
+          <p><strong>Vorspeise</strong><br/>Allgäuer Käsesuppe mit Brotstangen</p>
+          <p><strong>Hauptgang</strong><br/>Rinderbraten in dunkler Bratensoße, Speck-Krautsalat, hausgemachte Bandnudeln</p>
+          <p><strong>Dessert</strong><br/>Apfelküchle mit Vanilleeis und Zimtzucker</p>
+        </article>
+
+        <article class="card card--highlight">
+          <span class="eyebrow">Menü 2</span>
+          <h3>Modern Allgäu</h3>
+          <p><strong>Vorspeise</strong><br/>Geräucherte Forelle aus dem Grüntensee, Meerrettich-Crème, Gartensalat</p>
+          <p><strong>Hauptgang</strong><br/>Kalbsrücken sous-vide, Selleriepüree, glasierte Karotten, Pinot-Noir-Jus</p>
+          <p><strong>Dessert</strong><br/>Topfenmousse, Heidelbeerragout, Bröselkrokant</p>
+        </article>
+
+        <article class="card">
+          <span class="eyebrow">Menü 3</span>
+          <h3>Vegetarisch</h3>
+          <p><strong>Vorspeise</strong><br/>Burrata, geröstete Paprika, Basilikumöl, Walnussbrot</p>
+          <p><strong>Hauptgang</strong><br/>Steinpilz-Risotto, Parmesan, Trüffelsalsa</p>
+          <p><strong>Dessert</strong><br/>Schokoladenfondant, Himbeersorbet, weiße Schokoladenstreusel</p>
+        </article>
+      </div>
+
+      <p class="text-center mt-6" style="color: var(--c-soft); font-size: var(--t-sm);">
+        <em>Beispielmenüs. Unsere aktuellen saisonalen Vorschläge bekommt ihr im Vorgespräch.</em>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--cream-warm">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center;">
+        <ImagePlaceholder
+          alt="Festlich gedeckter Tisch mit Hochzeitsmenü im Bürgerhaus Mittelberg"
+          scene="food"
+          variant="tall"
+        />
+        <div>
+          <span class="eyebrow">Buffet</span>
+          <h2>Wenn ihr Vielfalt wollt</h2>
+          <p>
+            Ein Buffet ist die schönste Form, wenn eure Gäste sich austauschen sollen, statt drei
+            Stunden am Platz zu sitzen. Vor- und Nachspeisen als kalte und warme Stationen, der
+            Hauptgang heiß. Die Gäste suchen sich aus, wir füllen nach. Allergiker und Vegetarier
+            bekommen ihre eigene Station.
+          </p>
+          <p>
+            <strong>Beispielstationen:</strong> Allgäuer Käseplatte mit Bergkäse, Brotvielfalt vom regionalen Bäcker,
+            Salatbar mit hausgemachten Dressings, warme Hauptspeisen-Station mit Allgäuer Klassikern und
+            modernen Akzenten, Antipasti-Station, Dessert-Tisch mit Topfenmousse und Apfelküchle.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container--narrow">
+      <span class="eyebrow">Allergien & Diät</span>
+      <h2>Vegan, glutenfrei, individuell</h2>
+      <p>
+        Sagt uns spätestens 14 Tage vor der Hochzeit Bescheid, wer was braucht. Wir kochen separat,
+        nicht „kann ja vom Hauptgang weglassen". Vegane Hauptspeisen, glutenfrei, laktosefrei,
+        halal — alles geht, mit Vorlauf.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--cream-warm">
+    <div class="container--narrow">
+      <span class="eyebrow">Getränke</span>
+      <h2>Bei uns auf Verbrauch</h2>
+      <p>
+        Getränke laufen über uns. Wir kalkulieren keinen Pauschalpreis pro Person, sondern rechnen
+        nach Verbrauch ab. Bier vom Fass, Wein nach euren Wünschen ausgewählt, Sekt für den
+        Empfang. Spirituosen-Auswahl an der Bar. Faire Margen, kein Wucher.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--blue">
+    <div class="container--narrow text-center">
+      <h2 class="text-balance">Menüs für eure Hochzeit zusammenstellen</h2>
+      <p class="lead" style="color: var(--c-cream); opacity: 0.9;">
+        Wir besprechen Menü, Allergien und Wünsche persönlich.
+      </p>
+      <a href="/anfragen" class="btn btn--ghost btn--arrow mt-6">Anfrage stellen</a>
+    </div>
+  </section>
+</BaseLayout>

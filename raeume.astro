@@ -1,0 +1,323 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Hochzeit feiern im Bürgerhaus Mittelberg — Pakete & Ablauf';
+const description = 'Hochzeitspakete im Bürgerhaus Mittelberg: Standesamt im Stüble, Hochzeit im Festsaal, Komplett-Tag. Transparente Preise, eigene Küche, persönliche Betreuung.';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Wie früh sollten wir anfragen?', acceptedAnswer: { '@type': 'Answer', text: 'Beliebte Hochzeitstermine (Mai bis Oktober, Samstag) sind 12 bis 18 Monate vorher gebucht. Wenn ihr flexibel bei Wochentag oder Saison seid, geht auch kürzer.' } },
+    { '@type': 'Question', name: 'Können wir den Saal vorher besichtigen?', acceptedAnswer: { '@type': 'Answer', text: 'Ja, jederzeit nach Vereinbarung. Schreibt uns einfach einen Termin per Anfrage-Formular.' } },
+    { '@type': 'Question', name: 'Müssen wir die Getränke bei euch beziehen?', acceptedAnswer: { '@type': 'Answer', text: 'Ja. Getränkeumsatz ist über uns, mit fairer Marge. Mitgebrachte Spirituosen sind nicht erlaubt. Eure Hochzeitstorte ist davon ausgenommen.' } },
+    { '@type': 'Question', name: 'Bringt ihr eigenes Personal mit oder fremdes?', acceptedAnswer: { '@type': 'Answer', text: 'Eigenes. Service, Küche, Bar — alles unser Team.' } },
+    { '@type': 'Question', name: 'Vegane Gäste? Allergien?', acceptedAnswer: { '@type': 'Answer', text: 'Sagt uns spätestens 14 Tage vorher Bescheid mit Tisch und Stuhl. Wir kochen separat.' } },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="section--hero">
+    <div class="container--narrow text-center">
+      <span class="eyebrow">Hochzeit</span>
+      <h1>Heiratet bei uns</h1>
+      <p class="lead">
+        Drei Pakete, klar aufgeschlüsselt. Was ihr darüber hinaus braucht oder weglasst,
+        regeln wir im Gespräch. Keine Versteckspiele, keine Aufschläge auf der Rechnung,
+        mit denen ihr nicht gerechnet habt.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pakete -->
+  <section class="section">
+    <div class="container">
+      <div class="package" id="standesamt">
+        <header class="package__head">
+          <h2>Paket 1 — Standesamt im Stüble</h2>
+          <p class="package__sub">Für die intime Trauung im engsten Kreis, bis 50 Personen.</p>
+        </header>
+        <div class="package__body grid grid-2">
+          <div>
+            <h4>Im Preis enthalten</h4>
+            <ul class="bullets">
+              <li>St. Martins-Stüble exklusiv von 14 bis 22 Uhr</li>
+              <li>Reihenbestuhlung für die freie Trauung</li>
+              <li>Anschließend Umbau auf Festtafel</li>
+              <li>Drei-Gang-Menü aus unserer Küche</li>
+              <li>Sektempfang nach der Trauung</li>
+              <li>Service-Personal</li>
+              <li>Reinigung</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Nicht enthalten</h4>
+            <ul class="bullets bullets--minus">
+              <li>Getränke à la carte</li>
+              <li>Hochzeitstorte</li>
+              <li>Floristik</li>
+              <li>Musik</li>
+            </ul>
+            <p class="package__price">
+              ab <strong>89 €</strong> pro Person<br/>
+              <small>min. 20 Personen</small>
+            </p>
+            <a href="/anfragen?paket=standesamt" class="btn btn--secondary btn--arrow">Standesamt-Paket anfragen</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="package package--highlight" id="festsaal">
+        <header class="package__head">
+          <h2>Paket 2 — Hochzeit im Festsaal</h2>
+          <p class="package__sub">Für die klassische Hochzeitsfeier mit großer Runde, 80 bis 200 Gäste.</p>
+        </header>
+        <div class="package__body grid grid-2">
+          <div>
+            <h4>Im Preis enthalten</h4>
+            <ul class="bullets">
+              <li>Festsaal exklusiv ab 14 Uhr bis 3 Uhr morgens</li>
+              <li>Tafel- oder Tischbestuhlung nach Wunsch</li>
+              <li>Drei-Gang-Menü oder Buffet aus unserer Küche</li>
+              <li>Sektempfang</li>
+              <li>Service-Personal über die gesamte Feier</li>
+              <li>Tanzfläche, Bühne, Bar</li>
+              <li>Tonanlage Standard</li>
+              <li>Reinigung</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Nicht enthalten</h4>
+            <ul class="bullets bullets--minus">
+              <li>Getränke (Abrechnung nach Verbrauch)</li>
+              <li>Hochzeitstorte</li>
+              <li>Floristik</li>
+              <li>Live-Band / DJ</li>
+            </ul>
+            <p class="package__price">
+              ab <strong>115 €</strong> pro Person<br/>
+              <small>min. 60 Personen</small>
+            </p>
+            <a href="/anfragen?paket=festsaal" class="btn btn--primary btn--arrow">Festsaal-Paket anfragen</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="package" id="komplett">
+        <header class="package__head">
+          <h2>Paket 3 — Komplett-Hochzeit</h2>
+          <p class="package__sub">Den ganzen Tag aus einer Hand — von der freien Trauung bis zum Abschiedskaffee.</p>
+        </header>
+        <div class="package__body grid grid-2">
+          <div>
+            <h4>Im Preis enthalten</h4>
+            <ul class="bullets">
+              <li>Stüble von 11 Uhr für freie Trauung & Sektempfang</li>
+              <li>Festsaal ab 14 Uhr für die große Feier, bis 3 Uhr</li>
+              <li>Reihenbestuhlung Stüble + Festtafel/Runde Tische Festsaal</li>
+              <li>Sektempfang nach der Trauung</li>
+              <li>Drei-Gang-Menü oder Buffet</li>
+              <li>Mitternachtssnack</li>
+              <li>Service-Personal über den gesamten Tag</li>
+              <li>Tanzfläche, Bühne, Bar, Tonanlage</li>
+              <li>Reinigung</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Nicht enthalten</h4>
+            <ul class="bullets bullets--minus">
+              <li>Getränke</li>
+              <li>Hochzeitstorte</li>
+              <li>Floristik</li>
+              <li>Musik</li>
+              <li>Freier Redner</li>
+            </ul>
+            <p class="package__price">
+              ab <strong>165 €</strong> pro Person<br/>
+              <small>min. 80 Personen</small>
+            </p>
+            <a href="/anfragen?paket=komplett" class="btn btn--secondary btn--arrow">Komplett-Hochzeit anfragen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Optional dazubuchbar -->
+  <section class="section section--cream-warm">
+    <div class="container">
+      <span class="eyebrow">Zusätzlich</span>
+      <h2>Optional dazubuchbar</h2>
+      <table class="specs">
+        <tbody>
+          <tr><th>Hochzeitstorte (über unsere Konditorei-Partnerin)</th><td>ab 6,50 € pro Stück</td></tr>
+          <tr><th>Mitternachtssnack (Burger, Käsespätzle, Suppe)</th><td>14 € pro Person</td></tr>
+          <tr><th>Brunch am Folgetag</th><td>28 € pro Person</td></tr>
+          <tr><th>Erweiterte Tonanlage / Lichttechnik</th><td>auf Anfrage</td></tr>
+          <tr><th>DJ-Empfehlung über uns</th><td>DJ rechnet direkt mit euch ab</td></tr>
+          <tr><th>Floristik-Empfehlung</th><td>Floristin rechnet direkt mit euch ab</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Tagesablauf -->
+  <section class="section" id="tagesablauf">
+    <div class="container--narrow">
+      <span class="eyebrow">Tagesablauf</span>
+      <h2>Wie eine Hochzeit bei uns aussieht</h2>
+
+      <div class="timeline">
+        <div class="timeline__item">
+          <span class="timeline__marker">Vormittag</span>
+          <p>Ihr kommt mit den Trauzeugen, wir bereiten gemeinsam das Stüble vor. Familie und Gäste treffen ein.</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__marker">Mittag</span>
+          <p>Standesamtliche oder freie Trauung im Stüble oder Festsaal. Sektempfang im Anschluss.</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__marker">Nachmittag</span>
+          <p>Kaffee und Kuchen, Fotos vor dem Haus, Spaziergang im Ort.</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__marker">Abend</span>
+          <p>Festessen, Reden, Tanzen. Eure Live-Band, euer DJ — die Bühne ist eure.</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__marker">Nacht</span>
+          <p>Bar, Tanzfläche, Mitternachtssnack. Wir bleiben so lange ihr bleibt — bis 3 Uhr.</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__marker">Folgetag</span>
+          <p>Optional: Brunch im Stüble für alle, die geblieben sind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--cream-warm" id="faq">
+    <div class="container--narrow">
+      <span class="eyebrow">Häufige Fragen</span>
+      <h2>FAQ Hochzeit</h2>
+
+      <details class="faq">
+        <summary>Wie früh sollten wir anfragen?</summary>
+        <p>Beliebte Hochzeitstermine (Mai bis Oktober, Samstag) sind 12 bis 18 Monate vorher gebucht. Wenn ihr flexibel bei Wochentag oder Saison seid, geht auch kürzer.</p>
+      </details>
+      <details class="faq">
+        <summary>Können wir den Saal vorher besichtigen?</summary>
+        <p>Ja, jederzeit nach Vereinbarung. Schreibt uns einfach einen Termin per Anfrage-Formular.</p>
+      </details>
+      <details class="faq">
+        <summary>Wie sind die Stornobedingungen?</summary>
+        <p>Bis 12 Monate vor der Hochzeit könnt ihr kostenfrei stornieren. Danach gestaffelt: 12–6 Monate vorher 30 % des Auftragswerts, 6–3 Monate 50 %, 3–1 Monat 75 %, in den letzten vier Wochen 100 %. Im Vertrag konkretisieren wir das auf euren Termin.</p>
+      </details>
+      <details class="faq">
+        <summary>Müssen wir die Getränke bei euch beziehen?</summary>
+        <p>Ja. Getränkeumsatz ist über uns, mit fairer Marge. Mitgebrachte Spirituosen sind nicht erlaubt. Eure Hochzeitstorte ist davon ausgenommen.</p>
+      </details>
+      <details class="faq">
+        <summary>Bringt ihr eigenes Personal mit oder fremdes?</summary>
+        <p>Eigenes. Service, Küche, Bar — alles unser Team.</p>
+      </details>
+      <details class="faq">
+        <summary>Wie sieht's mit Kindern aus?</summary>
+        <p>Willkommen. Hochstühle haben wir, Kindermenü gerne, eine Spielecke richten wir im Stüble ein, wenn ihr es nicht für euch braucht.</p>
+      </details>
+      <details class="faq">
+        <summary>Vegane Gäste? Allergien?</summary>
+        <p>Sagt uns spätestens 14 Tage vorher Bescheid mit Tisch und Stuhl. Wir kochen separat.</p>
+      </details>
+      <details class="faq">
+        <summary>Können wir am Vortag aufbauen?</summary>
+        <p>Ja, sofern am Vortag keine andere Veranstaltung läuft. Sprecht uns früh an, damit wir das im Kalender reservieren können.</p>
+      </details>
+      <details class="faq">
+        <summary>Wo übernachten unsere Gäste?</summary>
+        <p>Auf der <a href="/anfahrt">Anfahrt-Seite</a> findet ihr eine Auswahl an Häusern in Gehweite und kurzer Fahrt.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section section--blue">
+    <div class="container--narrow text-center">
+      <h2 class="text-balance">Sprecht mit uns</h2>
+      <p class="lead" style="color: var(--c-cream); opacity: 0.9;">
+        Schickt uns euer Wunschdatum und eure Fragen. Wir antworten innerhalb von 48 Stunden.
+      </p>
+      <a href="/anfragen" class="btn btn--ghost btn--arrow mt-6">Anfrage stellen</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .package {
+    background: var(--c-cream);
+    border: 1px solid var(--c-line);
+    padding: var(--s-7);
+    margin-bottom: var(--s-6);
+  }
+  .package--highlight {
+    border: 2px solid var(--c-brass);
+    box-shadow: var(--shadow-md);
+  }
+  .package__head { margin-bottom: var(--s-5); }
+  .package__sub { color: var(--c-mid); font-size: var(--t-md); margin-top: -1rem; }
+  .package__body { gap: var(--s-7); }
+  .package__price {
+    font-family: var(--f-display);
+    font-size: var(--t-md);
+    border-top: 1px solid var(--c-line);
+    padding-top: var(--s-3);
+    margin: var(--s-4) 0;
+  }
+  .package__price strong { font-size: var(--t-2xl); color: var(--c-blue); }
+  .package__price small { color: var(--c-mid); font-size: var(--t-sm); font-family: var(--f-body); }
+
+  .bullets { padding-left: 0; list-style: none; }
+  .bullets li { padding: var(--s-2) 0 var(--s-2) var(--s-5); position: relative; }
+  .bullets li::before {
+    content: '✓'; position: absolute; left: 0; color: var(--c-blue); font-weight: bold;
+  }
+  .bullets--minus li::before { content: '·'; color: var(--c-soft); font-size: 1.5em; line-height: 1; }
+
+  .timeline { display: flex; flex-direction: column; gap: var(--s-5); margin-top: var(--s-6); }
+  .timeline__item {
+    display: grid; grid-template-columns: 8rem 1fr; gap: var(--s-5); align-items: start;
+    padding: var(--s-4) 0;
+    border-top: 1px solid var(--c-line);
+  }
+  .timeline__item:first-child { border-top: 0; padding-top: 0; }
+  .timeline__marker {
+    font-family: var(--f-display); text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--c-blue); font-size: var(--t-sm);
+  }
+  @media (max-width: 600px) {
+    .timeline__item { grid-template-columns: 1fr; gap: var(--s-2); }
+  }
+
+  .faq {
+    border-bottom: 1px solid var(--c-line);
+    padding: var(--s-4) 0;
+  }
+  .faq summary {
+    font-family: var(--f-display); text-transform: uppercase; letter-spacing: 0.06em;
+    font-size: var(--t-md); cursor: pointer; padding-right: var(--s-5);
+    list-style: none; position: relative;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: '+'; position: absolute; right: 0; top: 0;
+    font-size: var(--t-xl); line-height: 1; color: var(--c-blue);
+    transition: transform var(--transition);
+  }
+  .faq[open] summary::after { content: '−'; }
+  .faq p { margin-top: var(--s-3); color: var(--c-mid); }
+</style>

@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+
+const title = 'Über das Bürgerhaus Mittelberg — Eure Gastgeber im Allgäu';
+const description = 'Wer im Bürgerhaus Mittelberg kocht, wer den Saal vermietet, wer eure Hochzeit ausrichtet. Lernt eure Gastgeber kennen.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="section--hero">
+    <div class="container--narrow text-center">
+      <span class="eyebrow">Über uns</span>
+      <h1>Eure Gastgeber</h1>
+      <p class="lead">
+        Damit ihr wisst, mit wem ihr es zu tun habt — bevor ihr uns kennenlernt.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center;">
+        <ImagePlaceholder
+          alt="Gastgeber-Team Bürgerhaus Mittelberg vor dem Haus"
+          scene="venue"
+          variant="tall"
+          caption="Unser Team"
+        />
+        <div>
+          <span class="eyebrow">Wer wir sind</span>
+          <h2>Sebastian Künzel & Team</h2>
+          <p>
+            Sebastian Künzel ist seit Jahren Gastgeber im Bürgerhaus Mittelberg —
+            mit Wurzeln in der Allgäuer Gastronomie und einem klaren Anspruch:
+            keine Industrie-Hochzeit, kein Buffet von der Stange.
+          </p>
+          <p>
+            Stattdessen: persönliches Vorgespräch, eigene Küche, festes Team.
+            Was im Vorgespräch besprochen wird, gilt am Tag der Hochzeit. Keine
+            Aufschläge in letzter Sekunde, keine vergessenen Vorbehalte.
+          </p>
+          <p style="color: var(--c-soft); font-size: var(--t-sm);">
+            <em>Diese Story wird mit weiteren Details und einem persönlichen Foto ergänzt.</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream-warm">
+    <div class="container">
+      <div class="text-center mb-8">
+        <span class="eyebrow">Was uns wichtig ist</span>
+        <h2 class="text-balance">Drei Dinge, auf die ihr euch verlasst</h2>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <span class="divider"></span>
+          <h3>Verlässlich</h3>
+          <p>Was wir am Telefon sagen, gilt am Tag. Keine Aufschläge in letzter Sekunde, keine vergessenen Vorbehalte.</p>
+        </div>
+        <div class="card">
+          <span class="divider"></span>
+          <h3>Eigene Küche</h3>
+          <p>Wir kochen selbst, weil das die einzige Art ist, für 80 oder 200 Gäste so zu kochen, als wäre jeder ein Einzelner.</p>
+        </div>
+        <div class="card">
+          <span class="divider"></span>
+          <h3>Persönlich</h3>
+          <p>Ihr habt einen Ansprechpartner — vom ersten Telefonat bis zum Abschiedskaffee am Sonntagmorgen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container--narrow">
+      <span class="eyebrow">Das Haus</span>
+      <h2>Tradition trifft Hochzeit</h2>
+      <p>
+        Das Bürgerhaus Mittelberg ist seit Jahrzehnten der Treffpunkt der Region. Hochzeiten,
+        Vereinsfeste, Konzerte, der traditionsreiche Mädeleball im Fasching. Wir haben es
+        übernommen mit dem Anspruch, dass das so bleibt — und dass eure Hochzeit dazu gehört.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--blue">
+    <div class="container--narrow text-center">
+      <h2 class="text-balance">Lernt uns kennen</h2>
+      <p class="lead" style="color: var(--c-cream); opacity: 0.9;">
+        Beim Besichtigungstermin habt ihr uns für 30–60 Minuten ganz für euch.
+      </p>
+      <a href="/anfragen" class="btn btn--ghost btn--arrow mt-6">Termin anfragen</a>
+    </div>
+  </section>
+</BaseLayout>

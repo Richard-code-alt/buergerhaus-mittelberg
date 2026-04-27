@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Termin & Hochzeit anfragen — Bürgerhaus Mittelberg';
+const description = 'Schickt uns Wunschdatum, Gästezahl und Wünsche — wir antworten innerhalb von 48 Stunden mit konkretem Vorschlag und Besichtigungstermin.';
+
+// Jotform-ID: wird in Phase 5 (Jotform-Build) gesetzt
+const JOTFORM_ID = import.meta.env.PUBLIC_JOTFORM_ID || '';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="section--hero">
+    <div class="container--narrow text-center">
+      <span class="eyebrow">Anfrage</span>
+      <h1>Anfrage stellen</h1>
+      <p class="lead">
+        Schreibt uns euer Wunschdatum, eure ungefähre Gästezahl und was euch wichtig ist.
+        Wir melden uns innerhalb von 48 Stunden mit einem konkreten Vorschlag und laden
+        euch zur Besichtigung ein.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container--narrow">
+      <div class="contact-info">
+        <p>
+          Lieber direkter Kontakt? Ruft uns an unter
+          <a href="tel:+4983661300"><strong>08366 1300</strong></a>
+          oder schreibt direkt an
+          <a href="mailto:info@buergerhaus-mittelberg.de"><strong>info@buergerhaus-mittelberg.de</strong></a>.
+        </p>
+      </div>
+
+      {JOTFORM_ID ? (
+        <div class="form-wrap">
+          <iframe
+            id="JotFormIFrame"
+            title="Anfrageformular Bürgerhaus Mittelberg"
+            src={`https://form.jotform.com/${JOTFORM_ID}`}
+            style="min-width: 100%; height: 800px; border: 0; background: var(--c-cream);"
+            frameborder="0"
+            scrolling="auto"
+            allowfullscreen
+          ></iframe>
+        </div>
+      ) : (
+        <div class="form-placeholder">
+          <p><strong>Formular wird in Phase 5 erstellt.</strong></p>
+          <p>Sobald das Jotform-Formular gebaut ist, erscheint es hier. Bis dahin nutzt bitte
+          die Direkt-Kontakte oben.</p>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-info {
+    background: var(--c-cream-warm);
+    border-left: 3px solid var(--c-blue);
+    padding: var(--s-5);
+    margin-bottom: var(--s-7);
+    font-size: var(--t-md);
+  }
+  .form-wrap { margin-top: var(--s-5); }
+  .form-placeholder {
+    border: 2px dashed var(--c-line);
+    padding: var(--s-7);
+    text-align: center;
+    color: var(--c-mid);
+  }
+</style>

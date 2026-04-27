@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+
+const title = 'Galerie — Hochzeiten im Bürgerhaus Mittelberg';
+const description = 'Bilder echter Hochzeiten im Bürgerhaus Mittelberg — Festsaal, Trauungen, Tanzfläche, Catering. Eindrücke aus dem Allgäu.';
+
+const placeholders = [
+  { alt: 'Festsaal eingedeckt für Hochzeit', scene: 'venue', caption: 'Festsaal' },
+  { alt: 'Hochzeitsmenü Hauptgang', scene: 'food', caption: 'Aus unserer Küche' },
+  { alt: 'Freie Trauung im Stüble', scene: 'wedding', caption: 'Trauung' },
+  { alt: 'Außenansicht Bürgerhaus mit Allgäuer Bergen', scene: 'mountain', caption: 'Mitten im Ort' },
+  { alt: 'Festlich gedeckte Tafel', scene: 'table', caption: 'Eingedeckt' },
+  { alt: 'Brautstrauß und Tischdekoration', scene: 'wedding', caption: 'Details' },
+  { alt: 'Buffet mit regionalen Spezialitäten', scene: 'food', caption: 'Buffet' },
+  { alt: 'Festsaal mit Bühne und Live-Band', scene: 'venue', caption: 'Bühne' },
+  { alt: 'Sektempfang vor dem Haus', scene: 'mountain', caption: 'Vor dem Haus' },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="section--hero">
+    <div class="container--narrow text-center">
+      <span class="eyebrow">Galerie</span>
+      <h1>Echte Feiern. Echte Bilder.</h1>
+      <p class="lead">
+        Bilder aus echten Hochzeiten und Festen bei uns. Kein Stockfoto, kein Stadium-Marketing.
+      </p>
+      <p style="color: var(--c-soft); font-size: var(--t-sm);">
+        <em>Hinweis: Aktuell zeigen wir Beispiel-Visuals. Profi-Fotos vom Sommer-Shoot
+        ergänzen wir hier laufend.</em>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container--wide" style="padding: 0 var(--s-5); margin: 0 auto;">
+      <div class="gallery">
+        {placeholders.map((p) => (
+          <ImagePlaceholder alt={p.alt} scene={p.scene as any} caption={p.caption} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--blue">
+    <div class="container--narrow text-center">
+      <h2 class="text-balance">Eure Hochzeit, eure Bilder</h2>
+      <p class="lead" style="color: var(--c-cream); opacity: 0.9;">
+        Lasst uns persönlich sprechen, was wir für euren Tag möglich machen.
+      </p>
+      <a href="/anfragen" class="btn btn--ghost btn--arrow mt-6">Termin anfragen</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--s-3);
+  }
+  @media (max-width: 800px) {
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .gallery { grid-template-columns: 1fr; }
+  }
+</style>

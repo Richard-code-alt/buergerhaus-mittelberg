@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Datenschutzerklärung — Bürgerhaus Mittelberg';
+const description = 'Datenschutzerklärung des Bürgerhauses Mittelberg gemäß DSGVO.';
+---
+
+<BaseLayout title={title} description={description} noindex={true}>
+  <section class="section--hero">
+    <div class="container--narrow">
+      <span class="eyebrow">Recht</span>
+      <h1>Datenschutzerklärung</h1>
+      <p style="color: var(--c-mid);">Stand: April 2026</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container--narrow legal">
+
+      <h2>1. Verantwortlicher</h2>
+      <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p>
+      <p>
+        <strong>Sebastian Künzel</strong><br/>
+        Bürgerhaus Mittelberg<br/>
+        Rotachstraße 8<br/>
+        87466 Oy-Mittelberg<br/>
+        Deutschland
+      </p>
+      <p>
+        Telefon: <a href="tel:+4983661300">08366 1300</a><br/>
+        E-Mail: <a href="mailto:info@buergerhaus-mittelberg.de">info@buergerhaus-mittelberg.de</a>
+      </p>
+
+      <h2>2. Allgemeine Hinweise</h2>
+      <p>
+        Diese Datenschutzerklärung informiert euch darüber, welche personenbezogenen Daten wir auf dieser
+        Website verarbeiten, zu welchem Zweck, auf welcher Rechtsgrundlage und welche Rechte euch zustehen.
+        Personenbezogene Daten sind alle Daten, mit denen sich eine Person identifizieren lässt — Name,
+        E-Mail-Adresse, IP-Adresse, etc.
+      </p>
+
+      <h2>3. Hosting</h2>
+      <p>Diese Website wird gehostet bei:</p>
+      <p>
+        <strong>Vercel Inc.</strong><br/>
+        440 N Barranca Avenue #4133<br/>
+        Covina, CA 91723, USA
+      </p>
+      <p>
+        Vercel verarbeitet Daten zu Serverlogs (IP-Adresse, Zeitstempel, abgerufene Seite) auf Grundlage von
+        Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer technisch fehlerfreien Darstellung).
+        Vercel ist gemäß EU–US Data Privacy Framework zertifiziert. Mehr unter:
+        <a href="https://vercel.com/legal/privacy-policy" rel="noopener" target="_blank">vercel.com/legal/privacy-policy</a>
+      </p>
+
+      <h2>4. Server-Logfiles</h2>
+      <p>Beim Aufruf dieser Website werden automatisch folgende Daten in Logfiles gespeichert:</p>
+      <ul class="bullets">
+        <li>IP-Adresse (anonymisiert nach 7 Tagen)</li>
+        <li>Zeitstempel</li>
+        <li>Aufgerufene URL</li>
+        <li>Referrer-URL</li>
+        <li>User-Agent (Browser, Betriebssystem)</li>
+      </ul>
+      <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO. Speicherdauer: 30 Tage, danach Löschung.</p>
+
+      <h2>5. Kontaktformular (Jotform)</h2>
+      <p>
+        Für unser Anfrageformular nutzen wir den Dienst Jotform der Jotform Inc., 4 Embarcadero Center,
+        San Francisco, CA 94111, USA. Wenn ihr das Formular ausfüllt, werden eure Eingaben (Name, E-Mail,
+        Telefon, Anlass, Wunschdatum, Gästezahl, Freitext) auf Servern von Jotform verarbeitet und an unsere
+        E-Mail-Adresse weitergeleitet.
+      </p>
+      <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) und Art. 6 Abs. 1 lit. a DSGVO (Einwilligung über das Formular).</p>
+      <p>Speicherdauer: bis zur Erledigung eurer Anfrage, danach 12 Monate für Rückfragen, danach Löschung.</p>
+      <p>
+        Datenschutzerklärung Jotform:
+        <a href="https://www.jotform.com/privacy/" rel="noopener" target="_blank">jotform.com/privacy</a>
+      </p>
+
+      <h2>6. Cookies & Web-Analytik</h2>
+
+      <h3>Notwendige Cookies</h3>
+      <p>
+        Wir setzen technisch notwendige Cookies, um die Website funktionsfähig zu halten (z.B. Speichern eurer
+        Cookie-Einwilligung). Diese setzen wir auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.
+      </p>
+
+      <h3>Google Analytics 4 (nur mit Einwilligung)</h3>
+      <p>
+        Auf Basis eurer ausdrücklichen Einwilligung (Cookie-Banner, Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1
+        TTDSG) verwenden wir <strong>Google Analytics 4</strong> zur statistischen Auswertung der Website-Nutzung.
+        Anbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
+      </p>
+      <p>
+        Wir nutzen Analytics mit aktivierter IP-Anonymisierung. Cookies (<code>_ga</code>, <code>_ga_*</code>)
+        speichern eine pseudonyme User-ID. Speicherdauer: 14 Monate.
+      </p>
+      <p>Eure Einwilligung könnt ihr jederzeit über den Cookie-Einstellungen-Link im Footer widerrufen.</p>
+      <p>
+        Datenschutzerklärung Google:
+        <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">policies.google.com/privacy</a>
+      </p>
+
+      <h2>7. Eingebundene Schriftarten</h2>
+      <p>
+        Wir verwenden die Schriftarten Anton, Fraunces und Caveat von Google Fonts. Diese sind
+        <strong> lokal auf unserem Server gehostet</strong>. Es findet keine Verbindung zu Google-Servern statt.
+      </p>
+
+      <h2>8. OpenStreetMap</h2>
+      <p>
+        Auf der Anfahrt-Seite binden wir eine Karte von OpenStreetMap (Anbieter: OpenStreetMap Foundation,
+        St John's Innovation Centre, Cowley Road, Cambridge, CB4 0WS, UK) ein. Die Karte wird
+        <strong> erst nach eurem Klick</strong> geladen — bis dahin wird keine Verbindung zu OSM-Servern hergestellt.
+      </p>
+
+      <h2>9. Eure Rechte</h2>
+      <p>Ihr habt jederzeit das Recht auf:</p>
+      <ul class="bullets">
+        <li><strong>Auskunft</strong> (Art. 15 DSGVO)</li>
+        <li><strong>Berichtigung</strong> (Art. 16 DSGVO)</li>
+        <li><strong>Löschung</strong> (Art. 17 DSGVO)</li>
+        <li><strong>Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
+        <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+        <li><strong>Widerspruch</strong> (Art. 21 DSGVO)</li>
+        <li><strong>Widerruf erteilter Einwilligungen</strong> (Art. 7 Abs. 3 DSGVO)</li>
+      </ul>
+      <p>Schreibt uns einfach an <a href="mailto:info@buergerhaus-mittelberg.de">info@buergerhaus-mittelberg.de</a>.</p>
+
+      <h2>10. Beschwerderecht</h2>
+      <p>
+        Wenn ihr meint, dass wir gegen Datenschutzrecht verstoßen, könnt ihr euch bei der zuständigen
+        Aufsichtsbehörde beschweren:
+      </p>
+      <p>
+        <strong>Bayerisches Landesamt für Datenschutzaufsicht</strong><br/>
+        Promenade 18<br/>
+        91522 Ansbach
+      </p>
+
+      <h2>11. SSL-Verschlüsselung</h2>
+      <p>Diese Seite nutzt aus Sicherheitsgründen eine SSL-Verschlüsselung (HTTPS). Erkennbar am Schloss-Symbol im Browser.</p>
+
+      <h2>12. Änderungen</h2>
+      <p>Wir passen diese Datenschutzerklärung an, wenn sich Gesetze oder unsere Verarbeitung ändern. Stand siehe oben.</p>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal h2 { margin-top: var(--s-7); margin-bottom: var(--s-4); font-size: var(--t-xl); }
+  .legal h3 { margin-top: var(--s-5); margin-bottom: var(--s-3); font-size: var(--t-lg); }
+  .legal p { margin-bottom: var(--s-4); }
+  .legal ul.bullets { margin-bottom: var(--s-4); padding-left: var(--s-5); list-style: disc; }
+  .legal ul.bullets li { padding: var(--s-1) 0; }
+  .legal code {
+    background: var(--c-cream-warm); padding: 2px 6px; border-radius: 3px;
+    font-size: 0.9em; font-family: ui-monospace, monospace;
+  }
+</style>

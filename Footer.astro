@@ -1,0 +1,367 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+
+const title = 'Hochzeit im Bürgerhaus Mittelberg — Saal & Küche aus einer Hand';
+const description = 'Heiratet im Allgäu: Festsaal für bis zu 260 Gäste, eigene Küche, persönliche Gastgeber. Im Bürgerhaus Mittelberg in Oy-Mittelberg. Termin anfragen.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': ['EventVenue', 'LocalBusiness'],
+  name: 'Bürgerhaus Mittelberg',
+  description: 'Hochzeitslocation und Eventsaal in Oy-Mittelberg im Allgäu mit eigener Küche. Festsaal für bis zu 260 Personen, separates Stüble für bis zu 50 Personen.',
+  url: 'https://www.buergerhaus-mittelberg.de/',
+  telephone: '+49-8366-1300',
+  email: 'info@buergerhaus-mittelberg.de',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Rotachstraße 8',
+    addressLocality: 'Oy-Mittelberg',
+    postalCode: '87466',
+    addressRegion: 'Bayern',
+    addressCountry: 'DE',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: 47.642980, longitude: 10.437750 },
+  image: 'https://www.buergerhaus-mittelberg.de/og-default.jpg',
+  logo: 'https://www.buergerhaus-mittelberg.de/logo.png',
+  maximumAttendeeCapacity: 260,
+  amenityFeature: [
+    { '@type': 'LocationFeatureSpecification', name: 'Bühne', value: '9×6 m' },
+    { '@type': 'LocationFeatureSpecification', name: 'Eigene Küche', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Parkplätze', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Tanzfläche', value: true },
+  ],
+  sameAs: [
+    'https://www.instagram.com/buergerhaus_mittelberg/',
+    'https://www.facebook.com/Buergerhaus.Mittelberg/',
+  ],
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <span class="eyebrow">Hochzeitslocation Allgäu</span>
+        <h1 class="hero__title">
+          Eure Hochzeit.<br/>
+          <span class="hero__title-script">Mitten im</span>
+          <span class="hero__title-end">Allgäu</span>.
+        </h1>
+        <p class="hero__lead">
+          Festsaal, Bühne, eigene Küche — alles aus einer Hand.
+          Im Bürgerhaus Mittelberg in Oy-Mittelberg.
+        </p>
+        <div class="hero__actions">
+          <a href="/anfragen" class="btn btn--primary btn--arrow">Termin anfragen</a>
+          <a href="/raeume" class="btn btn--secondary">Räume ansehen</a>
+        </div>
+
+        <div class="hero__stats">
+          <div><strong>260</strong><span>Plätze im Festsaal</span></div>
+          <div><strong>9 × 6 m</strong><span>Profibühne</span></div>
+          <div><strong>1</strong><span>Ansprechpartner</span></div>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <ImagePlaceholder
+          alt="Bürgerhaus Mittelberg in Oy-Mittelberg vor den Allgäuer Bergen"
+          variant="hero"
+          scene="mountain"
+          caption="Mitten im Allgäu"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- USP -->
+  <section class="section section--cream-warm">
+    <div class="container">
+      <div class="text-center mb-8">
+        <span class="eyebrow">Aus einer Hand</span>
+        <h2 class="text-balance">Saal, Bühne, Küche.<br/><span class="serif-italic" style="font-family: var(--f-body); font-size: 0.85em; text-transform: none; letter-spacing: 0; color: var(--c-blue);">Alles unter einem Dach.</span></h2>
+        <p class="lead text-balance mx-auto" style="margin: var(--s-5) auto 0;">
+          Bei uns plant ihr eure Hochzeit nicht mit fünf Anbietern, sondern mit einem.
+          Ein Ansprechpartner. Eine Rechnung. Ein Versprechen.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <span class="divider"></span>
+          <h3>Festsaal mit Bühne</h3>
+          <p>Bis zu 260 Gäste, Bühne 9 × 6 m, vollausgestattet für Live-Bands, DJ und freie Reden. Alpenländischer Charakter, moderne Technik.</p>
+        </article>
+        <article class="card">
+          <span class="divider"></span>
+          <h3>Eigene Küche</h3>
+          <p>Wir kochen für euch — kein externes Catering, das anrückt und wieder abrückt. Regional, frisch, abgestimmt auf eure Wünsche.</p>
+        </article>
+        <article class="card">
+          <span class="divider"></span>
+          <h3>Persönliche Gastgeber</h3>
+          <p>Sebastian Künzel und Team. Vom ersten Telefonat bis zum Abschiedskaffee am Sonntagmorgen — immer dieselben Gesichter.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Räume -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb-8">
+        <span class="eyebrow">Unsere Räume</span>
+        <h2 class="text-balance">Zwei Räume.<br/>Jeder Hochzeit gewachsen.</h2>
+      </div>
+
+      <div class="grid grid-2">
+        <div>
+          <ImagePlaceholder
+            alt="Festsaal mit Bühne und Tanzfläche"
+            scene="venue"
+            caption="Festsaal"
+          />
+          <h3 class="mt-5">Festsaal</h3>
+          <p>260 Plätze, große Bühne, Tanzfläche, Bar. Für Hochzeiten ab 80 Gästen aufwärts. Eure Bigband, euer DJ, euer Feuerwerk an Showacts — die Bühne hält es aus.</p>
+          <a href="/raeume#festsaal" class="btn btn--secondary btn--arrow mt-3">Mehr zum Festsaal</a>
+        </div>
+        <div>
+          <ImagePlaceholder
+            alt="St. Martins-Stüble, holzvertäfelte Sitzgruppe"
+            scene="table"
+            caption="St. Martins-Stüble"
+          />
+          <h3 class="mt-5">St. Martins-Stüble</h3>
+          <p>Bis 50 Plätze, intim und stimmungsvoll. Für kleine Hochzeiten, freie Trauung im Familienkreis, Sektempfang oder den Brunch am Tag danach.</p>
+          <a href="/raeume#stueble" class="btn btn--secondary btn--arrow mt-3">Mehr zum Stüble</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pakete -->
+  <section class="section section--cream-warm">
+    <div class="container">
+      <div class="text-center mb-8">
+        <span class="eyebrow">Hochzeitspakete</span>
+        <h2 class="text-balance">Drei Pakete. Klar kalkuliert.</h2>
+        <p class="lead mx-auto">Transparent, ohne Versteckspiel. Was ihr seht, ist was ihr zahlt.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <span class="card__tier">Paket 1</span>
+          <h3>Standesamt im Stüble</h3>
+          <p>Für die intime Trauung im Familienkreis. Stüble inkl. Bestuhlung, Sektempfang, Drei-Gang-Menü.</p>
+          <p class="card__price">ab <strong>89 €</strong> p. P.<br/><small>min. 20 Personen</small></p>
+          <a href="/hochzeit#standesamt" class="btn btn--secondary btn--arrow">Details</a>
+        </article>
+
+        <article class="card card--highlight">
+          <span class="card__tier">Paket 2</span>
+          <h3>Hochzeit im Festsaal</h3>
+          <p>Festsaal ab 14 Uhr, Catering frei wählbar, Bestuhlung, Service, Tanzfläche, Bühne.</p>
+          <p class="card__price">ab <strong>115 €</strong> p. P.<br/><small>min. 60 Personen</small></p>
+          <a href="/hochzeit#festsaal" class="btn btn--primary btn--arrow">Details</a>
+        </article>
+
+        <article class="card">
+          <span class="card__tier">Paket 3</span>
+          <h3>Komplett-Hochzeit</h3>
+          <p>Festsaal + Stüble, freie Trauung möglich, ganzer Tag von 11 bis 3 Uhr, alles inklusive bis auf Getränke.</p>
+          <p class="card__price">ab <strong>165 €</strong> p. P.<br/><small>min. 80 Personen</small></p>
+          <a href="/hochzeit#komplett" class="btn btn--secondary btn--arrow">Details</a>
+        </article>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="/hochzeit" class="btn btn--primary btn--arrow">Alle Pakete im Detail</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trauung -->
+  <section class="section">
+    <div class="container--narrow text-center">
+      <span class="eyebrow">Trauung</span>
+      <h2 class="text-balance">Standesamtlich, kirchlich oder frei.</h2>
+      <p class="lead text-pretty mx-auto">
+        Im Stüble heiratet ihr im Familienkreis. Im Festsaal bei großer Runde.
+        Bei gutem Wetter draußen vor dem Haus, mit Blick auf die Allgäuer Berge.
+        Standesamt Oy-Mittelberg ist drei Minuten zu Fuß entfernt.
+      </p>
+      <a href="/hochzeit#trauung" class="btn btn--secondary btn--arrow mt-5">Trauung-Optionen</a>
+    </div>
+  </section>
+
+  <!-- Catering -->
+  <section class="section section--cream-warm">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center;">
+        <div>
+          <ImagePlaceholder
+            alt="Aus unserer Küche — Hochzeitsmenü"
+            scene="food"
+            caption="Aus unserer Küche"
+          />
+        </div>
+        <div>
+          <span class="eyebrow">Catering</span>
+          <h2 class="text-balance">Wir kochen selbst.</h2>
+          <p>
+            Sebastian Künzel kocht persönlich für eure Hochzeit. Allgäuer Wurzeln,
+            regional, frisch — kein Buffet, das auf 50 Hochzeiten gleichzeitig läuft.
+            Drei-Gänge-Menüs, Buffets oder etwas dazwischen.
+          </p>
+          <p>Allergien, Vegetarier, vegane Gäste — alles kein Thema, sagt's uns vorher.</p>
+          <a href="/catering" class="btn btn--secondary btn--arrow mt-3">Menüs ansehen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Anfahrt -->
+  <section class="section">
+    <div class="container--narrow text-center">
+      <span class="eyebrow">Anfahrt</span>
+      <h2 class="text-balance">Mitten im Ort. Direkt erreichbar.</h2>
+      <p class="lead text-pretty mx-auto">
+        Rotachstraße 8, Oy-Mittelberg. Direkt an der Hauptstraße im Ortsteil Mittelberg.
+        Parkplätze für eure Gäste sind vor dem Haus. A7 zehn Minuten, Bahnhof fünf Minuten zu Fuß.
+      </p>
+      <a href="/anfahrt" class="btn btn--secondary btn--arrow mt-5">Anfahrt & Hotels</a>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section section--blue">
+    <div class="container--narrow text-center">
+      <span class="eyebrow">Anfrage</span>
+      <h2 class="text-balance">Bereit, eure Hochzeit zu planen?</h2>
+      <p class="lead mx-auto">
+        Schreibt uns euer Wunschdatum, eure Gästezahl und was euch wichtig ist. Wir melden uns
+        innerhalb von 48 Stunden mit einem konkreten Vorschlag.
+      </p>
+      <a href="/anfragen" class="btn btn--ghost btn--arrow mt-6">Termin anfragen</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: var(--s-7) 0 var(--s-8);
+    background:
+      radial-gradient(circle at 80% 20%, rgba(168, 122, 61, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 10% 80%, rgba(29, 79, 125, 0.05) 0%, transparent 50%),
+      var(--c-cream);
+    position: relative;
+    overflow: hidden;
+  }
+  @media (min-width: 720px) {
+    .hero { padding: var(--s-9) 0 var(--s-10); }
+  }
+  .hero__inner {
+    display: grid; grid-template-columns: 1fr; gap: var(--s-6);
+    padding: 0 var(--s-4); margin: 0 auto;
+    max-width: var(--w-wide);
+  }
+  @media (min-width: 720px) {
+    .hero__inner { padding: 0 var(--s-6); gap: var(--s-7); }
+  }
+  @media (min-width: 1000px) {
+    .hero__inner {
+      grid-template-columns: 1.1fr 1fr; gap: var(--s-8);
+      align-items: center;
+    }
+  }
+
+  .hero__title {
+    font-size: var(--t-hero);
+    line-height: 0.92;
+    margin-bottom: var(--s-5);
+    color: var(--c-anthracite);
+  }
+  .hero__title-script {
+    font-family: var(--f-script); font-weight: 500;
+    text-transform: none; letter-spacing: 0;
+    color: var(--c-blue);
+    font-size: 0.6em;
+    display: inline-block;
+    transform: translateY(-0.15em);
+    padding-right: 0.15em;
+  }
+  .hero__title-end {
+    color: var(--c-brass);
+    display: inline-block;
+  }
+
+  .hero__lead {
+    font-size: var(--t-md);
+    color: var(--c-mid); line-height: 1.5;
+    margin-bottom: var(--s-6);
+    max-width: 36rem;
+  }
+
+  .hero__actions {
+    display: flex; gap: var(--s-3); flex-wrap: wrap;
+    margin-bottom: var(--s-7);
+  }
+
+  .hero__stats {
+    display: flex; gap: var(--s-5); flex-wrap: wrap;
+    padding-top: var(--s-5);
+    border-top: 1px solid var(--c-line);
+  }
+  .hero__stats > div {
+    display: flex; flex-direction: column; gap: var(--s-1);
+  }
+  .hero__stats strong {
+    font-family: var(--f-display);
+    font-size: var(--t-xl);
+    font-weight: 400;
+    color: var(--c-blue);
+    line-height: 1;
+  }
+  .hero__stats span {
+    font-size: var(--t-xs);
+    color: var(--c-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .hero__visual { width: 100%; }
+
+  .card__tier {
+    font-family: var(--f-display);
+    text-transform: uppercase; letter-spacing: 0.18em;
+    font-size: var(--t-xs);
+    color: var(--c-brass);
+  }
+  .card__price {
+    font-family: var(--f-display);
+    font-size: var(--t-md);
+    color: var(--c-anthracite);
+    border-top: 1px solid var(--c-line);
+    padding-top: var(--s-4);
+    margin: auto 0 var(--s-3);
+    line-height: 1.2;
+  }
+  .card__price strong {
+    font-size: var(--t-xl);
+    color: var(--c-blue);
+    display: inline-block;
+    margin-right: var(--s-1);
+  }
+  .card__price small {
+    font-family: var(--f-body);
+    color: var(--c-mid);
+    font-size: var(--t-xs);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+</style>

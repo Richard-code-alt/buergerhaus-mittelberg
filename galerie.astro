@@ -1,0 +1,226 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Anfahrt & Hotels — Bürgerhaus Mittelberg in Oy-Mittelberg';
+const description = 'Anfahrt zum Bürgerhaus Mittelberg per Auto, Bahn, Flughafen. Parkplätze direkt vor dem Haus. Hotel-Empfehlungen für eure Gäste in Oy-Mittelberg.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="section--hero">
+    <div class="container--narrow text-center">
+      <span class="eyebrow">Anfahrt</span>
+      <h1>So findet ihr uns</h1>
+
+      <div class="address-card mt-6">
+        <p class="address-card__name">Bürgerhaus Mittelberg</p>
+        <p>Rotachstraße 8<br/>87466 Oy-Mittelberg</p>
+        <p>
+          <a href="tel:+4983661300">08366 1300</a><br/>
+          <a href="mailto:info@buergerhaus-mittelberg.de">info@buergerhaus-mittelberg.de</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Karte (DSGVO-freundlich, Click-to-Load) -->
+  <section class="section">
+    <div class="container--wide" style="padding: 0 var(--s-5); margin: 0 auto;">
+      <div class="map-wrap" data-map-wrap>
+        <div class="map-placeholder" data-map-placeholder>
+          <p><strong>Karte laden</strong></p>
+          <p style="font-size: var(--t-sm); color: var(--c-mid);">
+            Wir laden die Karte erst nach eurem Klick — keine Daten an Drittanbieter ohne eure Zustimmung.
+          </p>
+          <button type="button" class="btn btn--primary" data-load-map>OpenStreetMap laden</button>
+          <p style="font-size: var(--t-xs); margin-top: var(--s-4);">
+            <a
+              href="https://www.openstreetmap.org/?mlat=47.6430&mlon=10.4378#map=17/47.6430/10.4378"
+              target="_blank"
+              rel="noopener"
+            >Direkt auf OpenStreetMap öffnen →</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream-warm">
+    <div class="container">
+      <div class="grid grid-3">
+        <div>
+          <span class="eyebrow">Mit dem Auto</span>
+          <h3>Über die A7</h3>
+          <p>
+            A7 Ausfahrt Nesselwang, dann B309 Richtung Wertach, in Oy-Mittelberg ins Ortsteil
+            Mittelberg abbiegen. Wir liegen direkt an der Hauptstraße im Ortskern.
+          </p>
+          <p style="font-size: var(--t-sm); color: var(--c-mid);">
+            München 1:45 h · Stuttgart 2:15 h · Friedrichshafen 1:00 h · Innsbruck 1:30 h
+          </p>
+        </div>
+        <div>
+          <span class="eyebrow">Mit der Bahn</span>
+          <h3>Bahnhof Oy-Mittelberg</h3>
+          <p>
+            Fünf Minuten zu Fuß entfernt. Stündlich Verbindungen Richtung Kempten und Pfronten.
+          </p>
+        </div>
+        <div>
+          <span class="eyebrow">Mit dem Flugzeug</span>
+          <h3>FMM, MUC oder INN</h3>
+          <p>
+            Memmingen Allgäu (FMM): 50 km · 50 min<br/>
+            München (MUC): 175 km · 1:45 h<br/>
+            Innsbruck (INN): 110 km · 1:30 h
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container--narrow">
+      <span class="eyebrow">Parken</span>
+      <h2>Direkt vor dem Haus</h2>
+      <p>
+        Direkt vor dem Bürgerhaus stehen ausreichend kostenfreie Parkplätze für eure Gäste.
+        Bei sehr großen Hochzeiten weisen wir Zusatzflächen aus.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--cream-warm">
+    <div class="container">
+      <div class="text-center mb-8">
+        <span class="eyebrow">Übernachten</span>
+        <h2>Hotels in Oy-Mittelberg</h2>
+        <p class="lead">
+          Damit eure Gäste nicht weit fahren müssen, hier eine Auswahl an Häusern in Gehweite oder
+          kurzer Fahrt. Reservierungen laufen direkt mit den Häusern.
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+        <div>
+          <h3>Im Ortskern (zu Fuß)</h3>
+          <ul class="hotels">
+            <li>
+              <strong>Landgasthof Rössle</strong><br/>
+              Mittelberger Str. 2 · ca. 600 m<br/>
+              <span style="color: var(--c-mid); font-size: var(--t-sm);">⭐ 4,7 / 460+ Bewertungen</span>
+            </li>
+            <li>
+              <strong>Krone</strong><br/>
+              Dorfbrunnenstr. 2 · ca. 800 m<br/>
+              <span style="color: var(--c-mid); font-size: var(--t-sm);">⭐ 4,7 / 900+ Bewertungen</span>
+            </li>
+            <li>
+              <strong>Hotel Gasthaus Rose</strong><br/>
+              Dorfbrunnenstr. 10 · ca. 850 m<br/>
+              <span style="color: var(--c-mid); font-size: var(--t-sm);">⭐ 4,5 / 480+ Bewertungen</span>
+            </li>
+            <li>
+              <strong>Pension Ries</strong><br/>
+              Lindenstr. 3 · ca. 700 m<br/>
+              <span style="color: var(--c-mid); font-size: var(--t-sm);">⭐ 4,8 — kleine Pension</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>Wenige Minuten Fahrt</h3>
+          <ul class="hotels">
+            <li>
+              <strong>Hotel "Am Sonnenhang"</strong><br/>
+              Sebastian-Kneipp-Weg 2 · Naturhotel mit Wellness<br/>
+              <span style="color: var(--c-mid); font-size: var(--t-sm);">⭐ 4,8 / 210+ Bewertungen</span>
+            </li>
+            <li>
+              <strong>Wellnesshotel Mittelburg</strong><br/>
+              Mittelburgweg 1 · gehoben, mit Pool & Spa<br/>
+              <span style="color: var(--c-mid); font-size: var(--t-sm);">⭐ 4,7 / 330+ Bewertungen</span>
+            </li>
+            <li>
+              <strong>Parkhotel Tannenhof</strong><br/>
+              Tannenhofstr. 19 · familiär, mit Sauna<br/>
+              <span style="color: var(--c-mid); font-size: var(--t-sm);">⭐ 4,3 / 320+ Bewertungen</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="text-center mt-6" style="color: var(--c-soft); font-size: var(--t-sm);">
+        <em>Auf Wunsch kündigen wir eure Hochzeitsgesellschaft bei den Häusern an,
+        damit Reservierungen reibungslos laufen.</em>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--blue">
+    <div class="container--narrow text-center">
+      <h2 class="text-balance">Vorbeikommen, Saal anschauen</h2>
+      <p class="lead" style="color: var(--c-cream); opacity: 0.9;">
+        Persönliche Eindrücke schlagen jede Website. Vereinbart einen Besichtigungstermin.
+      </p>
+      <a href="/anfragen" class="btn btn--ghost btn--arrow mt-6">Termin anfragen</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .address-card {
+    background: var(--c-cream-warm);
+    border-left: 3px solid var(--c-blue);
+    padding: var(--s-5);
+    text-align: left;
+    display: inline-block;
+    font-size: var(--t-md);
+  }
+  .address-card__name {
+    font-family: var(--f-display); text-transform: uppercase; letter-spacing: 0.06em;
+    font-size: var(--t-md);
+    margin-bottom: var(--s-2);
+  }
+
+  .map-wrap {
+    aspect-ratio: 16 / 7;
+    background: var(--c-cream-warm);
+    border: 1px solid var(--c-line);
+    overflow: hidden;
+    position: relative;
+  }
+  .map-placeholder {
+    height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: var(--s-6); gap: var(--s-3);
+  }
+  .map-placeholder p strong {
+    font-family: var(--f-display); text-transform: uppercase; letter-spacing: 0.08em;
+    font-size: var(--t-md);
+  }
+  .map-wrap iframe {
+    width: 100%; height: 100%; border: 0;
+  }
+
+  .hotels { display: flex; flex-direction: column; gap: var(--s-4); margin-top: var(--s-3); }
+  .hotels li {
+    border-left: 2px solid var(--c-line);
+    padding-left: var(--s-4);
+    line-height: 1.5;
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    const wrap = document.querySelector('[data-map-wrap]');
+    const btn = document.querySelector('[data-load-map]');
+    if (!wrap || !btn) return;
+    btn.addEventListener('click', () => {
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.openstreetmap.org/export/embed.html?bbox=10.4278%2C47.6380%2C10.4478%2C47.6480&amp;layer=mapnik&amp;marker=47.643%2C10.4378';
+      iframe.title = 'Karte Bürgerhaus Mittelberg';
+      iframe.loading = 'lazy';
+      iframe.allow = 'fullscreen';
+      wrap.innerHTML = '';
+      wrap.appendChild(iframe);
+    });
+  })();
+</script>
