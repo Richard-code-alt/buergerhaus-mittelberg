@@ -235,6 +235,15 @@ p:last-child { margin-bottom: 0; }
 
 .section--cream-warm { background: var(--c-cream-warm); }
 .section--cream-deep { background: var(--c-cream-deep); }
+
+/* Hero-Section auf Unterseiten — großzügiger Abstand zum Header */
+.section--hero {
+  padding: var(--s-9) 0 var(--s-8);
+  background: var(--c-cream);
+}
+@media (min-width: 720px) {
+  .section--hero { padding: var(--s-10) 0 var(--s-9); }
+}
 .section--mokka {
   background: var(--c-mokka);
   color: var(--c-cream);

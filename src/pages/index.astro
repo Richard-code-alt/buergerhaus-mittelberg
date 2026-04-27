@@ -5,8 +5,8 @@ import { getCollection } from 'astro:content';
 import seitentexte from '../data/seiten/startseite.json';
 import kontakt from '../data/kontakt.json';
 
-const title = 'Hochzeit im Bürgerhaus Mittelberg — Saal & Küche aus einer Hand';
-const description = 'Heiratet im Allgäu: Festsaal für bis zu 260 Gäste, eigene Küche, persönliche Gastgeber. Im Bürgerhaus Mittelberg in Oy-Mittelberg. Termin anfragen.';
+const title = 'Bürgerhaus Mittelberg — Hochzeit & Eventlocation Allgäu';
+const description = 'Eventlocation in Oy-Mittelberg, Allgäu: Festsaal für 260 Gäste, eigene Küche, persönliche Gastgeber. Hochzeit, Tagung, Geburtstag — Termin anfragen.';
 
 const pakete = (await getCollection('pakete')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
 
@@ -264,16 +264,16 @@ const schema = {
 
 <style>
   .hero {
-    padding: var(--s-7) 0 var(--s-8);
+    padding: var(--s-9) 0 var(--s-9);
     background:
-      radial-gradient(circle at 80% 20%, rgba(168, 122, 61, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(122, 79, 48, 0.06) 0%, transparent 50%),
       radial-gradient(circle at 10% 80%, rgba(29, 79, 125, 0.05) 0%, transparent 50%),
       var(--c-cream);
     position: relative;
     overflow: hidden;
   }
   @media (min-width: 720px) {
-    .hero { padding: var(--s-9) 0 var(--s-10); }
+    .hero { padding: var(--s-10) 0 var(--s-10); }
   }
   .hero__inner {
     display: grid; grid-template-columns: 1fr; gap: var(--s-6);
