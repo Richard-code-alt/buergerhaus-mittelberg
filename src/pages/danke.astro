@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Danke! — Anfrage erhalten | Bürgerhaus Mittelberg';
+const description = 'Wir haben eure Anfrage erhalten und melden uns innerhalb von 48 Stunden.';
+---
+
+<BaseLayout title={title} description={description} noindex={true}>
+  <section class="section--hero">
+    <div class="container--narrow text-center">
+      <span class="eyebrow">Anfrage erhalten</span>
+      <h1>Danke!</h1>
+      <p class="lead mx-auto">
+        Eure Anfrage ist bei uns angekommen. Wir melden uns innerhalb von 48 Stunden mit
+        einem konkreten Vorschlag und einem Vorschlag für einen Besichtigungstermin.
+      </p>
+      <p class="lead mx-auto mt-4">
+        Bei dringenden Fragen erreicht ihr uns direkt:<br/>
+        <a href="tel:+4983661300"><strong>08366 1300</strong></a>
+      </p>
+      <a href="/" class="btn btn--secondary btn--arrow mt-6">Zurück zur Startseite</a>
+    </div>
+  </section>
+</BaseLayout>

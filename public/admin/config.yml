@@ -98,6 +98,46 @@ collections:
       - { label: "Beschreibung (optional)", name: "beschreibung", widget: "string", required: false }
 
   # =====================================================
+  # Anlässe — Hochzeit, Tagung, Geburtstag etc.
+  # =====================================================
+  - name: anlaesse
+    label: "🎉 Anlässe"
+    folder: "src/data/anlaesse"
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: "Reihenfolge", name: "reihenfolge", widget: "number", default: 1 }
+      - { label: "Titel", name: "titel", widget: "string" }
+      - { label: "Slug (für URL, klein, ohne Umlaute)", name: "slug", widget: "string" }
+      - { label: "Icon", name: "icon", widget: "select", options: ["wedding", "venue", "table", "food", "mountain"] }
+      - { label: "Kurzbeschreibung (1 Satz, für Übersicht)", name: "kurz", widget: "string" }
+      - { label: "Ab-Preis (Zahl, leer lassen wenn 'auf Anfrage')", name: "ab_preis", widget: "number", required: false }
+      - { label: "Preis-Einheit (z.B. 'pro Person')", name: "preis_einheit", widget: "string", required: false }
+      - { label: "Beschreibung (2-3 Sätze)", name: "beschreibung", widget: "text" }
+      - { label: "Detail-Link (z.B. /hochzeit oder /anfragen?anlass=tagung)", name: "detail_link", widget: "string" }
+
+  # =====================================================
+  # Partner & Lieferanten
+  # =====================================================
+  - name: partner
+    label: "🤝 Partner & Lieferanten"
+    folder: "src/data/partner"
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: "Reihenfolge", name: "reihenfolge", widget: "number", default: 1 }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Ort", name: "ort", widget: "string" }
+      - { label: "Kategorie", name: "kategorie", widget: "select", options: ["Lieferpartner", "Dienstleister", "Empfehlung"] }
+      - { label: "Beschreibung (1-2 Sätze)", name: "beschreibung", widget: "text" }
+      - { label: "Website-URL (optional)", name: "website", widget: "string", required: false }
+      - { label: "Logo (optional)", name: "logo", widget: "image", required: false }
+
+  # =====================================================
   # Speisekarten / Beispielmenüs
   # =====================================================
   - name: menues

@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
+import { getCollection } from 'astro:content';
+
+const title = 'Unsere Partner — Bürgerhaus Mittelberg';
+const description = 'Wer kocht mit uns? Mit wem schenken wir aus? Unsere Liefer- und Dienstleistungspartner aus dem Allgäu — regional verbunden.';
+
+const partner = (await getCollection('partner')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+
+const partnerByCategory = partner.reduce((acc, p) => {
+  const cat = p.data.kategorie;
+  if (!acc[cat]) acc[cat] = [];
+  acc[cat].push(p);
+  return acc;
+}, {} as Record<string, typeof partner>);
+---
+
+<BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema items={[{ name: 'Partner', url: '/partner' }]} />
+  </Fragment>
+
+  <section class="section--hero">
+    <div class="container--narrow text-center">
+      <span class="eyebrow">Partner</span>
+      <h1>Mit wem wir zusammenarbeiten</h1>
+      <p class="lead mx-auto">
+        Unsere Küche ist nur so gut wie das, was reinkommt. Deshalb arbeiten wir mit
+        Lieferpartnern aus der Region zusammen — kurze Wege, lange Beziehungen.
+      </p>
+    </div>
+  </section>
+
+  {Object.entries(partnerByCategory).map(([kategorie, items], idx) => (
+    <section class={`section${idx % 2 === 0 ? '' : ' section--cream-warm'}`}>
+      <div class="container">
+        <div class="text-center mb-8">
+          <span class="eyebrow">{kategorie}</span>
+          <h2>{kategorie === 'Lieferpartner' ? 'Was unsere Küche füllt' : kategorie === 'Dienstleister' ? 'Wer mit uns arbeitet' : 'Wen wir empfehlen'}</h2>
+        </div>
+
+        <div class="partner-grid">
+          {items.map((p) => (
+            <article class="partner-card">
+              {p.data.logo ? (
+                <div class="partner-card__logo">
+                  <img src={p.data.logo} alt={`Logo ${p.data.name}`} loading="lazy" />
+                </div>
+              ) : (
+                <div class="partner-card__logo partner-card__logo--placeholder">
+                  <span>{p.data.name.split(' ').map(w => w[0]).slice(0, 2).join('')}</span>
+                </div>
+              )}
+              <h3 class="partner-card__name">{p.data.name}</h3>
+              <p class="partner-card__ort">{p.data.ort}</p>
+              <p class="partner-card__desc">{p.data.beschreibung}</p>
+              {p.data.website && (
+                <a href={p.data.website} target="_blank" rel="noopener" class="partner-card__link">
+                  Website besuchen →
+                </a>
+              )}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="section section--blue">
+    <div class="container--narrow text-center">
+      <h2 class="text-balance">Auch Partner werden?</h2>
+      <p class="lead mx-auto">
+        Floristen, DJs, Fotografen, Konditoreien aus der Region — wenn ihr mit uns
+        zusammenarbeiten möchtet, schreibt uns gerne.
+      </p>
+      <a href="/anfragen" class="btn btn--ghost btn--arrow mt-6">Kontakt aufnehmen</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .partner-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--s-5);
+  }
+  @media (min-width: 600px) {
+    .partner-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1000px) {
+    .partner-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .partner-card {
+    background: var(--c-cream);
+    border: 1px solid var(--c-line);
+    padding: var(--s-6);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--s-3);
+    transition: all var(--transition);
+  }
+  .partner-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .partner-card__logo {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--c-cream-warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--s-3);
+  }
+  .partner-card__logo img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+  }
+  .partner-card__logo--placeholder span {
+    font-family: var(--f-display);
+    font-size: var(--t-3xl);
+    color: var(--c-blue);
+    letter-spacing: -0.02em;
+  }
+
+  .partner-card__name {
+    margin: 0;
+    font-size: var(--t-lg);
+  }
+  .partner-card__ort {
+    font-family: var(--f-display);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: var(--t-xs);
+    color: var(--c-brass);
+    margin: 0;
+  }
+  .partner-card__desc {
+    margin: 0;
+    color: var(--c-mid);
+    flex: 1;
+  }
+  .partner-card__link {
+    margin-top: var(--s-3);
+    font-family: var(--f-display);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--t-sm);
+    color: var(--c-blue);
+  }
+  .partner-card__link:hover { color: var(--c-blue-dark); }
+</style>

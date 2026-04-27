@@ -60,4 +60,32 @@ const galerie = defineCollection({
   }),
 });
 
-export const collections = { pakete, faq, hotels, menues, galerie };
+const anlaesse = defineCollection({
+  loader: glob({ pattern: '*.md', base: 'src/data/anlaesse' }),
+  schema: z.object({
+    reihenfolge: z.number(),
+    titel: z.string(),
+    slug: z.string(),
+    icon: z.string(),
+    kurz: z.string(),
+    ab_preis: z.number().nullable().optional(),
+    preis_einheit: z.string().optional(),
+    beschreibung: z.string(),
+    detail_link: z.string(),
+  }),
+});
+
+const partner = defineCollection({
+  loader: glob({ pattern: '*.md', base: 'src/data/partner' }),
+  schema: z.object({
+    reihenfolge: z.number(),
+    name: z.string(),
+    ort: z.string(),
+    kategorie: z.string(),
+    beschreibung: z.string(),
+    website: z.string().optional(),
+    logo: z.string().optional(),
+  }),
+});
+
+export const collections = { pakete, faq, hotels, menues, galerie, anlaesse, partner };

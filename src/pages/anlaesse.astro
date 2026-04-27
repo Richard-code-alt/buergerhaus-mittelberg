@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import { getCollection } from 'astro:content';
+
+const title = 'Anlässe — Hochzeit, Tagung, Geburtstag, Catering | Bürgerhaus Mittelberg';
+const description = 'Hochzeiten, Tagungen, Geburtstage, Kommunion, Firmenfeiern und Catering außer Haus. Alle Anlässe im Bürgerhaus Mittelberg in Oy-Mittelberg.';
+
+const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+---
+
+<BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema items={[{ name: 'Anlässe', url: '/anlaesse' }]} />
+  </Fragment>
+
+  <section class="section--hero">
+    <div class="container--narrow text-center">
+      <span class="eyebrow">Anlässe</span>
+      <h1>Was bei uns gefeiert wird</h1>
+      <p class="lead mx-auto">
+        Hochzeiten, Tagungen, Geburtstage, Kommunion, Firmenfeiern.
+        Wir richten Veranstaltungen mit gleichem Anspruch aus — egal ob 20 oder 200 Gäste.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="anlass-grid">
+        {anlaesse.map((a) => (
+          <article class="anlass-card">
+            <div class="anlass-card__visual">
+              <ImagePlaceholder
+                alt={`Anlass: ${a.data.titel}`}
+                scene={a.data.icon as any}
+                variant="wide"
+              />
+            </div>
+            <div class="anlass-card__body">
+              <h2 class="anlass-card__title">{a.data.titel}</h2>
+              <p class="anlass-card__kurz">{a.data.kurz}</p>
+              <p class="anlass-card__desc">{a.data.beschreibung}</p>
+              <div class="anlass-card__foot">
+                {a.data.ab_preis && (
+                  <p class="anlass-card__price">
+                    ab <strong>{a.data.ab_preis} €</strong>
+                    {a.data.preis_einheit && <span> {a.data.preis_einheit}</span>}
+                  </p>
+                )}
+                {!a.data.ab_preis && (
+                  <p class="anlass-card__price"><strong>Auf Anfrage</strong></p>
+                )}
+                <a href={a.data.detail_link} class="btn btn--secondary btn--arrow">
+                  {a.data.detail_link.startsWith('/anfragen') ? 'Anfragen' : 'Details'}
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--blue">
+    <div class="container--narrow text-center">
+      <h2 class="text-balance">Andere Idee?</h2>
+      <p class="lead mx-auto">
+        Egal ob Vereinsfest, Konzert oder etwas Besonderes — fragt einfach an.
+        Was wir nicht im Angebot haben, finden wir gemeinsam.
+      </p>
+      <a href="/anfragen" class="btn btn--ghost btn--arrow mt-6">Termin anfragen</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .anlass-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--s-6);
+  }
+  @media (min-width: 800px) {
+    .anlass-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .anlass-card {
+    background: var(--c-cream);
+    border: 1px solid var(--c-line);
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition);
+  }
+  .anlass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .anlass-card__visual { aspect-ratio: 16 / 9; }
+  .anlass-card__visual .imgph { aspect-ratio: 16 / 9; border: 0; }
+
+  .anlass-card__body {
+    padding: var(--s-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+    flex: 1;
+  }
+  .anlass-card__title {
+    margin: 0;
+    font-size: var(--t-xl);
+  }
+  .anlass-card__kurz {
+    color: var(--c-mid);
+    font-style: italic;
+    font-variation-settings: 'opsz' 24, 'SOFT' 100;
+    margin: 0;
+  }
+  .anlass-card__desc {
+    margin: 0;
+    flex: 1;
+  }
+  .anlass-card__foot {
+    border-top: 1px solid var(--c-line);
+    padding-top: var(--s-4);
+    margin-top: var(--s-3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-3);
+    flex-wrap: wrap;
+  }
+  .anlass-card__price {
+    margin: 0;
+    font-family: var(--f-display);
+    font-size: var(--t-md);
+    color: var(--c-anthracite);
+  }
+  .anlass-card__price strong {
+    font-size: var(--t-lg);
+    color: var(--c-blue);
+  }
+  .anlass-card__price span {
+    font-family: var(--f-body);
+    color: var(--c-mid);
+    font-size: var(--t-sm);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+</style>

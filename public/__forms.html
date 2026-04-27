@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Form Detection</title>
+  <meta name="robots" content="noindex,nofollow" />
+</head>
+<body>
+  <!-- Diese Seite wird nur von Netlify gescannt, um das Formular zu erkennen -->
+  <form name="anfrage" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/danke">
+    <input type="text" name="bot-field" />
+    <input type="radio" name="anlass" value="Hochzeit" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="telefon" />
+    <input type="text" name="datum" />
+    <input type="text" name="gaeste" />
+    <input type="text" name="raum" />
+    <textarea name="nachricht"></textarea>
+    <input type="checkbox" name="datenschutz" />
+  </form>
+</body>
+</html>
