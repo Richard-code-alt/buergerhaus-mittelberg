@@ -106,7 +106,7 @@ const currentPath = Astro.url.pathname;
   .header__nav .header__list {
     display: flex; flex-direction: column; gap: var(--s-4);
   }
-  .header__nav a {
+  .header__nav .header__list a {
     font-family: var(--f-body); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
     font-size: var(--t-xl);
     color: var(--c-anthracite);
@@ -114,7 +114,7 @@ const currentPath = Astro.url.pathname;
     display: block;
     border-bottom: 1px solid var(--c-line-light);
   }
-  .header__nav a:hover, .header__nav a.is-current {
+  .header__nav .header__list a:hover, .header__nav .header__list a.is-current {
     color: var(--c-blue);
   }
   .header__nav .header__cta {
@@ -136,14 +136,14 @@ const currentPath = Astro.url.pathname;
       display: flex !important; flex-direction: row !important;
       gap: var(--s-6); list-style: none;
     }
-    .header__nav a {
+    .header__nav .header__list a {
       font-size: var(--t-sm);
       padding: var(--s-2) 0;
       border-bottom: 0;
       letter-spacing: 0.1em;
       position: relative;
     }
-    .header__nav a.is-current::after {
+    .header__nav .header__list a.is-current::after {
       content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px;
       background: var(--c-mokka);
     }
