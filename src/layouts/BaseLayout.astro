@@ -84,6 +84,20 @@ const GA4_ID = import.meta.env.PUBLIC_GA4_ID || '';
     )}
 
     <slot name="head" />
+
+    <!-- Netlify Identity Widget — leitet Mail-Bestätigung ins Backend weiter -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" is:inline></script>
+    <script is:inline>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
   </head>
   <body>
     <a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
