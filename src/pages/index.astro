@@ -74,10 +74,10 @@ const schema = {
   <section class="hero">
     <div class="hero__inner">
       <div class="hero__copy">
-        <span class="eyebrow hero__eyebrow">Hochzeitslocation Allgäu</span>
+        <span class="eyebrow hero__eyebrow">Eventlocation Allgäu</span>
         <h1 class="hero__title">
-          <span class="hero__title-line-1">Eure Hochzeit</span>
-          <span class="hero__title-line-2">im <span class="hero__title-accent">Allgäu</span></span>
+          Eure Hochzeit<br/>
+          im <span class="hero__title-accent">Allgäu</span>
         </h1>
         <p class="hero__lead">{seitentexte.hero_lead}</p>
         <div class="hero__actions">
@@ -286,33 +286,24 @@ const schema = {
   }
 
   .hero__title {
-    font-family: var(--f-body);
-    font-weight: 600;
-    font-size: clamp(2.25rem, 8vw, 4.5rem);
-    line-height: 1.05;
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: clamp(2.75rem, 9vw, 5.5rem);
+    line-height: 1.0;
     margin-bottom: var(--s-5);
     color: var(--c-anthracite);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
     text-transform: none;
     text-align: center;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
   }
   @media (min-width: 1000px) {
     .hero__title { text-align: left; }
   }
-  .hero__title-line-1, .hero__title-line-2 {
-    display: block;
-  }
-  .hero__title-line-2 {
-    font-size: 0.85em;
-    color: var(--c-mid);
-    font-weight: 400;
-    margin-top: var(--s-2);
-    font-style: italic;
-  }
   .hero__title-accent {
     color: var(--c-mokka);
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .hero__copy {

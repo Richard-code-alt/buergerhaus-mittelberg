@@ -1,11 +1,11 @@
 ---
 const navItems = [
   { href: '/anlaesse',   label: 'Anlässe' },
-  { href: '/raeume',     label: 'Räume' },
   { href: '/hochzeit',   label: 'Hochzeit' },
+  { href: '/raeume',     label: 'Räume' },
   { href: '/catering',   label: 'Catering' },
-  { href: '/partner',    label: 'Partner' },
   { href: '/galerie',    label: 'Galerie' },
+  { href: '/partner',    label: 'Partner' },
   { href: '/anfahrt',    label: 'Anfahrt' },
 ];
 const currentPath = Astro.url.pathname;
@@ -58,13 +58,13 @@ const currentPath = Astro.url.pathname;
   }
 
   .header__brand img {
-    height: 100px; width: auto; display: block;
+    height: 130px; width: auto; display: block;
   }
   @media (min-width: 720px) {
-    .header__brand img { height: 130px; }
+    .header__brand img { height: 170px; }
   }
   @media (min-width: 1100px) {
-    .header__brand img { height: 160px; }
+    .header__brand img { height: 200px; }
   }
 
   .header__list {
@@ -90,7 +90,7 @@ const currentPath = Astro.url.pathname;
   .header__toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   .header__nav {
-    position: fixed; top: 130px; left: 0; right: 0; bottom: 0;
+    position: fixed; top: 160px; left: 0; right: 0; bottom: 0;
     background: var(--c-cream);
     padding: var(--s-7) var(--s-5);
     flex-direction: column; align-items: stretch; gap: var(--s-5);
@@ -107,7 +107,7 @@ const currentPath = Astro.url.pathname;
     display: flex; flex-direction: column; gap: var(--s-4);
   }
   .header__nav a {
-    font-family: var(--f-display); text-transform: uppercase; letter-spacing: 0.1em;
+    font-family: var(--f-body); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
     font-size: var(--t-xl);
     color: var(--c-anthracite);
     padding: var(--s-3) 0;

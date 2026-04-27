@@ -42,13 +42,18 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
       <form
         name="anfrage"
         method="POST"
-        action="/danke"
         data-netlify="true"
         netlify-honeypot="bot-field"
         class="form"
+        id="anfrage-form"
       >
         <input type="hidden" name="form-name" value="anfrage" />
         <p class="hp"><label>Bitte leer lassen: <input name="bot-field" /></label></p>
+
+        <div class="form__error" id="form-error" hidden>
+          <strong>Es ist ein Fehler aufgetreten.</strong>
+          Bitte versucht es nochmal oder ruft uns direkt an.
+        </div>
 
         <fieldset class="form__group">
           <legend class="form__legend">Was wollt ihr feiern?</legend>
@@ -159,6 +164,50 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
         nachricht.placeholder = `Interesse an ${map[paket] || paket}. ${nachricht.placeholder}`;
       }
     }
+  })();
+
+  // AJAX-Submit für robuste Bestätigungs-Seite
+  (function() {
+    const form = document.getElementById('anfrage-form');
+    if (!form) return;
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const errorBox = document.getElementById('form-error');
+      if (errorBox) errorBox.hidden = true;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Wird gesendet …';
+      }
+
+      const formData = new FormData(form);
+      const params = new URLSearchParams();
+      for (const [key, value] of formData) {
+        params.append(key, value.toString());
+      }
+
+      try {
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: params.toString(),
+        });
+
+        if (response.ok) {
+          window.location.href = '/danke';
+        } else {
+          throw new Error('Submit failed: ' + response.status);
+        }
+      } catch (err) {
+        console.error('Form submit error:', err);
+        if (errorBox) errorBox.hidden = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Anfrage abschicken';
+        }
+      }
+    });
   })();
 </script>
 
@@ -296,4 +345,17 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
     align-self: flex-start;
     padding: var(--s-4) var(--s-7);
   }
+  .form__submit:disabled {
+    opacity: 0.6;
+    cursor: wait;
+  }
+  .form__error {
+    background: #fdecea;
+    border: 1px solid #f5c2c0;
+    border-radius: var(--r-md);
+    padding: var(--s-4) var(--s-5);
+    color: #8b1c19;
+    font-size: var(--t-sm);
+  }
+  .form__error strong { display: block; margin-bottom: var(--s-1); }
 </style>

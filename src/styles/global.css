@@ -3,7 +3,7 @@
    Modern, jung, hochwertig. Brand-Blau + Mokka-Akzent.
    ===================================================================== */
 
-@import '@fontsource/anton/400.css';
+@import '@fontsource-variable/fraunces';
 @import '@fontsource-variable/inter';
 
 :root {
@@ -39,7 +39,7 @@
   --c-accent-2: var(--c-mokka);
 
   /* Typografie */
-  --f-display: 'Anton', 'Impact', sans-serif;
+  --f-display: 'Fraunces Variable', 'Times New Roman', Georgia, serif;
   --f-body:    'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* Type-Scale */
@@ -143,19 +143,38 @@ table { border-collapse: collapse; width: 100%; }
 /* Typografie */
 h1, h2, h3, h4 {
   font-family: var(--f-display);
-  font-weight: 400;
-  letter-spacing: -0.005em;
-  line-height: 1.0;
-  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
   color: var(--c-anthracite);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100;
 }
-h1 { font-size: var(--t-3xl); margin-bottom: var(--s-5); line-height: 0.95; }
-h2 { font-size: var(--t-2xl); margin-bottom: var(--s-5); line-height: 0.98; }
-h3 { font-size: var(--t-xl); margin-bottom: var(--s-3); line-height: 1.05; }
+h1 {
+  font-size: var(--t-3xl);
+  font-weight: 400;
+  margin-bottom: var(--s-5);
+  line-height: 1.0;
+  letter-spacing: -0.035em;
+}
+h2 {
+  font-size: var(--t-2xl);
+  font-weight: 500;
+  margin-bottom: var(--s-5);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+h3 {
+  font-size: var(--t-xl);
+  font-weight: 500;
+  margin-bottom: var(--s-3);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
 h4 {
-  font-size: var(--t-lg); margin-bottom: var(--s-3); line-height: 1.1;
-  letter-spacing: 0;
-  font-family: var(--f-body); font-weight: 600; text-transform: none;
+  font-size: var(--t-lg); margin-bottom: var(--s-3); line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-family: var(--f-body); font-weight: 600;
+  font-variation-settings: normal;
 }
 
 p { margin-bottom: var(--s-4); max-width: 65ch; }
