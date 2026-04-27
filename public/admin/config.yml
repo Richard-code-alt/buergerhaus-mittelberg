@@ -1,0 +1,177 @@
+backend:
+  name: github
+  repo: Richard-code-alt/buergerhaus-mittelberg
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+publish_mode: simple
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+site_url: https://www.buergerhaus-mittelberg.de
+display_url: https://www.buergerhaus-mittelberg.de
+logo_url: https://www.buergerhaus-mittelberg.de/logo.png
+
+locale: de
+
+collections:
+  # =====================================================
+  # Globale Einstellungen — Adresse, Telefon, Mail
+  # =====================================================
+  - name: einstellungen
+    label: "⚙️ Globale Einstellungen"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: kontakt
+        label: "Kontakt & Adresse"
+        file: "src/data/kontakt.json"
+        fields:
+          - { label: "Name des Betriebs", name: "name", widget: "string", default: "Bürgerhaus Mittelberg" }
+          - { label: "Straße", name: "strasse", widget: "string", default: "Rotachstraße 8" }
+          - { label: "PLZ und Ort", name: "ort", widget: "string", default: "87466 Oy-Mittelberg" }
+          - { label: "Telefon", name: "telefon", widget: "string", default: "08366 1300" }
+          - { label: "E-Mail", name: "email", widget: "string", default: "info@buergerhaus-mittelberg.de" }
+          - { label: "Instagram-Link", name: "instagram", widget: "string", required: false, default: "https://www.instagram.com/buergerhaus_mittelberg/" }
+          - { label: "Facebook-Link", name: "facebook", widget: "string", required: false, default: "https://www.facebook.com/Buergerhaus.Mittelberg/" }
+
+  # =====================================================
+  # Hochzeitspakete
+  # =====================================================
+  - name: pakete
+    label: "💍 Hochzeitspakete"
+    folder: "src/data/pakete"
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    fields:
+      - { label: "Reihenfolge (1=zuerst, 2=mitte, 3=zuletzt)", name: "reihenfolge", widget: "number", default: 1 }
+      - { label: "Titel", name: "titel", widget: "string" }
+      - { label: "Untertitel", name: "untertitel", widget: "string" }
+      - { label: "Preis pro Person (nur Zahl)", name: "preis", widget: "number" }
+      - { label: "Mindestpersonenzahl", name: "min_personen", widget: "number" }
+      - { label: "Als 'Beliebt' markieren?", name: "highlight", widget: "boolean", default: false }
+      - label: "Im Preis enthalten"
+        name: "enthalten"
+        widget: "list"
+        field: { label: "Punkt", name: "punkt", widget: "string" }
+      - label: "Nicht enthalten"
+        name: "nicht_enthalten"
+        widget: "list"
+        field: { label: "Punkt", name: "punkt", widget: "string" }
+      - { label: "Beschreibung (kurz, für Übersicht auf Startseite)", name: "kurz", widget: "text" }
+
+  # =====================================================
+  # FAQ — Hochzeit
+  # =====================================================
+  - name: faq
+    label: "❓ FAQ Hochzeit"
+    folder: "src/data/faq"
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: "Reihenfolge", name: "reihenfolge", widget: "number", default: 1 }
+      - { label: "Frage", name: "frage", widget: "string" }
+      - { label: "Antwort", name: "antwort", widget: "text" }
+
+  # =====================================================
+  # Hotels (Anfahrt-Seite)
+  # =====================================================
+  - name: hotels
+    label: "🏨 Hotels & Pensionen"
+    folder: "src/data/hotels"
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Adresse", name: "adresse", widget: "string" }
+      - { label: "Kategorie", name: "kategorie", widget: "select", options: ["Zu Fuß erreichbar", "Mit Auto"] }
+      - { label: "Reihenfolge in der Kategorie", name: "reihenfolge", widget: "number", default: 1 }
+      - { label: "Bewertung (z.B. 4,7)", name: "bewertung", widget: "string", required: false }
+      - { label: "Anzahl Bewertungen (z.B. 460+)", name: "bewertungen_anzahl", widget: "string", required: false }
+      - { label: "Beschreibung (optional)", name: "beschreibung", widget: "string", required: false }
+
+  # =====================================================
+  # Speisekarten / Beispielmenüs
+  # =====================================================
+  - name: menues
+    label: "🍽️ Beispielmenüs"
+    folder: "src/data/menues"
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: "Reihenfolge", name: "reihenfolge", widget: "number", default: 1 }
+      - { label: "Titel des Menüs", name: "titel", widget: "string" }
+      - { label: "Vorspeise", name: "vorspeise", widget: "text" }
+      - { label: "Hauptgang", name: "hauptgang", widget: "text" }
+      - { label: "Dessert", name: "dessert", widget: "text" }
+      - { label: "Als 'Beliebt' markieren?", name: "highlight", widget: "boolean", default: false }
+
+  # =====================================================
+  # Galerie-Bilder
+  # =====================================================
+  - name: galerie
+    label: "📸 Galerie"
+    folder: "src/data/galerie"
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: "Reihenfolge", name: "reihenfolge", widget: "number", default: 1 }
+      - { label: "Bild", name: "bild", widget: "image" }
+      - { label: "Bildbeschreibung (für SEO/Screenreader)", name: "alt", widget: "string" }
+      - { label: "Beschriftung (optional, kleine Notiz)", name: "caption", widget: "string", required: false }
+
+  # =====================================================
+  # Seiten — die großen Texte pro Seite
+  # =====================================================
+  - name: seiten
+    label: "📄 Seiten-Texte"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: startseite
+        label: "Startseite"
+        file: "src/data/seiten/startseite.json"
+        fields:
+          - { label: "Hero — Hauptüberschrift Teil 1", name: "hero_titel_1", widget: "string", default: "Eure Hochzeit." }
+          - { label: "Hero — Hauptüberschrift Teil 2 (klein, kursiv)", name: "hero_titel_2", widget: "string", default: "Mitten im" }
+          - { label: "Hero — Hauptüberschrift Teil 3 (Akzent)", name: "hero_titel_3", widget: "string", default: "Allgäu" }
+          - { label: "Hero — Untertitel", name: "hero_lead", widget: "text", default: "Festsaal, Bühne, eigene Küche — alles aus einer Hand. Im Bürgerhaus Mittelberg in Oy-Mittelberg." }
+          - { label: "USP-Sektion — Überschrift", name: "usp_titel", widget: "string", default: "Saal, Bühne, Küche." }
+          - { label: "USP-Sektion — Lead-Text", name: "usp_lead", widget: "text" }
+
+      - name: hochzeit
+        label: "Hochzeit-Seite"
+        file: "src/data/seiten/hochzeit.json"
+        fields:
+          - { label: "Überschrift", name: "titel", widget: "string", default: "Heiratet bei uns" }
+          - { label: "Lead-Text", name: "lead", widget: "text" }
+
+      - name: catering
+        label: "Catering-Seite"
+        file: "src/data/seiten/catering.json"
+        fields:
+          - { label: "Überschrift", name: "titel", widget: "string", default: "Aus unserer Küche" }
+          - { label: "Lead-Text", name: "lead", widget: "text" }
+          - { label: "Catering-Story (2-3 Sätze)", name: "story", widget: "text" }
+
+      - name: ueber_uns
+        label: "Über uns"
+        file: "src/data/seiten/ueber-uns.json"
+        fields:
+          - { label: "Überschrift", name: "titel", widget: "string", default: "Sebastian Künzel & Team" }
+          - { label: "Gastgeber-Geschichte (Absätze mit Leerzeile trennen)", name: "geschichte", widget: "text" }

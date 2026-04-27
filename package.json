@@ -1,160 +1,21 @@
----
-export interface Props {
-  alt: string;
-  caption?: string;
-  variant?: 'default' | 'wide' | 'tall' | 'hero';
-  scene?: 'mountain' | 'table' | 'food' | 'wedding' | 'venue';
+{
+  "name": "buergerhaus-mittelberg",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website Bürgerhaus Mittelberg — Hochzeit & Eventlocation in Oy-Mittelberg, Allgäu",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "@fontsource/anton": "^5.1.0",
+    "@fontsource-variable/fraunces": "^5.1.0",
+    "@fontsource-variable/caveat": "^5.1.0",
+    "astro": "^5.1.0"
+  }
 }
-const { alt, caption, variant = 'default', scene = 'mountain' } = Astro.props as Props;
-
-// Verschiedene SVG-Szenen — Allgäuer Berge, Hochzeitstafel, Catering-Stillleben, Hochzeitskranz
-const scenes: Record<string, string> = {
-  mountain: `
-    <!-- Hintere Berge -->
-    <path d="M 0 320 L 100 200 L 180 250 L 280 150 L 380 240 L 480 180 L 600 280 L 700 220 L 800 320 L 800 500 L 0 500 Z"
-          fill="#1d4f7d" opacity="0.18" />
-    <!-- Mittlere Berge -->
-    <path d="M 0 380 L 80 280 L 200 340 L 320 240 L 450 320 L 580 260 L 700 360 L 800 320 L 800 500 L 0 500 Z"
-          fill="#1d4f7d" opacity="0.32" />
-    <!-- Vordere Berge -->
-    <path d="M 0 440 L 120 360 L 240 400 L 380 320 L 520 380 L 660 340 L 800 400 L 800 500 L 0 500 Z"
-          fill="#1d4f7d" opacity="0.5" />
-    <!-- Haus -->
-    <g transform="translate(360, 360)">
-      <rect x="0" y="20" width="80" height="50" fill="#a87a3d" opacity="0.85" />
-      <polygon points="-8,20 40,-8 88,20" fill="#143557" opacity="0.9" />
-      <rect x="30" y="40" width="14" height="30" fill="#faf6ee" />
-      <rect x="10" y="35" width="12" height="12" fill="#faf6ee" opacity="0.7" />
-      <rect x="56" y="35" width="12" height="12" fill="#faf6ee" opacity="0.7" />
-    </g>
-    <!-- Sonnenaufgang -->
-    <circle cx="640" cy="180" r="40" fill="#c89a5e" opacity="0.4" />
-    <circle cx="640" cy="180" r="22" fill="#c89a5e" opacity="0.6" />
-  `,
-  table: `
-    <!-- Tafel-Linie -->
-    <line x1="0" y1="380" x2="800" y2="380" stroke="#a87a3d" stroke-width="2" opacity="0.6" />
-    <line x1="0" y1="382" x2="800" y2="382" stroke="#a87a3d" stroke-width="1" opacity="0.3" />
-    <!-- Teller -->
-    <ellipse cx="200" cy="380" rx="80" ry="14" fill="#faf6ee" stroke="#a87a3d" stroke-width="1.5" opacity="0.85" />
-    <ellipse cx="400" cy="380" rx="80" ry="14" fill="#faf6ee" stroke="#a87a3d" stroke-width="1.5" opacity="0.95" />
-    <ellipse cx="600" cy="380" rx="80" ry="14" fill="#faf6ee" stroke="#a87a3d" stroke-width="1.5" opacity="0.85" />
-    <!-- Gläser / Kerzen -->
-    <g transform="translate(200, 280)">
-      <rect x="-3" y="0" width="6" height="80" fill="#a87a3d" opacity="0.7" />
-      <ellipse cx="0" cy="-4" rx="6" ry="3" fill="#c89a5e" />
-      <ellipse cx="0" cy="-12" rx="3" ry="8" fill="#fec96a" opacity="0.85" />
-    </g>
-    <g transform="translate(400, 260)">
-      <rect x="-3" y="0" width="6" height="100" fill="#a87a3d" opacity="0.85" />
-      <ellipse cx="0" cy="-4" rx="6" ry="3" fill="#c89a5e" />
-      <ellipse cx="0" cy="-14" rx="4" ry="10" fill="#fec96a" opacity="0.9" />
-    </g>
-    <g transform="translate(600, 280)">
-      <rect x="-3" y="0" width="6" height="80" fill="#a87a3d" opacity="0.7" />
-      <ellipse cx="0" cy="-4" rx="6" ry="3" fill="#c89a5e" />
-      <ellipse cx="0" cy="-12" rx="3" ry="8" fill="#fec96a" opacity="0.85" />
-    </g>
-    <!-- Blumen -->
-    <g transform="translate(300, 350)" opacity="0.55">
-      <circle cx="0" cy="0" r="6" fill="#1d4f7d" />
-      <circle cx="-8" cy="-4" r="4" fill="#1d4f7d" />
-      <circle cx="8" cy="-4" r="4" fill="#1d4f7d" />
-      <circle cx="0" cy="-10" r="5" fill="#1d4f7d" />
-    </g>
-    <g transform="translate(500, 350)" opacity="0.55">
-      <circle cx="0" cy="0" r="6" fill="#1d4f7d" />
-      <circle cx="-8" cy="-4" r="4" fill="#1d4f7d" />
-      <circle cx="8" cy="-4" r="4" fill="#1d4f7d" />
-      <circle cx="0" cy="-10" r="5" fill="#1d4f7d" />
-    </g>
-  `,
-  food: `
-    <!-- Großer Teller -->
-    <circle cx="400" cy="280" r="160" fill="#faf6ee" stroke="#a87a3d" stroke-width="2" opacity="0.95" />
-    <circle cx="400" cy="280" r="120" fill="none" stroke="#a87a3d" stroke-width="1" opacity="0.4" />
-    <!-- Speisen -->
-    <ellipse cx="380" cy="270" rx="50" ry="35" fill="#a87a3d" opacity="0.6" />
-    <ellipse cx="420" cy="290" rx="35" ry="25" fill="#1d4f7d" opacity="0.5" />
-    <!-- Garnierung -->
-    <circle cx="370" cy="260" r="3" fill="#1d4f7d" opacity="0.7" />
-    <circle cx="430" cy="270" r="3" fill="#1d4f7d" opacity="0.7" />
-    <circle cx="410" cy="300" r="3" fill="#a87a3d" opacity="0.7" />
-    <!-- Besteck -->
-    <line x1="180" y1="240" x2="180" y2="380" stroke="#a87a3d" stroke-width="3" opacity="0.7" />
-    <ellipse cx="180" cy="245" rx="6" ry="20" fill="#a87a3d" opacity="0.7" />
-    <line x1="620" y1="240" x2="620" y2="380" stroke="#a87a3d" stroke-width="3" opacity="0.7" />
-    <line x1="616" y1="240" x2="616" y2="270" stroke="#a87a3d" stroke-width="2" opacity="0.7" />
-    <line x1="620" y1="240" x2="620" y2="270" stroke="#a87a3d" stroke-width="2" opacity="0.7" />
-    <line x1="624" y1="240" x2="624" y2="270" stroke="#a87a3d" stroke-width="2" opacity="0.7" />
-  `,
-  wedding: `
-    <!-- Großer Kranz aus Blüten -->
-    <g transform="translate(400, 280)">
-      <circle cx="0" cy="0" r="120" fill="none" stroke="#a87a3d" stroke-width="1" opacity="0.3" />
-      <!-- Blüten am Kranz -->
-      ${[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => {
-        const rad = (deg * Math.PI) / 180;
-        const x = Math.cos(rad) * 120;
-        const y = Math.sin(rad) * 120;
-        return `
-          <g transform="translate(${x}, ${y})">
-            <circle cx="0" cy="0" r="10" fill="#1d4f7d" opacity="0.6" />
-            <circle cx="-6" cy="-3" r="6" fill="#1d4f7d" opacity="0.5" />
-            <circle cx="6" cy="-3" r="6" fill="#1d4f7d" opacity="0.5" />
-            <circle cx="0" cy="-7" r="5" fill="#a87a3d" opacity="0.7" />
-          </g>
-        `;
-      }).join('')}
-      <!-- Innen Initialen -->
-      <text x="0" y="20" text-anchor="middle"
-            font-family="Anton, Impact, sans-serif" font-size="80"
-            fill="#1d4f7d" opacity="0.85">B+H</text>
-    </g>
-  `,
-  venue: `
-    <!-- Saal-Architektur in Linien -->
-    <!-- Boden -->
-    <line x1="0" y1="420" x2="800" y2="420" stroke="#a87a3d" stroke-width="2" opacity="0.6" />
-    <!-- Decke -->
-    <line x1="0" y1="120" x2="800" y2="120" stroke="#a87a3d" stroke-width="2" opacity="0.6" />
-    <!-- Hintere Wand -->
-    <rect x="120" y="120" width="560" height="300" fill="#1d4f7d" opacity="0.06" />
-    <!-- Bühne -->
-    <rect x="280" y="340" width="240" height="80" fill="#1d4f7d" opacity="0.4" />
-    <!-- Bühnenrampe -->
-    <line x1="280" y1="340" x2="520" y2="340" stroke="#a87a3d" stroke-width="2" opacity="0.7" />
-    <!-- Vorhang -->
-    <path d="M 280 340 Q 290 280 300 340" fill="#a87a3d" opacity="0.6" />
-    <path d="M 500 340 Q 510 280 520 340" fill="#a87a3d" opacity="0.6" />
-    <!-- Säulen -->
-    <rect x="140" y="120" width="20" height="300" fill="#a87a3d" opacity="0.5" />
-    <rect x="640" y="120" width="20" height="300" fill="#a87a3d" opacity="0.5" />
-    <!-- Stühle -->
-    <g fill="#1d4f7d" opacity="0.55">
-      <rect x="180" y="380" width="20" height="30" />
-      <rect x="220" y="380" width="20" height="30" />
-      <rect x="260" y="380" width="20" height="30" />
-      <rect x="540" y="380" width="20" height="30" />
-      <rect x="580" y="380" width="20" height="30" />
-      <rect x="620" y="380" width="20" height="30" />
-    </g>
-    <!-- Hängelampen -->
-    <g opacity="0.7">
-      <line x1="300" y1="120" x2="300" y2="180" stroke="#a87a3d" stroke-width="1" />
-      <circle cx="300" cy="190" r="10" fill="#c89a5e" />
-      <line x1="500" y1="120" x2="500" y2="180" stroke="#a87a3d" stroke-width="1" />
-      <circle cx="500" cy="190" r="10" fill="#c89a5e" />
-      <line x1="400" y1="120" x2="400" y2="200" stroke="#a87a3d" stroke-width="1" />
-      <circle cx="400" cy="210" r="14" fill="#c89a5e" />
-    </g>
-  `,
-};
----
-
-<figure class={`imgph imgph--${variant}`} role="img" aria-label={alt}>
-  <div class="imgph__bg"></div>
-  <svg class="imgph__svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" set:html={scenes[scene]} />
-  <div class="imgph__noise"></div>
-  {caption && <figcaption class="imgph__caption">{caption}</figcaption>}
-</figure>
