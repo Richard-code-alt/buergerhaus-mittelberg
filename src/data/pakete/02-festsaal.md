@@ -2,10 +2,9 @@
 reihenfolge: 2
 titel: Hochzeit im Festsaal
 untertitel: Für die klassische Hochzeitsfeier mit großer Runde, 80 bis 200 Gäste
-preis: 115
+preis: 120
 min_personen: 60
 highlight: true
-kurz: "Festsaal ab 14 Uhr, Catering frei wählbar, Bestuhlung, Service, Tanzfläche, Bühne."
 enthalten:
   - punkt: Festsaal exklusiv ab 14 Uhr bis 3 Uhr morgens
   - punkt: Tafel- oder Tischbestuhlung nach Wunsch
@@ -20,4 +19,6 @@ nicht_enthalten:
   - punkt: Hochzeitstorte
   - punkt: Floristik
   - punkt: Live-Band / DJ
+kurz: Festsaal ab 14 Uhr, Catering frei wählbar, Bestuhlung, Service,
+  Tanzfläche, Bühne.
 ---
