@@ -33,7 +33,7 @@ const currentPath = Astro.url.pathname;
           </li>
         ))}
       </ul>
-      <a href="/anfragen" class="btn btn--primary header__cta">Anfrage</a>
+      <a href="/anfragen" class="btn btn--secondary header__cta">Anfrage</a>
     </nav>
   </div>
 </header>
@@ -58,13 +58,13 @@ const currentPath = Astro.url.pathname;
   }
 
   .header__brand img {
-    height: 76px; width: auto; display: block;
+    height: 100px; width: auto; display: block;
   }
   @media (min-width: 720px) {
-    .header__brand img { height: 100px; }
+    .header__brand img { height: 130px; }
   }
   @media (min-width: 1100px) {
-    .header__brand img { height: 120px; }
+    .header__brand img { height: 160px; }
   }
 
   .header__list {
@@ -90,7 +90,7 @@ const currentPath = Astro.url.pathname;
   .header__toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   .header__nav {
-    position: fixed; top: 105px; left: 0; right: 0; bottom: 0;
+    position: fixed; top: 130px; left: 0; right: 0; bottom: 0;
     background: var(--c-cream);
     padding: var(--s-7) var(--s-5);
     flex-direction: column; align-items: stretch; gap: var(--s-5);
@@ -118,9 +118,11 @@ const currentPath = Astro.url.pathname;
     color: var(--c-blue);
   }
   .header__nav .header__cta {
-    display: inline-flex; width: fit-content; align-self: stretch;
+    display: inline-flex; align-self: flex-start;
     margin-top: var(--s-4);
+    padding: var(--s-4) var(--s-6);
     justify-content: center;
+    font-size: var(--t-md);
   }
 
   @media (min-width: 900px) {
@@ -143,11 +145,12 @@ const currentPath = Astro.url.pathname;
     }
     .header__nav a.is-current::after {
       content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px;
-      background: var(--c-brass);
+      background: var(--c-mokka);
     }
     .header__cta {
       display: inline-flex !important;
-      padding: var(--s-3) var(--s-5);
+      padding: 0.65rem 1.5rem !important;
+      font-size: var(--t-sm) !important;
       margin-top: 0 !important;
     }
   }

@@ -74,15 +74,14 @@ const schema = {
   <section class="hero">
     <div class="hero__inner">
       <div class="hero__copy">
-        <span class="eyebrow">Hochzeitslocation Allgäu</span>
+        <span class="eyebrow hero__eyebrow">Hochzeitslocation Allgäu</span>
         <h1 class="hero__title">
-          {seitentexte.hero_titel_1}<br/>
-          <span class="hero__title-script">{seitentexte.hero_titel_2}</span>
-          <span class="hero__title-end">{seitentexte.hero_titel_3}</span>.
+          <span class="hero__title-line-1">Eure Hochzeit</span>
+          <span class="hero__title-line-2">im <span class="hero__title-accent">Allgäu</span></span>
         </h1>
         <p class="hero__lead">{seitentexte.hero_lead}</p>
         <div class="hero__actions">
-          <a href="/anfragen" class="btn btn--primary btn--arrow">Termin anfragen</a>
+          <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg">Termin anfragen</a>
           <a href="/raeume" class="btn btn--secondary">Räume ansehen</a>
         </div>
 
@@ -287,42 +286,73 @@ const schema = {
   }
 
   .hero__title {
-    font-size: var(--t-hero);
-    line-height: 0.92;
+    font-family: var(--f-body);
+    font-weight: 600;
+    font-size: clamp(2.25rem, 8vw, 4.5rem);
+    line-height: 1.05;
     margin-bottom: var(--s-5);
     color: var(--c-anthracite);
+    letter-spacing: -0.03em;
+    text-transform: none;
+    text-align: center;
   }
-  .hero__title-script {
-    font-family: var(--f-body); font-weight: 500;
+  @media (min-width: 1000px) {
+    .hero__title { text-align: left; }
+  }
+  .hero__title-line-1, .hero__title-line-2 {
+    display: block;
+  }
+  .hero__title-line-2 {
+    font-size: 0.85em;
+    color: var(--c-mid);
+    font-weight: 400;
+    margin-top: var(--s-2);
     font-style: italic;
-    text-transform: none; letter-spacing: -0.02em;
-    color: var(--c-blue);
-    font-size: 0.5em;
-    display: inline-block;
-    transform: translateY(-0.25em);
-    padding-right: 0.15em;
   }
-  .hero__title-end {
+  .hero__title-accent {
     color: var(--c-mokka);
-    display: inline-block;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .hero__copy {
+    text-align: center;
+  }
+  .hero__eyebrow {
+    justify-content: center;
+  }
+  @media (min-width: 1000px) {
+    .hero__copy { text-align: left; }
+    .hero__eyebrow { justify-content: flex-start; }
   }
 
   .hero__lead {
     font-size: var(--t-md);
-    color: var(--c-mid); line-height: 1.5;
-    margin-bottom: var(--s-6);
+    color: var(--c-mid); line-height: 1.6;
+    margin: 0 auto var(--s-6);
     max-width: 36rem;
+  }
+  @media (min-width: 1000px) {
+    .hero__lead { margin: 0 0 var(--s-6); }
   }
 
   .hero__actions {
     display: flex; gap: var(--s-3); flex-wrap: wrap;
     margin-bottom: var(--s-7);
+    justify-content: center;
+  }
+  @media (min-width: 1000px) {
+    .hero__actions { justify-content: flex-start; }
   }
 
   .hero__stats {
     display: flex; gap: var(--s-5); flex-wrap: wrap;
     padding-top: var(--s-5);
     border-top: 1px solid var(--c-line);
+    justify-content: center;
+  }
+  @media (min-width: 1000px) {
+    .hero__stats { justify-content: flex-start; }
   }
   .hero__stats > div { display: flex; flex-direction: column; gap: var(--s-1); }
   .hero__stats strong {
