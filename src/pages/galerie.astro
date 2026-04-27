@@ -1,9 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import { getCollection } from 'astro:content';
 
 const title = 'Galerie — Hochzeiten im Bürgerhaus Mittelberg';
 const description = 'Bilder echter Hochzeiten im Bürgerhaus Mittelberg — Festsaal, Trauungen, Tanzfläche, Catering. Eindrücke aus dem Allgäu.';
+
+const bilder = (await getCollection('galerie')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
 
 const placeholders = [
   { alt: 'Festsaal eingedeckt für Hochzeit', scene: 'venue', caption: 'Festsaal' },
@@ -23,22 +26,33 @@ const placeholders = [
     <div class="container--narrow text-center">
       <span class="eyebrow">Galerie</span>
       <h1>Echte Feiern. Echte Bilder.</h1>
-      <p class="lead">
+      <p class="lead mx-auto">
         Bilder aus echten Hochzeiten und Festen bei uns. Kein Stockfoto, kein Stadium-Marketing.
       </p>
-      <p style="color: var(--c-soft); font-size: var(--t-sm);">
-        <em>Hinweis: Aktuell zeigen wir Beispiel-Visuals. Profi-Fotos vom Sommer-Shoot
-        ergänzen wir hier laufend.</em>
-      </p>
+      {bilder.length === 0 && (
+        <p style="color: var(--c-soft); font-size: var(--t-sm);">
+          <em>Hinweis: Aktuell zeigen wir Beispiel-Visuals. Profi-Fotos vom Sommer-Shoot
+          ergänzen wir hier laufend.</em>
+        </p>
+      )}
     </div>
   </section>
 
   <section class="section">
-    <div class="container--wide" style="padding: 0 var(--s-5); margin: 0 auto;">
+    <div class="container--wide">
       <div class="gallery">
-        {placeholders.map((p) => (
-          <ImagePlaceholder alt={p.alt} scene={p.scene as any} caption={p.caption} />
-        ))}
+        {bilder.length > 0 ? (
+          bilder.map((b) => (
+            <figure class="gallery__item">
+              <img src={b.data.bild} alt={b.data.alt} loading="lazy" />
+              {b.data.caption && <figcaption>{b.data.caption}</figcaption>}
+            </figure>
+          ))
+        ) : (
+          placeholders.map((p) => (
+            <ImagePlaceholder alt={p.alt} scene={p.scene as any} caption={p.caption} />
+          ))
+        )}
       </div>
     </div>
   </section>
@@ -46,9 +60,7 @@ const placeholders = [
   <section class="section section--blue">
     <div class="container--narrow text-center">
       <h2 class="text-balance">Eure Hochzeit, eure Bilder</h2>
-      <p class="lead" style="color: var(--c-cream); opacity: 0.9;">
-        Lasst uns persönlich sprechen, was wir für euren Tag möglich machen.
-      </p>
+      <p class="lead mx-auto">Lasst uns persönlich sprechen, was wir für euren Tag möglich machen.</p>
       <a href="/anfragen" class="btn btn--ghost btn--arrow mt-6">Termin anfragen</a>
     </div>
   </section>
@@ -65,5 +77,22 @@ const placeholders = [
   }
   @media (max-width: 480px) {
     .gallery { grid-template-columns: 1fr; }
+  }
+  .gallery__item {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--c-cream-warm);
+  }
+  .gallery__item img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .gallery__item figcaption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(13, 39, 65, 0.8) 0%, transparent 100%);
+    color: var(--c-cream);
+    padding: var(--s-5) var(--s-4) var(--s-3);
+    font-family: var(--f-script);
+    font-size: var(--t-md);
   }
 </style>

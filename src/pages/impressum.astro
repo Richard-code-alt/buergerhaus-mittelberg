@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import kontakt from '../data/kontakt.json';
 
 const title = 'Impressum — Bürgerhaus Mittelberg';
 const description = 'Impressum gemäß § 5 TMG und § 18 MStV.';
+const tel = kontakt.telefon.replace(/\s/g, '').replace(/^0/, '');
 ---
 
 <BaseLayout title={title} description={description} noindex={true}>
@@ -15,13 +17,12 @@ const description = 'Impressum gemäß § 5 TMG und § 18 MStV.';
 
   <section class="section">
     <div class="container--narrow legal">
-
       <h2>Angaben gemäß § 5 TMG</h2>
       <p>
         <strong>Sebastian Künzel</strong><br/>
         Bürgerhaus Mittelberg<br/>
-        Rotachstraße 8<br/>
-        87466 Oy-Mittelberg<br/>
+        {kontakt.strasse}<br/>
+        {kontakt.ort}<br/>
         Deutschland
       </p>
 
@@ -30,15 +31,15 @@ const description = 'Impressum gemäß § 5 TMG und § 18 MStV.';
 
       <h3>Kontakt</h3>
       <p>
-        Telefon: <a href="tel:+4983661300">08366 1300</a><br/>
-        E-Mail: <a href="mailto:info@buergerhaus-mittelberg.de">info@buergerhaus-mittelberg.de</a>
+        Telefon: <a href={`tel:+49${tel}`}>{kontakt.telefon}</a><br/>
+        E-Mail: <a href={`mailto:${kontakt.email}`}>{kontakt.email}</a>
       </p>
 
       <h3>Umsatzsteuer-ID</h3>
       <p>DE365685582</p>
 
       <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
-      <p>Sebastian Künzel, Rotachstraße 8, 87466 Oy-Mittelberg</p>
+      <p>Sebastian Künzel, {kontakt.strasse}, {kontakt.ort}</p>
 
       <h2>EU-Streitschlichtung</h2>
       <p>
@@ -64,7 +65,6 @@ const description = 'Impressum gemäß § 5 TMG und § 18 MStV.';
         Logo: © Bürgerhaus Mittelberg<br/>
         Bilder: © Bürgerhaus Mittelberg, soweit nicht anders gekennzeichnet
       </p>
-
     </div>
   </section>
 </BaseLayout>

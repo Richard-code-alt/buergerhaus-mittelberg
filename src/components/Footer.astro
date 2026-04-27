@@ -1,28 +1,30 @@
 ---
+import kontakt from '../data/kontakt.json';
 const year = new Date().getFullYear();
+const tel = kontakt.telefon.replace(/\s/g, '').replace(/^0/, '');
 ---
 
 <footer class="footer">
   <div class="container--wide">
     <div class="footer__grid">
       <div class="footer__col">
-        <p class="footer__brand">Bürgerhaus Mittelberg</p>
-        <p>Rotachstraße 8<br/>87466 Oy-Mittelberg<br/>Allgäu, Bayern</p>
+        <p class="footer__brand">{kontakt.name}</p>
+        <p>{kontakt.strasse}<br/>{kontakt.ort}<br/>Allgäu, Bayern</p>
       </div>
 
       <div class="footer__col">
         <p class="footer__head">Kontakt</p>
         <p>
-          <a href="tel:+4983661300">08366 1300</a><br/>
-          <a href="mailto:info@buergerhaus-mittelberg.de">info@buergerhaus-mittelberg.de</a>
+          <a href={`tel:+49${tel}`}>{kontakt.telefon}</a><br/>
+          <a href={`mailto:${kontakt.email}`}>{kontakt.email}</a>
         </p>
       </div>
 
       <div class="footer__col">
         <p class="footer__head">Folgen</p>
         <ul class="footer__social">
-          <li><a href="https://www.instagram.com/buergerhaus_mittelberg/" rel="noopener" target="_blank">Instagram</a></li>
-          <li><a href="https://www.facebook.com/Buergerhaus.Mittelberg/" rel="noopener" target="_blank">Facebook</a></li>
+          {kontakt.instagram && <li><a href={kontakt.instagram} rel="noopener" target="_blank">Instagram</a></li>}
+          {kontakt.facebook && <li><a href={kontakt.facebook} rel="noopener" target="_blank">Facebook</a></li>}
         </ul>
       </div>
 
@@ -33,7 +35,7 @@ const year = new Date().getFullYear();
     </div>
 
     <div class="footer__legal">
-      <p>© {year} Bürgerhaus Mittelberg</p>
+      <p>© {year} {kontakt.name}</p>
       <ul>
         <li><a href="/impressum">Impressum</a></li>
         <li><a href="/datenschutz">Datenschutz</a></li>
@@ -45,7 +47,7 @@ const year = new Date().getFullYear();
 
 <style>
   .footer {
-    background: var(--c-blue);
+    background: var(--c-blue-deep);
     color: var(--c-cream);
     padding: var(--s-9) 0 var(--s-5);
     margin-top: var(--s-9);
@@ -82,7 +84,7 @@ const year = new Date().getFullYear();
   .footer__social { display: flex; flex-direction: column; gap: var(--s-1); }
 
   .footer__legal {
-    border-top: 1px solid rgba(250, 247, 242, 0.15);
+    border-top: 1px solid rgba(250, 246, 238, 0.15);
     padding: var(--s-5);
     display: flex; justify-content: space-between; align-items: center;
     flex-wrap: wrap; gap: var(--s-4);
@@ -92,7 +94,7 @@ const year = new Date().getFullYear();
   .footer__legal button {
     color: var(--c-cream); cursor: pointer;
     font-size: inherit; padding: 0;
-    text-decoration: underline; text-decoration-color: rgba(250, 247, 242, 0.4);
+    text-decoration: underline; text-decoration-color: rgba(250, 246, 238, 0.4);
   }
   .footer__legal button:hover { color: var(--c-brass-light); }
 </style>

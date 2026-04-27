@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import kontakt from '../data/kontakt.json';
 
 const title = 'Termin & Hochzeit anfragen — Bürgerhaus Mittelberg';
 const description = 'Schickt uns Wunschdatum, Gästezahl und Wünsche — wir antworten innerhalb von 48 Stunden mit konkretem Vorschlag und Besichtigungstermin.';
 
-// Jotform-ID: wird in Phase 5 (Jotform-Build) gesetzt
 const JOTFORM_ID = import.meta.env.PUBLIC_JOTFORM_ID || '';
+const tel = kontakt.telefon.replace(/\s/g, '').replace(/^0/, '');
 ---
 
 <BaseLayout title={title} description={description}>
@@ -13,7 +14,7 @@ const JOTFORM_ID = import.meta.env.PUBLIC_JOTFORM_ID || '';
     <div class="container--narrow text-center">
       <span class="eyebrow">Anfrage</span>
       <h1>Anfrage stellen</h1>
-      <p class="lead">
+      <p class="lead mx-auto">
         Schreibt uns euer Wunschdatum, eure ungefähre Gästezahl und was euch wichtig ist.
         Wir melden uns innerhalb von 48 Stunden mit einem konkreten Vorschlag und laden
         euch zur Besichtigung ein.
@@ -26,9 +27,9 @@ const JOTFORM_ID = import.meta.env.PUBLIC_JOTFORM_ID || '';
       <div class="contact-info">
         <p>
           Lieber direkter Kontakt? Ruft uns an unter
-          <a href="tel:+4983661300"><strong>08366 1300</strong></a>
+          <a href={`tel:+49${tel}`}><strong>{kontakt.telefon}</strong></a>
           oder schreibt direkt an
-          <a href="mailto:info@buergerhaus-mittelberg.de"><strong>info@buergerhaus-mittelberg.de</strong></a>.
+          <a href={`mailto:${kontakt.email}`}><strong>{kontakt.email}</strong></a>.
         </p>
       </div>
 

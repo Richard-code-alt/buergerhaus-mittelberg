@@ -1,21 +1,32 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import { getCollection } from 'astro:content';
+import seitentexte from '../data/seiten/startseite.json';
+import kontakt from '../data/kontakt.json';
 
 const title = 'Hochzeit im Bürgerhaus Mittelberg — Saal & Küche aus einer Hand';
 const description = 'Heiratet im Allgäu: Festsaal für bis zu 260 Gäste, eigene Küche, persönliche Gastgeber. Im Bürgerhaus Mittelberg in Oy-Mittelberg. Termin anfragen.';
 
+const pakete = (await getCollection('pakete')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+
+const slugMap: Record<string, string> = {
+  'Standesamt im Stüble': 'standesamt',
+  'Hochzeit im Festsaal': 'festsaal',
+  'Komplett-Hochzeit': 'komplett',
+};
+
 const schema = {
   '@context': 'https://schema.org',
   '@type': ['EventVenue', 'LocalBusiness'],
-  name: 'Bürgerhaus Mittelberg',
+  name: kontakt.name,
   description: 'Hochzeitslocation und Eventsaal in Oy-Mittelberg im Allgäu mit eigener Küche. Festsaal für bis zu 260 Personen, separates Stüble für bis zu 50 Personen.',
   url: 'https://www.buergerhaus-mittelberg.de/',
   telephone: '+49-8366-1300',
-  email: 'info@buergerhaus-mittelberg.de',
+  email: kontakt.email,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Rotachstraße 8',
+    streetAddress: kontakt.strasse,
     addressLocality: 'Oy-Mittelberg',
     postalCode: '87466',
     addressRegion: 'Bayern',
@@ -31,10 +42,7 @@ const schema = {
     { '@type': 'LocationFeatureSpecification', name: 'Parkplätze', value: true },
     { '@type': 'LocationFeatureSpecification', name: 'Tanzfläche', value: true },
   ],
-  sameAs: [
-    'https://www.instagram.com/buergerhaus_mittelberg/',
-    'https://www.facebook.com/Buergerhaus.Mittelberg/',
-  ],
+  sameAs: [kontakt.instagram, kontakt.facebook].filter(Boolean),
 };
 ---
 
@@ -43,20 +51,16 @@ const schema = {
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </Fragment>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero__inner">
       <div class="hero__copy">
         <span class="eyebrow">Hochzeitslocation Allgäu</span>
         <h1 class="hero__title">
-          Eure Hochzeit.<br/>
-          <span class="hero__title-script">Mitten im</span>
-          <span class="hero__title-end">Allgäu</span>.
+          {seitentexte.hero_titel_1}<br/>
+          <span class="hero__title-script">{seitentexte.hero_titel_2}</span>
+          <span class="hero__title-end">{seitentexte.hero_titel_3}</span>.
         </h1>
-        <p class="hero__lead">
-          Festsaal, Bühne, eigene Küche — alles aus einer Hand.
-          Im Bürgerhaus Mittelberg in Oy-Mittelberg.
-        </p>
+        <p class="hero__lead">{seitentexte.hero_lead}</p>
         <div class="hero__actions">
           <a href="/anfragen" class="btn btn--primary btn--arrow">Termin anfragen</a>
           <a href="/raeume" class="btn btn--secondary">Räume ansehen</a>
@@ -79,16 +83,12 @@ const schema = {
     </div>
   </section>
 
-  <!-- USP -->
   <section class="section section--cream-warm">
     <div class="container">
       <div class="text-center mb-8">
         <span class="eyebrow">Aus einer Hand</span>
-        <h2 class="text-balance">Saal, Bühne, Küche.<br/><span class="serif-italic" style="font-family: var(--f-body); font-size: 0.85em; text-transform: none; letter-spacing: 0; color: var(--c-blue);">Alles unter einem Dach.</span></h2>
-        <p class="lead text-balance mx-auto" style="margin: var(--s-5) auto 0;">
-          Bei uns plant ihr eure Hochzeit nicht mit fünf Anbietern, sondern mit einem.
-          Ein Ansprechpartner. Eine Rechnung. Ein Versprechen.
-        </p>
+        <h2 class="text-balance">{seitentexte.usp_titel}<br/><span class="serif-italic" style="font-family: var(--f-body); font-size: 0.85em; text-transform: none; letter-spacing: 0; color: var(--c-blue);">Alles unter einem Dach.</span></h2>
+        <p class="lead text-balance mx-auto" style="margin: var(--s-5) auto 0;">{seitentexte.usp_lead}</p>
       </div>
 
       <div class="grid grid-3">
@@ -111,7 +111,6 @@ const schema = {
     </div>
   </section>
 
-  <!-- Räume -->
   <section class="section">
     <div class="container">
       <div class="text-center mb-8">
@@ -144,7 +143,6 @@ const schema = {
     </div>
   </section>
 
-  <!-- Pakete -->
   <section class="section section--cream-warm">
     <div class="container">
       <div class="text-center mb-8">
@@ -154,29 +152,18 @@ const schema = {
       </div>
 
       <div class="grid grid-3">
-        <article class="card">
-          <span class="card__tier">Paket 1</span>
-          <h3>Standesamt im Stüble</h3>
-          <p>Für die intime Trauung im Familienkreis. Stüble inkl. Bestuhlung, Sektempfang, Drei-Gang-Menü.</p>
-          <p class="card__price">ab <strong>89 €</strong> p. P.<br/><small>min. 20 Personen</small></p>
-          <a href="/hochzeit#standesamt" class="btn btn--secondary btn--arrow">Details</a>
-        </article>
-
-        <article class="card card--highlight">
-          <span class="card__tier">Paket 2</span>
-          <h3>Hochzeit im Festsaal</h3>
-          <p>Festsaal ab 14 Uhr, Catering frei wählbar, Bestuhlung, Service, Tanzfläche, Bühne.</p>
-          <p class="card__price">ab <strong>115 €</strong> p. P.<br/><small>min. 60 Personen</small></p>
-          <a href="/hochzeit#festsaal" class="btn btn--primary btn--arrow">Details</a>
-        </article>
-
-        <article class="card">
-          <span class="card__tier">Paket 3</span>
-          <h3>Komplett-Hochzeit</h3>
-          <p>Festsaal + Stüble, freie Trauung möglich, ganzer Tag von 11 bis 3 Uhr, alles inklusive bis auf Getränke.</p>
-          <p class="card__price">ab <strong>165 €</strong> p. P.<br/><small>min. 80 Personen</small></p>
-          <a href="/hochzeit#komplett" class="btn btn--secondary btn--arrow">Details</a>
-        </article>
+        {pakete.map((p, i) => {
+          const slug = slugMap[p.data.titel] || `paket-${p.data.reihenfolge}`;
+          return (
+            <article class={`card${p.data.highlight ? ' card--highlight' : ''}`}>
+              <span class="card__tier">Paket {i + 1}</span>
+              <h3>{p.data.titel}</h3>
+              <p>{p.data.kurz}</p>
+              <p class="card__price">ab <strong>{p.data.preis} €</strong> p. P.<br/><small>min. {p.data.min_personen} Personen</small></p>
+              <a href={`/hochzeit#${slug}`} class={`btn ${p.data.highlight ? 'btn--primary' : 'btn--secondary'} btn--arrow`}>Details</a>
+            </article>
+          );
+        })}
       </div>
 
       <div class="text-center mt-8">
@@ -185,7 +172,6 @@ const schema = {
     </div>
   </section>
 
-  <!-- Trauung -->
   <section class="section">
     <div class="container--narrow text-center">
       <span class="eyebrow">Trauung</span>
@@ -199,17 +185,10 @@ const schema = {
     </div>
   </section>
 
-  <!-- Catering -->
   <section class="section section--cream-warm">
     <div class="container">
       <div class="grid grid-2" style="align-items: center;">
-        <div>
-          <ImagePlaceholder
-            alt="Aus unserer Küche — Hochzeitsmenü"
-            scene="food"
-            caption="Aus unserer Küche"
-          />
-        </div>
+        <ImagePlaceholder alt="Aus unserer Küche — Hochzeitsmenü" scene="food" caption="Aus unserer Küche" />
         <div>
           <span class="eyebrow">Catering</span>
           <h2 class="text-balance">Wir kochen selbst.</h2>
@@ -225,20 +204,18 @@ const schema = {
     </div>
   </section>
 
-  <!-- Anfahrt -->
   <section class="section">
     <div class="container--narrow text-center">
       <span class="eyebrow">Anfahrt</span>
       <h2 class="text-balance">Mitten im Ort. Direkt erreichbar.</h2>
       <p class="lead text-pretty mx-auto">
-        Rotachstraße 8, Oy-Mittelberg. Direkt an der Hauptstraße im Ortsteil Mittelberg.
+        {kontakt.strasse}, {kontakt.ort.replace(/\d+\s+/, '')}. Direkt an der Hauptstraße im Ortsteil Mittelberg.
         Parkplätze für eure Gäste sind vor dem Haus. A7 zehn Minuten, Bahnhof fünf Minuten zu Fuß.
       </p>
       <a href="/anfahrt" class="btn btn--secondary btn--arrow mt-5">Anfahrt & Hotels</a>
     </div>
   </section>
 
-  <!-- Final CTA -->
   <section class="section section--blue">
     <div class="container--narrow text-center">
       <span class="eyebrow">Anfrage</span>
@@ -270,14 +247,9 @@ const schema = {
     padding: 0 var(--s-4); margin: 0 auto;
     max-width: var(--w-wide);
   }
-  @media (min-width: 720px) {
-    .hero__inner { padding: 0 var(--s-6); gap: var(--s-7); }
-  }
+  @media (min-width: 720px) { .hero__inner { padding: 0 var(--s-6); gap: var(--s-7); } }
   @media (min-width: 1000px) {
-    .hero__inner {
-      grid-template-columns: 1.1fr 1fr; gap: var(--s-8);
-      align-items: center;
-    }
+    .hero__inner { grid-template-columns: 1.1fr 1fr; gap: var(--s-8); align-items: center; }
   }
 
   .hero__title {
@@ -295,10 +267,7 @@ const schema = {
     transform: translateY(-0.15em);
     padding-right: 0.15em;
   }
-  .hero__title-end {
-    color: var(--c-brass);
-    display: inline-block;
-  }
+  .hero__title-end { color: var(--c-brass); display: inline-block; }
 
   .hero__lead {
     font-size: var(--t-md);
@@ -317,9 +286,7 @@ const schema = {
     padding-top: var(--s-5);
     border-top: 1px solid var(--c-line);
   }
-  .hero__stats > div {
-    display: flex; flex-direction: column; gap: var(--s-1);
-  }
+  .hero__stats > div { display: flex; flex-direction: column; gap: var(--s-1); }
   .hero__stats strong {
     font-family: var(--f-display);
     font-size: var(--t-xl);
