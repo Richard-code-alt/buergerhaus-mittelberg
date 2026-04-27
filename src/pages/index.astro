@@ -88,7 +88,7 @@ const schema = {
         <div class="hero__stats">
           <div><strong>260</strong><span>Plätze im Festsaal</span></div>
           <div><strong>9 × 6 m</strong><span>Profibühne</span></div>
-          <div><strong>1</strong><span>Ansprechpartner</span></div>
+          <div><strong>Familie</strong><span>Geführt seit Jahrzehnten</span></div>
         </div>
       </div>
       <div class="hero__visual">
@@ -211,7 +211,7 @@ const schema = {
       <p class="lead text-pretty mx-auto">
         Im Stüble heiraten Sie im Familienkreis, im Festsaal in großer Runde.
         Bei gutem Wetter auch draußen vor dem Haus, mit Blick auf die Allgäuer Berge.
-        Das Standesamt Oy-Mittelberg liegt drei Minuten zu Fuß entfernt.
+        Das Standesamt Oy-Mittelberg ist in wenigen Minuten mit dem Auto erreichbar.
       </p>
       <a href="/hochzeit#trauung" class="btn btn--secondary btn--arrow mt-5">Trauung-Optionen</a>
     </div>
@@ -236,12 +236,48 @@ const schema = {
   </section>
 
   <section class="section">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center;">
+        <ImagePlaceholder alt="Sebastian Künzel und Team vor dem Bürgerhaus Mittelberg" scene="venue" caption="Unser Team" />
+        <div>
+          <span class="eyebrow">Wir</span>
+          <h2 class="text-balance">Sebastian Künzel & Team</h2>
+          <p>
+            Persönlich, herzlich, mit Wurzeln im Allgäu. Wir kochen selbst, kümmern uns um jedes Detail und sind vom ersten Telefonat bis zum Abschiedskaffee am Sonntagmorgen für Sie da.
+          </p>
+          <p>
+            Schauen Sie auch gerne auf unseren Social-Media-Kanälen vorbei — dort zeigen wir Eindrücke aus dem Alltag im Bürgerhaus.
+          </p>
+          <div class="social-links mt-4">
+            {kontakt.instagram && (
+              <a href={kontakt.instagram} target="_blank" rel="noopener" class="social-link">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.85 5.85 0 0 0-2.13 1.38A5.85 5.85 0 0 0 .63 4.14c-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.81.74 1.5 1.38 2.13a5.85 5.85 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.85 5.85 0 0 0 2.13-1.38 5.85 5.85 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91C23.99 15.67 24 15.26 24 12s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.85 5.85 0 0 0-1.38-2.13A5.85 5.85 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.4-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/>
+                </svg>
+                <span>Instagram</span>
+              </a>
+            )}
+            {kontakt.facebook && (
+              <a href={kontakt.facebook} target="_blank" rel="noopener" class="social-link">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                  <path d="M24 12.07A12 12 0 1 0 10.13 24v-8.44H7.08v-3.5h3.05V9.41c0-3.02 1.8-4.7 4.55-4.7 1.32 0 2.7.24 2.7.24v2.97h-1.52c-1.5 0-1.96.93-1.96 1.89v2.26h3.34l-.53 3.5h-2.81V24A12 12 0 0 0 24 12.07z"/>
+                </svg>
+                <span>Facebook</span>
+              </a>
+            )}
+          </div>
+          <a href="/ueber-uns" class="btn btn--secondary btn--arrow mt-5">Mehr über uns</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream-warm">
     <div class="container--narrow text-center">
       <span class="eyebrow">Anfahrt</span>
-      <h2 class="text-balance">Mitten im Ort. Direkt erreichbar.</h2>
+      <h2 class="text-balance">Mitten im Ort.</h2>
       <p class="lead text-pretty mx-auto">
-        {kontakt.strasse}, {kontakt.ort.replace(/\d+\s+/, '')}. Direkt an der Hauptstraße im Ortsteil Mittelberg.
-        Kostenfreie Parkplätze direkt vor dem Haus, A7 zehn Minuten, Bahnhof fünf Minuten zu Fuß.
+        {kontakt.strasse}, {kontakt.ort.replace(/\d+\s+/, '')}. Direkt an der Hauptstraße im Ortsteil Mittelberg, mit kostenfreien Parkplätzen vor dem Haus. Standesamt und Bahnhof Oy-Mittelberg sind in drei Minuten mit dem Auto erreichbar.
       </p>
       <a href="/anfahrt" class="btn btn--secondary btn--arrow mt-5">Anfahrt & Hotels</a>
     </div>
@@ -387,4 +423,29 @@ const schema = {
     text-transform: none;
     letter-spacing: 0;
   }
+  .social-links {
+    display: flex;
+    gap: var(--s-3);
+    flex-wrap: wrap;
+  }
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-2);
+    padding: var(--s-2) var(--s-4);
+    border: 1px solid var(--c-line);
+    border-radius: var(--r-pill);
+    color: var(--c-anthracite);
+    background: var(--c-cream);
+    font-size: var(--t-sm);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition);
+  }
+  .social-link:hover {
+    border-color: var(--c-mokka);
+    color: var(--c-mokka);
+    transform: translateY(-1px);
+  }
+  .social-link svg { flex-shrink: 0; }
 </style>
