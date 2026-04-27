@@ -5,7 +5,7 @@ import kontakt from '../data/kontakt.json';
 import { getCollection } from 'astro:content';
 
 const title = 'Anfragen — Termin & Veranstaltung | Bürgerhaus Mittelberg';
-const description = 'Schickt uns eure Wünsche — Hochzeit, Tagung, Geburtstag, Catering. Wir antworten innerhalb von 48 Stunden.';
+const description = 'Schreiben Sie uns Ihre Wünsche — Hochzeit, Tagung, Geburtstag, Catering. Wir antworten innerhalb von 48 Stunden.';
 
 const tel = kontakt.telefon.replace(/\s/g, '').replace(/^0/, '');
 const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
@@ -21,7 +21,7 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
       <span class="eyebrow">Anfrage</span>
       <h1>Anfrage stellen</h1>
       <p class="lead mx-auto">
-        Schreibt uns, was ihr feiern wollt — Hochzeit, Tagung, Geburtstag oder etwas anderes.
+        Schreiben Sie uns, was Sie feiern möchten — Hochzeit, Tagung, Geburtstag oder etwas anderes.
         Wir melden uns innerhalb von 48 Stunden mit einem konkreten Vorschlag.
       </p>
     </div>
@@ -56,7 +56,7 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
         </div>
 
         <fieldset class="form__group">
-          <legend class="form__legend">Was wollt ihr feiern?</legend>
+          <legend class="form__legend">Was wollen Sie feiern?</legend>
           <div class="form__radio-grid">
             {anlaesse.map((a) => (
               <label class="form__radio-card">
@@ -105,7 +105,7 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
             <select id="raum" name="raum">
               <option value="">— Egal / unsicher</option>
               <option value="Festsaal">Festsaal</option>
-              <option value="Stüble">St. Martins-Stüble</option>
+              <option value="Stüble">Martin Stüble</option>
               <option value="Beide">Beide</option>
               <option value="Außer-Haus">Außer Haus (Catering)</option>
             </select>
@@ -113,7 +113,7 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
         </div>
 
         <div class="form__field">
-          <label for="nachricht">Was ist euch wichtig? (Wünsche, Fragen, Sonstiges)</label>
+          <label for="nachricht">Was ist Ihnen wichtig? (Wünsche, Fragen, Sonstiges)</label>
           <textarea id="nachricht" name="nachricht" rows="6" placeholder="z.B. freie Trauung im Freien geplant, vegane Hauptspeisen, DJ schon gebucht ..."></textarea>
         </div>
 

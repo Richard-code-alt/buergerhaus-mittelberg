@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 import kontakt from '../data/kontakt.json';
 
 const title = 'Anfahrt & Hotels — Bürgerhaus Mittelberg in Oy-Mittelberg';
-const description = 'Anfahrt zum Bürgerhaus Mittelberg per Auto, Bahn, Flughafen. Parkplätze direkt vor dem Haus. Hotel-Empfehlungen für eure Gäste in Oy-Mittelberg.';
+const description = 'Anfahrt zum Bürgerhaus Mittelberg per Auto, Bahn, Flughafen. Parkplätze direkt vor dem Haus. Hotel-Empfehlungen für Ihre Gäste in Oy-Mittelberg.';
 
 const allHotels = await getCollection('hotels');
 const hotelsZuFuss = allHotels.filter((h) => h.data.kategorie === 'Zu Fuß erreichbar').sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
@@ -19,7 +19,7 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
   <section class="section--hero">
     <div class="container--narrow text-center">
       <span class="eyebrow">Anfahrt</span>
-      <h1>So findet ihr uns</h1>
+      <h1>So finden Sie uns</h1>
 
       <div class="address-card mt-6">
         <p class="address-card__name">{kontakt.name}</p>
@@ -48,7 +48,7 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
               Karte hier laden
             </button>
             <p class="map-placeholder__hint">
-              Datenschutz-konform: Wir laden die Karte erst nach eurem Klick.
+              Datenschutz-konform: Wir laden die Karte erst nach Ihrem Klick.
             </p>
           </div>
         </div>
@@ -76,7 +76,7 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
             >OpenStreetMap</a>
           </div>
           <p class="map-card__note">
-            Klick auf einen Button öffnet eure Navi-App mit der Route ab eurem Standort.
+            Klick auf einen Button öffnet Ihre Navi-App mit der Route ab Ihrem Standort.
           </p>
         </div>
       </div>
@@ -122,7 +122,7 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
       <span class="eyebrow">Parken</span>
       <h2>Direkt vor dem Haus</h2>
       <p>
-        Direkt vor dem Bürgerhaus stehen ausreichend kostenfreie Parkplätze für eure Gäste.
+        Direkt vor dem Bürgerhaus stehen ausreichend kostenfreie Parkplätze für Ihre Gäste.
         Bei sehr großen Hochzeiten weisen wir Zusatzflächen aus.
       </p>
     </div>
@@ -134,7 +134,7 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
         <span class="eyebrow">Übernachten</span>
         <h2>Hotels in Oy-Mittelberg</h2>
         <p class="lead mx-auto">
-          Damit eure Gäste nicht weit fahren müssen, hier eine Auswahl an Häusern in Gehweite oder
+          Damit Ihre Gäste nicht weit fahren müssen, hier eine Auswahl an Häusern in Gehweite oder
           kurzer Fahrt. Reservierungen laufen direkt mit den Häusern.
         </p>
       </div>
@@ -179,7 +179,7 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
       </div>
 
       <p class="text-center mt-6" style="color: var(--c-soft); font-size: var(--t-sm);">
-        <em>Auf Wunsch kündigen wir eure Hochzeitsgesellschaft bei den Häusern an.</em>
+        <em>Auf Wunsch melden wir Ihre Hochzeitsgesellschaft bei den Häusern an.</em>
       </p>
     </div>
   </section>

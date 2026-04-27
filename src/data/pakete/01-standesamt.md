@@ -1,20 +1,20 @@
 ---
 reihenfolge: 1
-titel: Standesamt im Stüble
-untertitel: Für die intime Trauung im Familienkreis
+titel: Hochzeitsfeier im Martin Stüble
+untertitel: Für die kleine Feier nach der Trauung im Familienkreis
 preis: 89
 min_personen: 20
 highlight: false
-kurz: "Für die intime Trauung im Familienkreis. St. Martins-Stüble inkl. Bestuhlung, Sektempfang, Drei-Gang-Menü."
+kurz: "Für die kleine Feier nach standesamtlicher Trauung. Martin Stüble inkl. Sektempfang, Drei-Gang-Menü, Service."
 enthalten:
-  - punkt: St. Martins-Stüble exklusiv von 14 bis 22 Uhr
-  - punkt: Reihenbestuhlung für die freie Trauung
-  - punkt: Anschließend Umbau auf Festtafel
+  - punkt: Martin Stüble exklusiv von 14 bis 22 Uhr
+  - punkt: Festtafel oder Tischrunden nach Wunsch eingedeckt
+  - punkt: Sektempfang nach Ankunft
   - punkt: Drei-Gang-Menü aus unserer Küche
-  - punkt: Sektempfang nach der Trauung
   - punkt: Service-Personal
   - punkt: Reinigung
 nicht_enthalten:
+  - punkt: Standesamtliche Trauung (findet im Standesamt Oy-Mittelberg statt)
   - punkt: Getränke à la carte
   - punkt: Hochzeitstorte
   - punkt: Floristik
