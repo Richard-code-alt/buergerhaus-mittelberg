@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 import { getCollection } from 'astro:content';
 import seitentexte from '../data/seiten/catering.json';
@@ -11,6 +12,9 @@ const menues = (await getCollection('menues')).sort((a, b) => a.data.reihenfolge
 ---
 
 <BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema items={[{ name: 'Catering', url: '/catering' }]} />
+  </Fragment>
   <section class="section--hero">
     <div class="container--narrow text-center">
       <span class="eyebrow">Catering</span>

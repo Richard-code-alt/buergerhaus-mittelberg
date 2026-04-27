@@ -1,11 +1,12 @@
 ---
-// SEO.astro — wiederverwendbare Meta-Tags
+// SEO.astro — wiederverwendbare Meta-Tags + Strukturdaten
 export interface Props {
   title: string;
   description: string;
   ogImage?: string;
   noindex?: boolean;
   canonical?: string;
+  ogType?: 'website' | 'article';
 }
 
 const {
@@ -14,6 +15,7 @@ const {
   ogImage = '/og-default.jpg',
   noindex = false,
   canonical,
+  ogType = 'website',
 } = Astro.props as Props;
 
 const SITE_NAME = 'Bürgerhaus Mittelberg';
@@ -23,18 +25,28 @@ const url = canonical || new URL(Astro.url.pathname, SITE_URL).toString();
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, SITE_URL).toString();
 ---
 
+<!-- Basics -->
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={url} />
+<meta name="author" content={SITE_NAME} />
+<meta name="publisher" content={SITE_NAME} />
+<meta name="language" content="de" />
 
-{noindex && <meta name="robots" content="noindex,follow" />}
+{noindex
+  ? <meta name="robots" content="noindex,follow" />
+  : <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+}
 
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
+<!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+<meta property="og:type" content={ogType} />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={url} />
 <meta property="og:image" content={ogImageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={`Logo ${SITE_NAME}`} />
 <meta property="og:site_name" content={SITE_NAME} />
 <meta property="og:locale" content="de_DE" />
 
@@ -43,10 +55,19 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, SITE_
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImageUrl} />
+<meta name="twitter:image:alt" content={`Logo ${SITE_NAME}`} />
 
-<!-- Favicon -->
+<!-- Favicon und Apple-Touch -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="alternate icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/logo-square.png" />
+<link rel="manifest" href="/site.webmanifest" />
 
-<!-- Theme color -->
-<meta name="theme-color" content="#206090" />
+<!-- Theme color (Brand-Blau) -->
+<meta name="theme-color" content="#1d4f7d" />
+<meta name="msapplication-TileColor" content="#1d4f7d" />
+
+<!-- Geo-Tags (regional SEO) -->
+<meta name="geo.region" content="DE-BY" />
+<meta name="geo.placename" content="Oy-Mittelberg" />
+<meta name="geo.position" content="47.642980;10.437750" />
+<meta name="ICBM" content="47.642980, 10.437750" />

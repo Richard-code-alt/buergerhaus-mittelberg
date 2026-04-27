@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 import { getCollection } from 'astro:content';
 import kontakt from '../data/kontakt.json';
 
@@ -12,6 +13,9 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
 ---
 
 <BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema items={[{ name: 'Anfahrt', url: '/anfahrt' }]} />
+  </Fragment>
   <section class="section--hero">
     <div class="container--narrow text-center">
       <span class="eyebrow">Anfahrt</span>

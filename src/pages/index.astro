@@ -43,6 +43,26 @@ const schema = {
     { '@type': 'LocationFeatureSpecification', name: 'Tanzfläche', value: true },
   ],
   sameAs: [kontakt.instagram, kontakt.facebook].filter(Boolean),
+  priceRange: '€€',
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      description: 'Termine nach Vereinbarung',
+    },
+  ],
+  makesOffer: pakete.map((p) => ({
+    '@type': 'Offer',
+    name: p.data.titel,
+    description: p.data.kurz,
+    price: p.data.preis,
+    priceCurrency: 'EUR',
+    eligibleQuantity: {
+      '@type': 'QuantitativeValue',
+      minValue: p.data.min_personen,
+      unitText: 'Personen',
+    },
+  })),
 };
 ---
 

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 import { getCollection } from 'astro:content';
 import seitentexte from '../data/seiten/hochzeit.json';
 
@@ -29,6 +30,7 @@ const faqSchema = {
 <BaseLayout title={title} description={description}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <BreadcrumbSchema items={[{ name: 'Hochzeit', url: '/hochzeit' }]} />
   </Fragment>
 
   <section class="section--hero">

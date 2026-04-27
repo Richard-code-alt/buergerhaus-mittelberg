@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 
 const title = 'Festsaal & Stüble — Räume im Bürgerhaus Mittelberg';
@@ -7,6 +8,9 @@ const description = 'Festsaal für 260 Gäste mit großer Bühne, St. Martins-St
 ---
 
 <BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema items={[{ name: 'Räume', url: '/raeume' }]} />
+  </Fragment>
   <section class="section--hero">
     <div class="container--narrow text-center">
       <span class="eyebrow">Räume</span>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 import kontakt from '../data/kontakt.json';
 
 const title = 'Termin & Hochzeit anfragen — Bürgerhaus Mittelberg';
@@ -10,6 +11,9 @@ const tel = kontakt.telefon.replace(/\s/g, '').replace(/^0/, '');
 ---
 
 <BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema items={[{ name: 'Anfrage', url: '/anfragen' }]} />
+  </Fragment>
   <section class="section--hero">
     <div class="container--narrow text-center">
       <span class="eyebrow">Anfrage</span>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 import { getCollection } from 'astro:content';
 
@@ -7,6 +8,18 @@ const title = 'Galerie — Hochzeiten im Bürgerhaus Mittelberg';
 const description = 'Bilder echter Hochzeiten im Bürgerhaus Mittelberg — Festsaal, Trauungen, Tanzfläche, Catering. Eindrücke aus dem Allgäu.';
 
 const bilder = (await getCollection('galerie')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+
+const SITE_URL = Astro.site?.toString() || 'https://www.buergerhaus-mittelberg.de';
+const gallerySchema = bilder.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'ImageGallery',
+  name: 'Hochzeiten im Bürgerhaus Mittelberg',
+  image: bilder.map((b) => ({
+    '@type': 'ImageObject',
+    contentUrl: new URL(b.data.bild, SITE_URL).toString(),
+    description: b.data.alt,
+  })),
+} : null;
 
 const placeholders = [
   { alt: 'Festsaal eingedeckt für Hochzeit', scene: 'venue', caption: 'Festsaal' },
@@ -22,6 +35,10 @@ const placeholders = [
 ---
 
 <BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <BreadcrumbSchema items={[{ name: 'Galerie', url: '/galerie' }]} />
+    {gallerySchema && <script type="application/ld+json" set:html={JSON.stringify(gallerySchema)} />}
+  </Fragment>
   <section class="section--hero">
     <div class="container--narrow text-center">
       <span class="eyebrow">Galerie</span>

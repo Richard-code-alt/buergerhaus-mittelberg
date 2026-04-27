@@ -1,0 +1,27 @@
+---
+// BreadcrumbSchema.astro — JSON-LD für Google-Breadcrumbs
+export interface Props {
+  items: Array<{ name: string; url?: string }>;
+}
+
+const { items } = Astro.props as Props;
+const SITE_URL = Astro.site?.toString() || 'https://www.buergerhaus-mittelberg.de';
+
+const fullList = [
+  { name: 'Startseite', url: '/' },
+  ...items,
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: fullList.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.name,
+    ...(item.url && { item: new URL(item.url, SITE_URL).toString() }),
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

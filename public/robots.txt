@@ -1,6 +1,31 @@
+# robots.txt — Bürgerhaus Mittelberg
+
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
+# Wichtige Suchmaschinen explizit erlauben
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+
+# AI-Crawler differenziert
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Sitemap-Verweis
 Sitemap: https://www.buergerhaus-mittelberg.de/sitemap-index.xml
