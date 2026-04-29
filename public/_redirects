@@ -1,8 +1,4 @@
 # Bürgerhaus Mittelberg — Netlify Redirects
-
-# www → non-www (kanonische Domain ist www.buergerhaus-mittelberg.de)
-# Beide Varianten werden später bei IONOS auf Netlify zeigen
-https://buergerhaus-mittelberg.de/*  https://www.buergerhaus-mittelberg.de/:splat  301!
-
-# Form-Submit-Redirect: Falls JS-Fallback nötig, geht POST von / auf /danke
-# (Netlify Forms behandelt /POST automatisch, dies hier nur als Sicherheitsnetz)
+# Netlify übernimmt den Domain-Redirect zwischen Primary und Alias automatisch,
+# basierend auf der "Primary domain"-Einstellung im Dashboard.
+# Manuelle Redirect-Regeln werden hier nicht mehr benötigt.
