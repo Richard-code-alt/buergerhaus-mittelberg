@@ -4,17 +4,10 @@ import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 import { getCollection } from 'astro:content';
 import seitentexte from '../data/seiten/hochzeit.json';
 
-const title = 'Hochzeit feiern im Bürgerhaus Mittelberg — Pakete & Ablauf';
-const description = 'Hochzeitspakete im Bürgerhaus Mittelberg: Standesamt im Stüble, Hochzeit im Festsaal, Komplett-Tag. Transparente Preise, eigene Küche, persönliche Betreuung.';
+const title = 'Hochzeit feiern im Bürgerhaus Mittelberg — Festsaal & Service';
+const description = 'Hochzeitsfeier im Bürgerhaus Mittelberg: Festsaal für 50 bis 250 Gäste, eigene Küche, Sektempfang, Service, Tanzfläche, bis 3 Uhr ohne Aufpreis. Allgäu, gutbürgerlich.';
 
-const pakete = (await getCollection('pakete')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
 const faqs = (await getCollection('faq')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
-
-const slugMap: Record<string, string> = {
-  'Standesamt im Stüble': 'standesamt',
-  'Hochzeit im Festsaal': 'festsaal',
-  'Komplett-Hochzeit': 'komplett',
-};
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -25,6 +18,26 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: f.data.antwort.trim() },
   })),
 };
+
+const enthalten = [
+  'Festsaal exklusiv für Sie und Ihre Gäste',
+  'Mehr-Gänge-Menü aus unserer Küche, gutbürgerlich und regional',
+  'Sektempfang vor dem Haus oder im Saal',
+  'Service-Personal über die gesamte Veranstaltung',
+  'Tanzfläche, Bühne und Bar',
+  'Mitternachtssnack: Käse- oder Wurstplatte',
+  'Getränke nach Verbrauch — keine Pauschalen',
+  'Reinigung im Anschluss',
+  'Feier bis 3 Uhr morgens — ohne Aufpreis',
+];
+
+const selbst = [
+  'Musik (DJ oder Band) — gerne empfehlen wir Ihnen jemanden',
+  'Hochzeitstorte — auf Wunsch über unsere Konditorei-Partnerin',
+  'Floristik und Tischschmuck',
+  'Freier Redner für freie Trauung',
+  'Fotograf und Videograf',
+];
 ---
 
 <BaseLayout title={title} description={description}>
@@ -41,99 +54,163 @@ const faqSchema = {
     </div>
   </section>
 
+  <!-- Wichtiger Hinweis: Trauung findet woanders statt -->
   <section class="section">
-    <div class="container">
-      {pakete.map((p, index) => {
-        const slug = slugMap[p.data.titel] || `paket-${p.data.reihenfolge}`;
-        return (
-          <div class={`package${p.data.highlight ? ' package--highlight' : ''}`} id={slug}>
-            <header class="package__head">
-              <h2>Paket {index + 1} — {p.data.titel}</h2>
-              <p class="package__sub">{p.data.untertitel}</p>
-            </header>
-            <div class="package__body grid grid-2">
-              <div>
-                <h4>Im Preis enthalten</h4>
-                <ul class="bullets">
-                  {p.data.enthalten.map((e) => <li>{e.punkt}</li>)}
-                </ul>
-              </div>
-              <div>
-                <h4>Nicht enthalten</h4>
-                <ul class="bullets bullets--minus">
-                  {p.data.nicht_enthalten.map((e) => <li>{e.punkt}</li>)}
-                </ul>
-                <p class="package__price">
-                  ab <strong>{p.data.preis} €</strong> pro Person<br/>
-                  <small>min. {p.data.min_personen} Personen</small>
-                </p>
-                <a
-                  href={`/anfragen?paket=${slug}`}
-                  class={`btn ${p.data.highlight ? 'btn--primary' : 'btn--secondary'} btn--arrow`}
-                >{p.data.titel} anfragen</a>
-              </div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  </section>
-
-  <!-- Optional dazubuchbar -->
-  <section class="section section--cream-warm">
-    <div class="container">
-      <span class="eyebrow">Zusätzlich</span>
-      <h2>Optional dazubuchbar</h2>
-      <table class="specs">
-        <tbody>
-          <tr><th>Hochzeitstorte (über unsere Konditorei-Partnerin)</th><td>ab 6,50 € pro Stück</td></tr>
-          <tr><th>Mitternachtssnack (Burger, Käsespätzle, Suppe)</th><td>14 € pro Person</td></tr>
-          <tr><th>Brunch am Folgetag</th><td>28 € pro Person</td></tr>
-          <tr><th>Erweiterte Tonanlage / Lichttechnik</th><td>auf Anfrage</td></tr>
-          <tr><th>DJ-Empfehlung über uns</th><td>DJ rechnet direkt mit Ihnen ab</td></tr>
-          <tr><th>Floristik-Empfehlung</th><td>Floristin rechnet direkt mit Ihnen ab</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- Tagesablauf -->
-  <section class="section" id="tagesablauf">
     <div class="container--narrow">
-      <span class="eyebrow">Tagesablauf</span>
-      <h2>So sieht ein Hochzeitstag bei uns aus</h2>
-
-      <div class="timeline">
-        <div class="timeline__item">
-          <span class="timeline__marker">Vormittag</span>
-          <p>Sie kommen mit den Trauzeugen vorbei, wir bereiten gemeinsam das Stüble vor. Die Familie und ersten Gäste treffen ein.</p>
-        </div>
-        <div class="timeline__item">
-          <span class="timeline__marker">Mittag</span>
-          <p>Standesamtliche oder freie Trauung im Stüble oder Festsaal, anschließend Sektempfang.</p>
-        </div>
-        <div class="timeline__item">
-          <span class="timeline__marker">Nachmittag</span>
-          <p>Kaffee und Kuchen, Fotos vor dem Haus, ein Spaziergang im Ort.</p>
-        </div>
-        <div class="timeline__item">
-          <span class="timeline__marker">Abend</span>
-          <p>Festessen, Reden, Tanzen. Ihre Live-Band oder Ihr DJ auf der Bühne — wir liefern Technik und Stimmung.</p>
-        </div>
-        <div class="timeline__item">
-          <span class="timeline__marker">Nacht</span>
-          <p>Bar, Tanzfläche, Mitternachtssnack. Wir bleiben so lange Sie und Ihre Gäste bleiben — bis 3 Uhr morgens.</p>
-        </div>
-        <div class="timeline__item">
-          <span class="timeline__marker">Folgetag</span>
-          <p>Optional: Brunch im Stüble für alle, die übernachtet haben.</p>
-        </div>
+      <div class="info-card">
+        <p class="info-card__eyebrow">Gut zu wissen</p>
+        <p class="info-card__text">
+          Im Bürgerhaus Mittelberg wird gefeiert, nicht standesamtlich getraut.
+          Die Trauung findet im Standesamt Oy-Mittelberg, in der Kirche oder als freie Trauung statt —
+          die Feier dann bei uns. Standesamt und Kirche sind in wenigen Minuten mit dem Auto erreichbar.
+        </p>
       </div>
     </div>
   </section>
 
+  <!-- Hauptbereich: Was wir bieten -->
+  <section class="section" id="leistungen">
+    <div class="container">
+      <div class="text-center mb-8">
+        <span class="eyebrow">Hochzeitsfeier im Festsaal</span>
+        <h2 class="text-balance">Alles aus einer Hand</h2>
+        <p class="lead mx-auto">
+          Von 50 bis 250 Gästen, vom Sektempfang bis zur durchgetanzten Nacht. Wir kümmern uns um Saal, Küche und Service — Sie und Ihre Gäste feiern.
+        </p>
+      </div>
+
+      <div class="leistungs-grid">
+        <div class="leistungs-block leistungs-block--enthalten">
+          <h3>
+            <span class="leistungs-block__icon" aria-hidden="true">✓</span>
+            Was wir leisten
+          </h3>
+          <ul class="leistungs-list">
+            {enthalten.map((punkt) => <li>{punkt}</li>)}
+          </ul>
+        </div>
+
+        <div class="leistungs-block leistungs-block--selbst">
+          <h3>
+            <span class="leistungs-block__icon" aria-hidden="true">→</span>
+            Was Sie selbst mitbringen
+          </h3>
+          <ul class="leistungs-list">
+            {selbst.map((punkt) => <li>{punkt}</li>)}
+          </ul>
+          <p class="leistungs-block__note">
+            Auf Wunsch geben wir Ihnen Empfehlungen für Musik, Floristik und Konditorei aus unserem Allgäuer Netzwerk.
+          </p>
+        </div>
+      </div>
+
+      <div class="leistungs-cta">
+        <p class="leistungs-cta__price">Preis auf Anfrage</p>
+        <p class="leistungs-cta__desc">
+          Jede Hochzeit ist anders — Gästezahl, Menü und Wünsche bestimmen den Preis.
+          Wir machen Ihnen gerne ein konkretes Angebot nach einem persönlichen Vorgespräch.
+        </p>
+        <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg">Termin anfragen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tagesablauf — als Phasen, nicht Uhrzeiten -->
+  <section class="section section--cream-warm" id="tagesablauf">
+    <div class="container--narrow">
+      <span class="eyebrow">Tagesablauf</span>
+      <h2>Wie eine Hochzeit bei uns abläuft</h2>
+      <p class="lead">
+        Ein klassischer Ablauf — alternative Wünsche besprechen wir gerne im Vorgespräch.
+      </p>
+
+      <div class="ablauf">
+        <div class="ablauf__item">
+          <span class="ablauf__marker">1</span>
+          <div>
+            <h4>Tag vorher</h4>
+            <p>
+              Falls keine andere Veranstaltung im Haus ist, können Sie bereits am Vortag dekorieren und aufbauen.
+              So beginnt der Hochzeitstag entspannt.
+            </p>
+          </div>
+        </div>
+
+        <div class="ablauf__item">
+          <span class="ablauf__marker">2</span>
+          <div>
+            <h4>Vormittag — Hochzeitskuchen</h4>
+            <p>
+              Sie können Ihren eigenen Hochzeitskuchen am Vormittag bei uns vorbeibringen.
+              Wir kümmern uns um die Aufbewahrung bis zum Servieren.
+            </p>
+          </div>
+        </div>
+
+        <div class="ablauf__item">
+          <span class="ablauf__marker">3</span>
+          <div>
+            <h4>Sektempfang nach der Trauung</h4>
+            <p>
+              Nach der Trauung in Standesamt oder Kirche kommen Sie und Ihre Gäste zu uns.
+              Sektempfang vor dem Haus mit Blick auf die Allgäuer Berge — bei schlechtem Wetter im Saal.
+            </p>
+          </div>
+        </div>
+
+        <div class="ablauf__item">
+          <span class="ablauf__marker">4</span>
+          <div>
+            <h4>Kaffee & Kuchen</h4>
+            <p>
+              Vom Buffet, in entspannter Runde. Zeit für Fotos, Begrüßungen und ein erstes Durchatmen.
+            </p>
+          </div>
+        </div>
+
+        <div class="ablauf__item">
+          <span class="ablauf__marker">5</span>
+          <div>
+            <h4>Brautstehlen — wenn Sie mögen</h4>
+            <p>
+              Der Allgäuer Brauch darf bei einer Hochzeit nicht fehlen. Im nahegelegenen Partystadel
+              werden Wein und Brot von uns gestellt, Live-Stimmungsmusik ist beliebt.
+              Alternativ gibt es zwei weitere Wirtschaften in Mittelberg, die das Brautstehlen ebenfalls ausrichten.
+            </p>
+          </div>
+        </div>
+
+        <div class="ablauf__item">
+          <span class="ablauf__marker">6</span>
+          <div>
+            <h4>Abendessen im Festsaal</h4>
+            <p>
+              Mehr-Gänge-Menü aus unserer Küche — gutbürgerlich, regional und auf Wunsch zusammengestellt.
+              Auf Allergien, vegetarische und vegane Gäste gehen wir gerne ein.
+            </p>
+          </div>
+        </div>
+
+        <div class="ablauf__item">
+          <span class="ablauf__marker">7</span>
+          <div>
+            <h4>Feier bis in die Nacht</h4>
+            <p>
+              Tanzfläche, Bühne, Bar. Mitternachtssnack mit Käse- oder Wurstplatte.
+              Die Feier geht bis 3 Uhr morgens — ohne Aufpreis.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p class="ablauf__hinweis">
+        Sie wünschen einen anderen Ablauf? Sagen Sie uns, was Sie sich vorstellen — wir richten uns nach Ihnen.
+      </p>
+    </div>
+  </section>
+
   <!-- FAQ aus Backend -->
-  <section class="section section--cream-warm" id="faq">
+  <section class="section" id="faq">
     <div class="container--narrow">
       <span class="eyebrow">Häufige Fragen</span>
       <h2>FAQ Hochzeit</h2>
@@ -151,7 +228,7 @@ const faqSchema = {
     <div class="container--narrow text-center">
       <h2 class="text-balance">Sprechen Sie mit uns</h2>
       <p class="lead mx-auto">
-        Schreiben Sie uns Ihr Wunschdatum und Ihre Fragen. Wir antworten innerhalb von 48 Stunden.
+        Schreiben Sie uns Ihr Wunschdatum, die Gästezahl und Ihre Fragen. Wir antworten innerhalb von 48 Stunden mit einem konkreten Vorschlag.
       </p>
       <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">Anfrage stellen</a>
     </div>
@@ -159,44 +236,184 @@ const faqSchema = {
 </BaseLayout>
 
 <style>
-  .package {
+  /* Info-Card mit Mokka-Akzent */
+  .info-card {
+    border-left: 3px solid var(--c-mokka);
+    background: var(--c-cream-warm);
+    padding: var(--s-5) var(--s-6);
+    border-radius: 0 var(--r-md) var(--r-md) 0;
+  }
+  .info-card__eyebrow {
+    font-family: var(--f-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: var(--t-xs);
+    color: var(--c-mokka);
+    margin: 0 0 var(--s-2);
+  }
+  .info-card__text {
+    margin: 0;
+    color: var(--c-anthracite);
+    line-height: 1.6;
+  }
+
+  /* Leistungs-Grid */
+  .leistungs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--s-5);
+    margin-bottom: var(--s-7);
+  }
+  @media (min-width: 800px) {
+    .leistungs-grid { grid-template-columns: 1.2fr 1fr; gap: var(--s-6); }
+  }
+
+  .leistungs-block {
     background: var(--c-cream);
     border: 1px solid var(--c-line);
-    padding: var(--s-7);
-    margin-bottom: var(--s-6);
+    border-radius: var(--r-md);
+    padding: var(--s-6);
   }
-  .package--highlight {
-    border: 2px solid var(--c-brass);
-    box-shadow: var(--shadow-md);
+  .leistungs-block--enthalten {
+    border: 2px solid var(--c-mokka);
+    background: var(--c-cream-warm);
   }
-  .package__head { margin-bottom: var(--s-5); }
-  .package__sub { color: var(--c-mid); font-size: var(--t-md); margin-top: -1rem; }
-  .package__body { gap: var(--s-7); }
-  .package__price {
-    font-family: var(--f-display);
-    font-size: var(--t-md);
+  .leistungs-block h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    margin: 0 0 var(--s-5);
+    font-size: var(--t-xl);
+  }
+  .leistungs-block__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--c-mokka);
+    color: var(--c-cream);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .leistungs-block--selbst .leistungs-block__icon {
+    background: transparent;
+    border: 2px solid var(--c-line);
+    color: var(--c-mid);
+  }
+  .leistungs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+  }
+  .leistungs-list li {
+    padding-left: var(--s-5);
+    position: relative;
+    line-height: 1.5;
+  }
+  .leistungs-block--enthalten .leistungs-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--c-mokka);
+    font-weight: 700;
+  }
+  .leistungs-block--selbst .leistungs-list li::before {
+    content: '·';
+    position: absolute;
+    left: var(--s-2);
+    color: var(--c-mid);
+    font-weight: 700;
+    font-size: 1.5em;
+    line-height: 1;
+  }
+  .leistungs-block__note {
+    margin-top: var(--s-5);
+    padding-top: var(--s-4);
     border-top: 1px solid var(--c-line);
-    padding-top: var(--s-3);
-    margin: var(--s-4) 0;
+    font-size: var(--t-sm);
+    color: var(--c-mid);
+    line-height: 1.5;
   }
-  .package__price strong { font-size: var(--t-2xl); color: var(--c-blue); }
-  .package__price small { color: var(--c-mid); font-size: var(--t-sm); font-family: var(--f-body); }
 
-  .timeline { display: flex; flex-direction: column; gap: var(--s-5); margin-top: var(--s-6); }
-  .timeline__item {
-    display: grid; grid-template-columns: 8rem 1fr; gap: var(--s-5); align-items: start;
-    padding: var(--s-4) 0;
-    border-top: 1px solid var(--c-line);
+  /* CTA-Bereich */
+  .leistungs-cta {
+    text-align: center;
+    padding: var(--s-7) var(--s-5);
+    background: var(--c-cream-warm);
+    border-radius: var(--r-md);
   }
-  .timeline__item:first-child { border-top: 0; padding-top: 0; }
-  .timeline__marker {
-    font-family: var(--f-body); font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
-    color: var(--c-blue); font-size: var(--t-sm);
+  .leistungs-cta__price {
+    font-family: var(--f-display);
+    font-size: var(--t-3xl);
+    color: var(--c-blue);
+    margin: 0 0 var(--s-3);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  .leistungs-cta__desc {
+    color: var(--c-anthracite);
+    margin: 0 auto var(--s-5);
+    max-width: 38rem;
+    line-height: 1.6;
+  }
+
+  /* Ablauf — Phasen statt Timeline */
+  .ablauf {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-5);
+    margin-top: var(--s-6);
+  }
+  .ablauf__item {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: var(--s-5);
+    align-items: start;
+  }
+  .ablauf__marker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--c-mokka);
+    color: var(--c-cream);
+    font-family: var(--f-display);
+    font-size: var(--t-lg);
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .ablauf__item h4 {
+    margin: 0 0 var(--s-2);
+    font-size: var(--t-lg);
+    color: var(--c-anthracite);
+  }
+  .ablauf__item p {
+    margin: 0;
+    color: var(--c-mid);
+    line-height: 1.6;
+  }
+  .ablauf__hinweis {
+    margin-top: var(--s-7);
+    padding: var(--s-4) var(--s-5);
+    background: var(--c-cream);
+    border-left: 3px solid var(--c-blue);
+    font-style: italic;
+    color: var(--c-anthracite);
   }
   @media (max-width: 600px) {
-    .timeline__item { grid-template-columns: 1fr; gap: var(--s-2); }
+    .ablauf__item { grid-template-columns: 2rem 1fr; gap: var(--s-3); }
+    .ablauf__marker { width: 2rem; height: 2rem; font-size: var(--t-md); }
   }
 
+  /* FAQ — bestehende Styles */
   .faq {
     border-bottom: 1px solid var(--c-line);
     padding: var(--s-4) 0;

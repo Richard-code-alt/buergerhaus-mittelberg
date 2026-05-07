@@ -3,7 +3,7 @@ reihenfolge: 5
 titel: Firmenfeier
 slug: firma
 icon: venue
-kurz: "Weihnachtsfeier, Sommerfest, Jubiläum — bis 260 Gäste mit Bühne und Bar."
+kurz: "Weihnachtsfeier, Sommerfest, Jubiläum — bis 250 Gäste mit Bühne und Bar."
 ab_preis: null
 preis_einheit: ""
 beschreibung: |

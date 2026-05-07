@@ -1,26 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
-import { getCollection } from 'astro:content';
 import seitentexte from '../data/seiten/startseite.json';
 import kontakt from '../data/kontakt.json';
 
 const title = 'Bürgerhaus Mittelberg — Hochzeit & Eventlocation Allgäu';
-const description = 'Eventlocation in Oy-Mittelberg, Allgäu: Festsaal für 260 Gäste, eigene Küche, persönliche Gastgeber. Hochzeit, Tagung, Geburtstag — Termin anfragen.';
-
-const pakete = (await getCollection('pakete')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
-
-const slugMap: Record<string, string> = {
-  'Standesamt im Stüble': 'standesamt',
-  'Hochzeit im Festsaal': 'festsaal',
-  'Komplett-Hochzeit': 'komplett',
-};
+const description = 'Eventlocation in Oy-Mittelberg, Allgäu: Festsaal für bis zu 250 Gäste, eigene Küche, persönliche Gastgeber. Hochzeit, Tagung, Geburtstag — Termin anfragen.';
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': ['EventVenue', 'LocalBusiness'],
   name: kontakt.name,
-  description: 'Hochzeitslocation und Eventsaal in Oy-Mittelberg im Allgäu mit eigener Küche. Festsaal für bis zu 260 Personen, separates Stüble für bis zu 50 Personen.',
+  description: 'Hochzeitslocation und Eventsaal in Oy-Mittelberg im Allgäu mit eigener Küche. Festsaal für bis zu 250 Personen, separates Martin Stüble für bis zu 50 Personen.',
   url: 'https://www.buergerhaus-mittelberg.de/',
   telephone: '+49-8366-1300',
   email: kontakt.email,
@@ -35,7 +26,7 @@ const schema = {
   geo: { '@type': 'GeoCoordinates', latitude: 47.642980, longitude: 10.437750 },
   image: 'https://www.buergerhaus-mittelberg.de/og-default.jpg',
   logo: 'https://www.buergerhaus-mittelberg.de/logo.png',
-  maximumAttendeeCapacity: 260,
+  maximumAttendeeCapacity: 250,
   amenityFeature: [
     { '@type': 'LocationFeatureSpecification', name: 'Bühne', value: '9×6 m' },
     { '@type': 'LocationFeatureSpecification', name: 'Eigene Küche', value: true },
@@ -51,18 +42,6 @@ const schema = {
       description: 'Termine nach Vereinbarung',
     },
   ],
-  makesOffer: pakete.map((p) => ({
-    '@type': 'Offer',
-    name: p.data.titel,
-    description: p.data.kurz,
-    price: p.data.preis,
-    priceCurrency: 'EUR',
-    eligibleQuantity: {
-      '@type': 'QuantitativeValue',
-      minValue: p.data.min_personen,
-      unitText: 'Personen',
-    },
-  })),
 };
 ---
 
@@ -102,7 +81,7 @@ const schema = {
         </div>
 
         <div class="hero__stats">
-          <div><strong>260</strong><span>Plätze im Festsaal</span></div>
+          <div><strong>250</strong><span>Plätze im Festsaal</span></div>
           <div><strong>9 × 6 m</strong><span>Profibühne</span></div>
           <div><strong>1</strong><span>Ansprechpartner</span></div>
         </div>
@@ -143,7 +122,7 @@ const schema = {
         <article class="card">
           <span class="divider"></span>
           <h3>Festsaal mit Bühne</h3>
-          <p>Bis zu 260 Gäste, Bühne 9 × 6 m, Tonanlage und Licht. Alpenländischer Charakter mit gemütlich-rustikaler Atmosphäre und moderner Technik.</p>
+          <p>Bis zu 250 Gäste, Bühne 9 × 6 m, Tonanlage und Licht. Alpenländischer Charakter mit gemütlich-rustikaler Atmosphäre und moderner Technik.</p>
         </article>
         <article class="card">
           <span class="divider"></span>
@@ -174,7 +153,7 @@ const schema = {
             caption="Festsaal"
           />
           <h3 class="mt-5">Festsaal</h3>
-          <p>260 Plätze, große Bühne, Tanzfläche, Bar. Für die große Feier ab etwa 80 Gästen — egal ob Ihre Live-Band, ein DJ oder Reden auf der Bühne, der Saal trägt jede Stimmung mit.</p>
+          <p>250 Plätze, große Bühne, Tanzfläche, Bar. Für die große Feier ab etwa 80 Gästen — egal ob Ihre Live-Band, ein DJ oder Reden auf der Bühne, der Saal trägt jede Stimmung mit.</p>
           <a href="/raeume#festsaal" class="btn btn--secondary btn--arrow mt-3">Mehr zum Festsaal</a>
         </div>
         <div>
@@ -184,7 +163,7 @@ const schema = {
             caption="Martin Stüble"
           />
           <h3 class="mt-5">Martin Stüble</h3>
-          <p>Bis 50 Plätze, intim und stimmungsvoll. Für die kleine Hochzeit, die freie Trauung im Familienkreis, einen Sektempfang oder den Brunch am Tag danach.</p>
+          <p>Bis 50 Plätze, intim und stimmungsvoll. Für Geburtstage, Kommunion, Konfirmation und Familienfeiern — oder als Sektempfang vor der Hochzeit.</p>
           <a href="/raeume#stueble" class="btn btn--secondary btn--arrow mt-3">Mehr zum Stüble</a>
         </div>
       </div>
@@ -194,28 +173,15 @@ const schema = {
   <section class="section section--cream-warm">
     <div class="container">
       <div class="text-center mb-8">
-        <span class="eyebrow">Hochzeitspakete</span>
-        <h2 class="text-balance">Drei Pakete. Klar kalkuliert.</h2>
-        <p class="lead mx-auto">Transparent und verständlich — was Sie sehen, ist was Sie bezahlen.</p>
+        <span class="eyebrow">Hochzeit</span>
+        <h2 class="text-balance">Hochzeitsfeier im Festsaal</h2>
+        <p class="lead mx-auto">
+          Von 50 bis 250 Gästen. Festsaal, Sektempfang, Mehr-Gänge-Menü aus eigener Küche, Service, Bar und Tanzfläche — Mitternachtssnack inklusive. Feier bis 3 Uhr morgens ohne Aufpreis.
+        </p>
       </div>
 
-      <div class="grid grid-3">
-        {pakete.map((p, i) => {
-          const slug = slugMap[p.data.titel] || `paket-${p.data.reihenfolge}`;
-          return (
-            <article class={`card${p.data.highlight ? ' card--highlight' : ''}`}>
-              <span class="card__tier">Paket {i + 1}</span>
-              <h3>{p.data.titel}</h3>
-              <p>{p.data.kurz}</p>
-              <p class="card__price">ab <strong>{p.data.preis} €</strong> p. P.<br/><small>min. {p.data.min_personen} Personen</small></p>
-              <a href={`/hochzeit#${slug}`} class={`btn ${p.data.highlight ? 'btn--primary' : 'btn--secondary'} btn--arrow`}>Details</a>
-            </article>
-          );
-        })}
-      </div>
-
-      <div class="text-center mt-8">
-        <a href="/hochzeit" class="btn btn--primary btn--arrow">Alle Pakete im Detail</a>
+      <div class="text-center">
+        <a href="/hochzeit" class="btn btn--primary btn--arrow btn--lg">Mehr zur Hochzeit</a>
       </div>
     </div>
   </section>
@@ -225,11 +191,9 @@ const schema = {
       <span class="eyebrow">Trauung</span>
       <h2 class="text-balance">Standesamtlich, kirchlich oder frei.</h2>
       <p class="lead text-pretty mx-auto">
-        Im Stüble heiraten Sie im Familienkreis, im Festsaal in großer Runde.
-        Bei gutem Wetter auch draußen vor dem Haus, mit Blick auf die Allgäuer Berge.
-        Das Standesamt Oy-Mittelberg ist in wenigen Minuten mit dem Auto erreichbar.
+        Im Bürgerhaus wird gefeiert, nicht standesamtlich getraut. Die Trauung findet im Standesamt Oy-Mittelberg, in der Kirche oder als freie Trauung statt — die Feier dann bei uns.
+        Standesamt und Kirche sind in wenigen Minuten mit dem Auto erreichbar.
       </p>
-      <a href="/hochzeit#trauung" class="btn btn--secondary btn--arrow mt-5">Trauung-Optionen</a>
     </div>
   </section>
 

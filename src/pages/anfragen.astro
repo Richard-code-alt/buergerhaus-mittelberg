@@ -131,11 +131,10 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
 </BaseLayout>
 
 <script is:inline>
-  // URL-Parameter ?anlass=tagung oder ?paket=festsaal vorausfüllen
+  // URL-Parameter ?anlass=tagung vorausfüllen
   (function() {
     const params = new URLSearchParams(window.location.search);
     const anlass = params.get('anlass');
-    const paket = params.get('paket');
 
     if (anlass) {
       const map = {
@@ -149,20 +148,6 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
       const value = map[anlass.toLowerCase()] || anlass;
       const radio = document.querySelector(`input[name="anlass"][value="${value}"]`);
       if (radio) radio.checked = true;
-    }
-
-    if (paket) {
-      const radio = document.querySelector('input[name="anlass"][value="Hochzeit"]');
-      if (radio) radio.checked = true;
-      const nachricht = document.getElementById('nachricht');
-      if (nachricht) {
-        const map = {
-          standesamt: 'Paket „Standesamt im Stüble"',
-          festsaal: 'Paket „Hochzeit im Festsaal"',
-          komplett: 'Paket „Komplett-Hochzeit"',
-        };
-        nachricht.placeholder = `Interesse an ${map[paket] || paket}. ${nachricht.placeholder}`;
-      }
     }
   })();
 

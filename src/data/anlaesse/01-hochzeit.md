@@ -3,10 +3,10 @@ reihenfolge: 1
 titel: Hochzeit
 slug: hochzeit
 icon: wedding
-kurz: "Festsaal für 260 Gäste, eigene Küche, persönliche Gastgeber. Drei transparente Pakete."
-ab_preis: 89
-preis_einheit: pro Person
+kurz: "Festsaal für bis zu 250 Gäste, eigene Küche, persönliche Gastgeber. Bis 3 Uhr morgens ohne Aufpreis."
+ab_preis: null
+preis_einheit: ""
 beschreibung: |
-  Vom Standesamt im Stüble bis zur großen Feier im Festsaal — alles aus einer Hand. Wir kochen selbst, stellen Service und Bühne, Ihr bringt nur die Gäste.
+  Hochzeitsfeier im Festsaal — von 50 bis 250 Gästen. Wir kümmern uns um Saal, Küche und Service. Sie und Ihre Gäste feiern.
 detail_link: /hochzeit
 ---

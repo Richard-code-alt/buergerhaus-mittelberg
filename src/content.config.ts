@@ -1,21 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob, file } from 'astro/loaders';
 
-const pakete = defineCollection({
-  loader: glob({ pattern: '*.md', base: 'src/data/pakete' }),
-  schema: z.object({
-    reihenfolge: z.number(),
-    titel: z.string(),
-    untertitel: z.string(),
-    preis: z.number(),
-    min_personen: z.number(),
-    highlight: z.boolean().default(false),
-    kurz: z.string(),
-    enthalten: z.array(z.object({ punkt: z.string() })),
-    nicht_enthalten: z.array(z.object({ punkt: z.string() })),
-  }),
-});
-
 const faq = defineCollection({
   loader: glob({ pattern: '*.md', base: 'src/data/faq' }),
   schema: z.object({
@@ -88,4 +73,4 @@ const partner = defineCollection({
   }),
 });
 
-export const collections = { pakete, faq, hotels, menues, galerie, anlaesse, partner };
+export const collections = { faq, hotels, menues, galerie, anlaesse, partner };
