@@ -72,7 +72,22 @@ const schema = {
   </Fragment>
 
   <section class="hero">
-    <canvas class="hero__canvas" aria-hidden="true" data-hero-canvas></canvas>
+    <div class="hero__media" aria-hidden="true">
+      <video
+        class="hero__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="/videos/hero-kueche-poster.jpg"
+        data-hero-video
+      >
+        <source src="/videos/hero-kueche.webm" type="video/webm" />
+        <source src="/videos/hero-kueche.mp4" type="video/mp4" />
+      </video>
+      <div class="hero__overlay"></div>
+    </div>
     <div class="hero__inner">
       <div class="hero__copy">
         <span class="eyebrow hero__eyebrow">Eventlocation Allgäu</span>
@@ -299,24 +314,49 @@ const schema = {
 <style>
   .hero {
     padding: var(--s-9) 0 var(--s-9);
-    background:
-      radial-gradient(circle at 80% 20%, rgba(122, 79, 48, 0.06) 0%, transparent 50%),
-      radial-gradient(circle at 10% 80%, rgba(29, 79, 125, 0.05) 0%, transparent 50%),
-      var(--c-cream);
+    background: var(--c-cream);
     position: relative;
     overflow: hidden;
   }
-  .hero__canvas {
+  .hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .hero__video {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.85;
+    object-fit: cover;
+    /* Dezent: leicht gedämpft, etwas wärmer */
+    filter: saturate(0.85) brightness(0.95);
+  }
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    /* Cream-Layer drüber, damit Text lesbar bleibt — links stärker (wo der Text ist), rechts dezenter */
+    background:
+      linear-gradient(90deg,
+        rgba(250, 246, 238, 0.92) 0%,
+        rgba(250, 246, 238, 0.82) 35%,
+        rgba(250, 246, 238, 0.55) 70%,
+        rgba(250, 246, 238, 0.45) 100%
+      );
+  }
+  @media (max-width: 999px) {
+    /* Auf Mobile: Video weniger sichtbar, Text klar im Vordergrund */
+    .hero__overlay {
+      background: linear-gradient(180deg,
+        rgba(250, 246, 238, 0.75) 0%,
+        rgba(250, 246, 238, 0.92) 100%
+      );
+    }
   }
   @media (prefers-reduced-motion: reduce) {
-    .hero__canvas { display: none; }
+    /* Bei reduzierten Animationen: Video pausiert, Poster bleibt */
+    .hero__video { animation: none; }
   }
   .hero__inner {
     position: relative;
@@ -467,166 +507,31 @@ const schema = {
   .social-link svg { flex-shrink: 0; }
 </style>
 
+
 <script is:inline>
   (function() {
-    const canvas = document.querySelector('[data-hero-canvas]');
-    if (!canvas) return;
+    const video = document.querySelector('[data-hero-video]');
+    if (!video) return;
 
+    // Bei Reduced-Motion-Setting: Video nicht abspielen, Poster bleibt sichtbar
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (reducedMotion.matches) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let width = 0;
-    let height = 0;
-    let dpr = Math.min(window.devicePixelRatio || 1, 2);
-    let particles = [];
-    let rafId = null;
-    let mouseX = -9999;
-    let mouseY = -9999;
-
-    // Brand colors as RGB strings — for canvas we use rgba()
-    const colors = [
-      [122, 79, 48],   // Mokka
-      [184, 148, 90],  // Brass-warm
-      [212, 180, 130], // Lighter mokka
-      [29, 79, 125],   // Blue (sehr selten, für Akzent)
-    ];
-
-    function resize() {
-      const rect = canvas.getBoundingClientRect();
-      width = rect.width;
-      height = rect.height;
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      ctx.scale(dpr, dpr);
-      initParticles();
+    if (reducedMotion.matches) {
+      video.pause();
+      video.removeAttribute('autoplay');
+      return;
     }
 
-    function initParticles() {
-      // Mobile reduziert: weniger Partikel
-      const isMobile = width < 720;
-      const count = isMobile ? 18 : 35;
-      particles = [];
-      for (let i = 0; i < count; i++) {
-        particles.push(makeParticle());
-      }
-    }
-
-    function makeParticle() {
-      const colorIdx = Math.random() < 0.05 ? 3 : Math.floor(Math.random() * 3);
-      return {
-        x: Math.random() * width,
-        y: Math.random() * height,
-        // Sehr langsame Bewegung — vertical drift nach oben
-        vx: (Math.random() - 0.5) * 0.15,
-        vy: -0.05 - Math.random() * 0.15,
-        radius: 0.8 + Math.random() * 1.8,
-        alpha: 0.15 + Math.random() * 0.35,
-        // Pulsierender Glow
-        pulseSpeed: 0.005 + Math.random() * 0.01,
-        pulseOffset: Math.random() * Math.PI * 2,
-        color: colors[colorIdx],
-      };
-    }
-
-    function draw(time) {
-      ctx.clearRect(0, 0, width, height);
-
-      for (const p of particles) {
-        // Pulsierender Alpha-Wert für sanftes Glimmen
-        const pulse = (Math.sin(time * p.pulseSpeed + p.pulseOffset) + 1) / 2;
-        const currentAlpha = p.alpha * (0.5 + pulse * 0.5);
-
-        // Mouse-Interaktion: Partikel weichen sanft aus
-        const dx = p.x - mouseX;
-        const dy = p.y - mouseY;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        const repelRadius = 80;
-        if (dist < repelRadius && dist > 0) {
-          const force = (1 - dist / repelRadius) * 0.5;
-          p.x += (dx / dist) * force;
-          p.y += (dy / dist) * force;
-        }
-
-        // Position aktualisieren
-        p.x += p.vx;
-        p.y += p.vy;
-
-        // Wrap around — Partikel kommen unten wieder rein, wenn sie oben raus sind
-        if (p.y < -10) {
-          p.y = height + 10;
-          p.x = Math.random() * width;
-        }
-        if (p.x < -10) p.x = width + 10;
-        if (p.x > width + 10) p.x = -10;
-
-        // Glow-Effekt: zwei Kreise, äußerer transparent
-        const [r, g, b] = p.color;
-
-        // Äußerer Glow
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius * 4, 0, Math.PI * 2);
-        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius * 4);
-        gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${currentAlpha * 0.4})`);
-        gradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
-        ctx.fillStyle = gradient;
-        ctx.fill();
-
-        // Kern-Punkt
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${currentAlpha})`;
-        ctx.fill();
-      }
-
-      rafId = requestAnimationFrame(draw);
-    }
-
-    function onMouseMove(e) {
-      const rect = canvas.getBoundingClientRect();
-      mouseX = e.clientX - rect.left;
-      mouseY = e.clientY - rect.top;
-    }
-
-    function onMouseLeave() {
-      mouseX = -9999;
-      mouseY = -9999;
-    }
-
-    function start() {
-      resize();
-      rafId = requestAnimationFrame(draw);
-    }
-
-    function stop() {
-      if (rafId) cancelAnimationFrame(rafId);
-      rafId = null;
-    }
-
-    // Pause Animation wenn Hero nicht im Viewport
+    // Pause Video wenn Hero nicht im Viewport — spart Akku
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) start();
-        else stop();
+        if (entry.isIntersecting) {
+          video.play().catch(() => { /* Autoplay manchmal blockiert, kein Drama */ });
+        } else {
+          video.pause();
+        }
       });
     }, { threshold: 0.01 });
 
-    observer.observe(canvas);
-
-    // Resize-Handling
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(resize, 200);
-    });
-
-    // Mouse-Tracking
-    canvas.parentElement?.addEventListener('mousemove', onMouseMove);
-    canvas.parentElement?.addEventListener('mouseleave', onMouseLeave);
-
-    // Initial start
-    start();
+    observer.observe(video);
   })();
 </script>
