@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 import { getCollection } from 'astro:content';
+import seitentexte from '../data/seiten/partner.json';
 
 const title = 'Unsere Partner — Bürgerhaus Mittelberg';
 const description = 'Wer kocht mit uns? Mit wem schenken wir aus? Unsere Liefer- und Dienstleistungspartner aus dem Allgäu — regional verbunden.';
@@ -23,11 +24,10 @@ const partnerByCategory = partner.reduce((acc, p) => {
 
   <section class="section--hero">
     <div class="container--narrow text-center">
-      <span class="eyebrow">Partner</span>
-      <h1>Mit wem wir zusammenarbeiten</h1>
+      <span class="eyebrow">{seitentexte.hero_eyebrow}</span>
+      <h1>{seitentexte.hero_titel}</h1>
       <p class="lead mx-auto">
-        Unsere Küche ist nur so gut wie das, was reinkommt. Deshalb arbeiten wir mit
-        Lieferpartnern aus der Region zusammen — kurze Wege, lange Beziehungen.
+        {seitentexte.hero_lead}
       </p>
     </div>
   </section>
@@ -37,7 +37,7 @@ const partnerByCategory = partner.reduce((acc, p) => {
       <div class="container">
         <div class="text-center mb-8">
           <span class="eyebrow">{kategorie}</span>
-          <h2>{kategorie === 'Lieferpartner' ? 'Unsere Partner' : kategorie === 'Dienstleister' ? 'Wer mit uns arbeitet' : 'Wen wir empfehlen'}</h2>
+          <h2>{kategorie === 'Lieferpartner' ? seitentexte.section_lieferpartner : kategorie === 'Dienstleister' ? seitentexte.section_dienstleister : seitentexte.section_empfehlung}</h2>
         </div>
 
         <div class="partner-grid">
@@ -45,7 +45,7 @@ const partnerByCategory = partner.reduce((acc, p) => {
             <article class="partner-card">
               {p.data.logo ? (
                 <div class="partner-card__logo">
-                  <img src={p.data.logo} alt={`Logo ${p.data.name}`} loading="lazy" />
+                  <img src={p.data.logo} alt={`${seitentexte.logo_alt_prefix} ${p.data.name}`} loading="lazy" />
                 </div>
               ) : (
                 <div class="partner-card__logo partner-card__logo--placeholder">
@@ -57,7 +57,7 @@ const partnerByCategory = partner.reduce((acc, p) => {
               <p class="partner-card__desc">{p.data.beschreibung}</p>
               {p.data.website && (
                 <a href={p.data.website} target="_blank" rel="noopener" class="partner-card__link">
-                  Website besuchen →
+                  {seitentexte.website_link}
                 </a>
               )}
             </article>

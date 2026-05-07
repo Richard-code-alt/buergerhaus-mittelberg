@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import seitentexte from '../data/seiten/raeume.json';
 
 const title = 'Festsaal & Stüble — Räume im Bürgerhaus Mittelberg';
 const description = 'Festsaal für bis zu 250 Gäste mit großer Bühne, Martin Stüble für intime Feiern bis 50 Personen. Beide Räume im Detail mit Maßen und Ausstattung.';
@@ -13,12 +14,10 @@ const description = 'Festsaal für bis zu 250 Gäste mit großer Bühne, Martin 
   </Fragment>
   <section class="section--hero">
     <div class="container--narrow text-center">
-      <span class="eyebrow">Räume</span>
-      <h1>Unsere Räume</h1>
+      <span class="eyebrow">{seitentexte.hero_eyebrow}</span>
+      <h1>{seitentexte.hero_titel}</h1>
       <p class="lead">
-        Zwei Räume unter einem Dach: Den großen Festsaal mit Profibühne für die große Feier,
-        und das Martin Stüble für die intime Runde — Geburtstage, Kommunion, Sektempfang oder
-        Familienfeier nach der Trauung. Beide Räume können Sie einzeln oder kombiniert mieten.
+        {seitentexte.hero_lead}
       </p>
     </div>
   </section>
@@ -28,50 +27,35 @@ const description = 'Festsaal für bis zu 250 Gäste mit großer Bühne, Martin 
       <div class="grid grid-2" style="align-items: center; gap: var(--s-8);">
         <div>
           <ImagePlaceholder
-            alt="Festsaal Bürgerhaus Mittelberg, Innenansicht mit Bühne und Tanzfläche"
+            alt={seitentexte.festsaal_bild_alt}
             scene="venue"
             variant="tall"
+            src={seitentexte.festsaal_bild || null}
           />
         </div>
         <div>
-          <span class="eyebrow">Festsaal</span>
-          <h2>250 Plätze, große Bühne</h2>
+          <span class="eyebrow">{seitentexte.festsaal_eyebrow}</span>
+          <h2>{seitentexte.festsaal_titel}</h2>
           <p>
-            Der Festsaal ist das Herzstück des Bürgerhauses. Alpenländischer Charakter mit
-            gemütlich-rustikaler Atmosphäre, moderne Technik, eine Bühne, auf der schon Bigbands,
-            Allgäuer Tanzgruppen und DJs gestanden haben. Für Ihre Hochzeit, Tagung, Geburtstag
-            oder Versammlung: Platz, Akustik und Atmosphäre für jeden Anlass — vom feierlichen
-            Drei-Gänge-Menü mit Tischreden bis zur durchgetanzten Nacht, vom Faschingsball bis zum Konzert.
+            {seitentexte.festsaal_text}
           </p>
 
           <table class="specs mt-6">
             <tbody>
-              <tr><th>Kapazität bestuhlt</th><td>bis 200 Personen</td></tr>
-              <tr><th>Kapazität (Stehempfang/Konzert)</th><td>bis 250 Personen</td></tr>
-              <tr><th>Fläche</th><td>ca. 280 m²</td></tr>
-              <tr><th>Bühne</th><td>9 × 6 m, fest verbaut</td></tr>
-              <tr><th>Tanzfläche</th><td>ja, vor der Bühne</td></tr>
-              <tr><th>Bar</th><td>ja, im Saal integriert</td></tr>
-              <tr><th>Tonanlage</th><td>fest installiert, mehrkanalig, für Live-Bands geeignet</td></tr>
-              <tr><th>Beamer / Leinwand</th><td>auf Anfrage</td></tr>
-              <tr><th>Bühnenlicht</th><td>DMX-Steuerung, Saalbeleuchtung dimmbar</td></tr>
-              <tr><th>Belüftung</th><td>Lüftungsanlage, beheizbar</td></tr>
-              <tr><th>Barrierefrei</th><td>ebenerdig, Rollstuhl-Zugang am Eingang und Parkplatz, behindertengerechtes WC</td></tr>
-              <tr><th>Parkplätze</th><td>kostenfrei direkt am Haus, zusätzlich Straße</td></tr>
+              {seitentexte.festsaal_specs.map((spec: { label: string; wert: string }) => (
+                <tr><th>{spec.label}</th><td>{spec.wert}</td></tr>
+              ))}
             </tbody>
           </table>
         </div>
       </div>
 
       <div class="mt-8">
-        <h3>Bestuhlungsoptionen</h3>
+        <h3>{seitentexte.festsaal_bestuhlung_titel}</h3>
         <ul class="bullets">
-          <li>Bankett (lange Tafeln) — bis 200 Personen</li>
-          <li>Runde Tische à 8–10 — bis 180 Personen</li>
-          <li>Reihenbestuhlung (für freie Trauung) — bis 220 Personen</li>
-          <li>Stehempfang / Konzert — bis 250 Personen</li>
+          {seitentexte.festsaal_bestuhlung.map((item: { punkt: string }) => <li>{item.punkt}</li>)}
         </ul>
-        <a href="/anfragen" class="btn btn--primary btn--arrow mt-6">Festsaal anfragen</a>
+        <a href="/anfragen" class="btn btn--primary btn--arrow mt-6">{seitentexte.festsaal_button}</a>
       </div>
     </div>
   </section>
@@ -80,29 +64,28 @@ const description = 'Festsaal für bis zu 250 Gäste mit großer Bühne, Martin 
     <div class="container">
       <div class="grid grid-2" style="align-items: center; gap: var(--s-8);">
         <div>
-          <span class="eyebrow">Martin Stüble</span>
-          <h2>Bis 50 Plätze, intim</h2>
+          <span class="eyebrow">{seitentexte.stueble_eyebrow}</span>
+          <h2>{seitentexte.stueble_titel}</h2>
           <p>
-            Das Stüble ist der kleine Bruder des Festsaals. Holzvertäfelt, warm, mit Platz für bis zu
-            50 Personen an Tischen. Wir richten hier Geburtstage, Kommunion, Konfirmation, Familienfeiern und kleine Hochzeitsfeiern aus — auch parallel zum Festsaal als Sektempfang, Trauzeugen-Raum oder Spielzimmer für die Kinder.
+            {seitentexte.stueble_text}
           </p>
 
           <table class="specs mt-6">
             <tbody>
-              <tr><th>Kapazität bestuhlt</th><td>bis 50 Personen</td></tr>
-              <tr><th>Fläche</th><td>ca. 60 m²</td></tr>
-              <tr><th>Charakter</th><td>Holzvertäfelung, gemütlich</td></tr>
-              <tr><th>Geeignet für</th><td>Geburtstage, Kommunion, Familienfeier, Sektempfang, Brunch, freie Trauung</td></tr>
+              {seitentexte.stueble_specs.map((spec: { label: string; wert: string }) => (
+                <tr><th>{spec.label}</th><td>{spec.wert}</td></tr>
+              ))}
             </tbody>
           </table>
 
-          <a href="/anfragen" class="btn btn--secondary btn--arrow mt-6">Stüble anfragen</a>
+          <a href="/anfragen" class="btn btn--secondary btn--arrow mt-6">{seitentexte.stueble_button}</a>
         </div>
         <div>
           <ImagePlaceholder
-            alt="Martin Stüble im Bürgerhaus Mittelberg, holzvertäfelt"
+            alt={seitentexte.stueble_bild_alt}
             scene="table"
             variant="tall"
+            src={seitentexte.stueble_bild || null}
           />
         </div>
       </div>
@@ -111,27 +94,24 @@ const description = 'Festsaal für bis zu 250 Gäste mit großer Bühne, Martin 
 
   <section class="section">
     <div class="container--narrow">
-      <span class="eyebrow">Außenbereich</span>
-      <h2>Vor dem Haus</h2>
+      <span class="eyebrow">{seitentexte.aussen_eyebrow}</span>
+      <h2>{seitentexte.aussen_titel}</h2>
       <p>
-        Vor dem Bürgerhaus liegt unser Vorplatz mit Blick in die Allgäuer Berge.
-        Geeignet für den Sektempfang nach der Trauung, für die Hochzeitsfotos
-        oder als Raucherbereich am Abend.
+        {seitentexte.aussen_text_1}
       </p>
       <p>
-        Eine freie Trauung im Freien ist bei gutem Wetter möglich. Falls das Wetter nicht mitspielt,
-        weichen wir ins Stüble oder den Festsaal aus — Plan B haben wir immer parat.
+        {seitentexte.aussen_text_2}
       </p>
     </div>
   </section>
 
   <section class="section section--blue">
     <div class="container--narrow text-center">
-      <h2 class="text-balance">Räume besichtigen</h2>
+      <h2 class="text-balance">{seitentexte.cta_titel}</h2>
       <p class="lead" style="color: var(--c-cream); opacity: 0.9;">
-        Persönliche Eindrücke gewinnen. Einfach Termin vereinbaren — wir nehmen uns Zeit.
+        {seitentexte.cta_text}
       </p>
-      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">Termin anfragen</a>
+      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">{seitentexte.cta_button}</a>
     </div>
   </section>
 </BaseLayout>

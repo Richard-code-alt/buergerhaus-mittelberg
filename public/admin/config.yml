@@ -15,7 +15,570 @@ locale: de
 
 collections:
   # =====================================================
-  # Globale Einstellungen — Adresse, Telefon, Mail
+  # 🏠 STARTSEITE — alle Texte und Bilder der Hauptseite
+  # =====================================================
+  - name: startseite
+    label: "🏠 Startseite"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: startseite_inhalte
+        label: "Startseite — Texte & Bilder"
+        file: "src/data/seiten/startseite.json"
+        fields:
+          - { label: "── HERO-BEREICH (oben) ──", name: "_sep_hero", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow (kleine Zeile über Titel)", name: "hero_eyebrow", widget: "string" }
+          - { label: "Titel — Zeile 1", name: "hero_titel_zeile_1", widget: "string" }
+          - { label: "Titel — Zeile 2 Text (vor Akzent)", name: "hero_titel_zeile_2_text", widget: "string" }
+          - { label: "Titel — Zeile 2 Akzent (groß)", name: "hero_titel_zeile_2_akzent", widget: "string" }
+          - { label: "Untertitel / Lead-Text", name: "hero_lead", widget: "text" }
+          - { label: "Button 1 (primär)", name: "hero_button_primaer", widget: "string" }
+          - { label: "Button 2 (sekundär)", name: "hero_button_sekundaer", widget: "string" }
+          - { label: "Stat 1 — Zahl", name: "hero_stat_1_zahl", widget: "string" }
+          - { label: "Stat 1 — Beschreibung", name: "hero_stat_1_label", widget: "string" }
+          - { label: "Stat 2 — Zahl", name: "hero_stat_2_zahl", widget: "string" }
+          - { label: "Stat 2 — Beschreibung", name: "hero_stat_2_label", widget: "string" }
+          - { label: "Stat 3 — Zahl", name: "hero_stat_3_zahl", widget: "string" }
+          - { label: "Stat 3 — Beschreibung", name: "hero_stat_3_label", widget: "string" }
+          - { label: "Hero-Bild (optional, sonst SVG-Platzhalter)", name: "hero_bild", widget: "image", required: false }
+          - { label: "Hero-Bild — Beschreibung (für SEO)", name: "hero_bild_alt", widget: "string" }
+          - { label: "Hero-Bild — Bildunterschrift", name: "hero_bild_caption", widget: "string", required: false }
+
+          - { label: "── ANLÄSSE-TEASER ──", name: "_sep_anlaesse", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "anlaesse_eyebrow", widget: "string" }
+          - { label: "Titel", name: "anlaesse_titel", widget: "string" }
+          - { label: "Beschreibungstext", name: "anlaesse_text", widget: "text" }
+          - { label: "Button-Text", name: "anlaesse_button", widget: "string" }
+
+          - { label: "── USP-BEREICH (3 Karten) ──", name: "_sep_usp", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "usp_eyebrow", widget: "string" }
+          - { label: "Titel — Hauptzeile", name: "usp_titel", widget: "string" }
+          - { label: "Titel — Zusatzzeile (Mokka)", name: "usp_titel_zusatz", widget: "string" }
+          - { label: "Lead-Text", name: "usp_lead", widget: "text" }
+          - { label: "Karte 1 — Titel", name: "usp_card_1_titel", widget: "string" }
+          - { label: "Karte 1 — Text", name: "usp_card_1_text", widget: "text" }
+          - { label: "Karte 2 — Titel", name: "usp_card_2_titel", widget: "string" }
+          - { label: "Karte 2 — Text", name: "usp_card_2_text", widget: "text" }
+          - { label: "Karte 3 — Titel", name: "usp_card_3_titel", widget: "string" }
+          - { label: "Karte 3 — Text", name: "usp_card_3_text", widget: "text" }
+
+          - { label: "── RÄUME-TEASER ──", name: "_sep_raeume", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "raeume_eyebrow", widget: "string" }
+          - { label: "Titel (mehrzeilig mit Enter)", name: "raeume_titel", widget: "text" }
+          - { label: "Festsaal — Titel", name: "raeume_festsaal_titel", widget: "string" }
+          - { label: "Festsaal — Text", name: "raeume_festsaal_text", widget: "text" }
+          - { label: "Festsaal — Button", name: "raeume_festsaal_button", widget: "string" }
+          - { label: "Festsaal — Bild (optional)", name: "raeume_festsaal_bild", widget: "image", required: false }
+          - { label: "Festsaal — Bild-Beschreibung", name: "raeume_festsaal_bild_alt", widget: "string" }
+          - { label: "Festsaal — Bildunterschrift", name: "raeume_festsaal_bild_caption", widget: "string", required: false }
+          - { label: "Stüble — Titel", name: "raeume_stueble_titel", widget: "string" }
+          - { label: "Stüble — Text", name: "raeume_stueble_text", widget: "text" }
+          - { label: "Stüble — Button", name: "raeume_stueble_button", widget: "string" }
+          - { label: "Stüble — Bild (optional)", name: "raeume_stueble_bild", widget: "image", required: false }
+          - { label: "Stüble — Bild-Beschreibung", name: "raeume_stueble_bild_alt", widget: "string" }
+          - { label: "Stüble — Bildunterschrift", name: "raeume_stueble_bild_caption", widget: "string", required: false }
+
+          - { label: "── HOCHZEIT-TEASER ──", name: "_sep_hochzeit", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "hochzeit_eyebrow", widget: "string" }
+          - { label: "Titel", name: "hochzeit_titel", widget: "string" }
+          - { label: "Beschreibungstext", name: "hochzeit_text", widget: "text" }
+          - { label: "Button-Text", name: "hochzeit_button", widget: "string" }
+
+          - { label: "── TRAUUNG-BEREICH ──", name: "_sep_trauung", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "trauung_eyebrow", widget: "string" }
+          - { label: "Titel", name: "trauung_titel", widget: "string" }
+          - { label: "Text", name: "trauung_text", widget: "text" }
+
+          - { label: "── CATERING-TEASER ──", name: "_sep_catering", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "catering_eyebrow", widget: "string" }
+          - { label: "Titel", name: "catering_titel", widget: "string" }
+          - { label: "Text 1 (oberer Absatz)", name: "catering_text_1", widget: "text" }
+          - { label: "Text 2 (unterer Absatz)", name: "catering_text_2", widget: "text" }
+          - { label: "Button-Text", name: "catering_button", widget: "string" }
+          - { label: "Bild (optional)", name: "catering_bild", widget: "image", required: false }
+          - { label: "Bild-Beschreibung", name: "catering_bild_alt", widget: "string" }
+          - { label: "Bildunterschrift", name: "catering_bild_caption", widget: "string", required: false }
+
+          - { label: "── TEAM-BEREICH ──", name: "_sep_team", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "team_eyebrow", widget: "string" }
+          - { label: "Titel", name: "team_titel", widget: "string" }
+          - { label: "Text 1 (oberer Absatz)", name: "team_text_1", widget: "text" }
+          - { label: "Text 2 (unterer Absatz)", name: "team_text_2", widget: "text" }
+          - { label: "Button-Text", name: "team_button", widget: "string" }
+          - { label: "Bild (optional)", name: "team_bild", widget: "image", required: false }
+          - { label: "Bild-Beschreibung", name: "team_bild_alt", widget: "string" }
+          - { label: "Bildunterschrift", name: "team_bild_caption", widget: "string", required: false }
+
+          - { label: "── ANFAHRT-TEASER ──", name: "_sep_anfahrt", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "anfahrt_eyebrow", widget: "string" }
+          - { label: "Titel", name: "anfahrt_titel", widget: "string" }
+          - { label: "Text (nach Adresse)", name: "anfahrt_text", widget: "text" }
+          - { label: "Button-Text", name: "anfahrt_button", widget: "string" }
+
+          - { label: "── CTA UNTEN ──", name: "_sep_cta", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "cta_eyebrow", widget: "string" }
+          - { label: "Titel", name: "cta_titel", widget: "string" }
+          - { label: "Text", name: "cta_text", widget: "text" }
+          - { label: "Button-Text", name: "cta_button", widget: "string" }
+
+  # =====================================================
+  # 💍 HOCHZEIT-SEITE
+  # =====================================================
+  - name: hochzeit
+    label: "💍 Hochzeit"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: hochzeit_inhalte
+        label: "Hochzeit — Texte & Listen"
+        file: "src/data/seiten/hochzeit.json"
+        fields:
+          - { label: "── HERO ──", name: "_sep_hero", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow (kleine Zeile über Titel)", name: "hero_eyebrow", widget: "string" }
+          - { label: "Titel", name: "titel", widget: "string" }
+          - { label: "Lead-Text", name: "lead", widget: "text" }
+
+          - { label: "── HAUPTBEREICH (Was wir bieten) ──", name: "_sep_leist", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "leistungen_eyebrow", widget: "string" }
+          - { label: "Titel", name: "leistungen_titel", widget: "string" }
+          - { label: "Lead-Text", name: "leistungen_lead", widget: "text" }
+
+          - { label: "── 'WAS WIR LEISTEN' ──", name: "_sep_unsere", widget: "string", required: false, default: "" }
+          - { label: "Block-Titel (links)", name: "leistungen_unsere_titel", widget: "string" }
+          - label: "Liste — Was wir leisten"
+            name: "leistungen_unsere"
+            widget: "list"
+            fields:
+              - { label: "Punkt", name: "punkt", widget: "string" }
+
+          - { label: "── 'WAS SIE SELBST MITBRINGEN' ──", name: "_sep_selbst", widget: "string", required: false, default: "" }
+          - { label: "Block-Titel (rechts)", name: "leistungen_selbst_titel", widget: "string" }
+          - label: "Liste — Was Sie selbst mitbringen"
+            name: "leistungen_selbst"
+            widget: "list"
+            fields:
+              - { label: "Punkt", name: "punkt", widget: "string" }
+          - { label: "Hinweis-Text unter Liste", name: "leistungen_selbst_note", widget: "text" }
+
+          - { label: "── PREIS-CTA ──", name: "_sep_preis", widget: "string", required: false, default: "" }
+          - { label: "Preis-Label (z.B. 'Preis auf Anfrage')", name: "preis_label", widget: "string" }
+          - { label: "Preis-Beschreibung", name: "preis_text", widget: "text" }
+          - { label: "Button-Text", name: "preis_button", widget: "string" }
+
+          - { label: "── TAGESABLAUF ──", name: "_sep_ablauf", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "ablauf_eyebrow", widget: "string" }
+          - { label: "Titel", name: "ablauf_titel", widget: "string" }
+          - { label: "Lead-Text", name: "ablauf_lead", widget: "text" }
+          - label: "Phasen des Tagesablaufs (Reihenfolge wie in der Liste)"
+            name: "ablauf_phasen"
+            widget: "list"
+            fields:
+              - { label: "Titel der Phase", name: "titel", widget: "string" }
+              - { label: "Beschreibung der Phase", name: "text", widget: "text" }
+          - { label: "Hinweis unter Tagesablauf", name: "ablauf_hinweis", widget: "text" }
+
+          - { label: "── FAQ-BEREICH ──", name: "_sep_faq", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "faq_eyebrow", widget: "string" }
+          - { label: "Titel", name: "faq_titel", widget: "string" }
+
+          - { label: "── CTA UNTEN ──", name: "_sep_cta", widget: "string", required: false, default: "" }
+          - { label: "Titel", name: "cta_titel", widget: "string" }
+          - { label: "Text", name: "cta_text", widget: "text" }
+          - { label: "Button-Text", name: "cta_button", widget: "string" }
+
+  # =====================================================
+  # 🏛️ RÄUME-SEITE
+  # =====================================================
+  - name: raeume
+    label: "🏛️ Räume"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: raeume_inhalte
+        label: "Räume — Texte, Specs & Bilder"
+        file: "src/data/seiten/raeume.json"
+        fields:
+          - { label: "── HERO ──", name: "_sep_hero", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Titel", name: "hero_titel", widget: "string" }
+          - { label: "Lead-Text", name: "hero_lead", widget: "text" }
+
+          - { label: "── FESTSAAL ──", name: "_sep_festsaal", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "festsaal_eyebrow", widget: "string" }
+          - { label: "Titel", name: "festsaal_titel", widget: "string" }
+          - { label: "Beschreibungstext", name: "festsaal_text", widget: "text" }
+          - { label: "Bild (optional)", name: "festsaal_bild", widget: "image", required: false }
+          - { label: "Bild-Beschreibung (Alt)", name: "festsaal_bild_alt", widget: "string" }
+          - label: "Festsaal — Spezifikationen / Daten"
+            name: "festsaal_specs"
+            widget: "list"
+            fields:
+              - { label: "Bezeichnung", name: "label", widget: "string" }
+              - { label: "Wert", name: "wert", widget: "string" }
+          - { label: "Bestuhlung — Titel", name: "festsaal_bestuhlung_titel", widget: "string" }
+          - label: "Festsaal — Bestuhlungsoptionen"
+            name: "festsaal_bestuhlung"
+            widget: "list"
+            fields:
+              - { label: "Punkt", name: "punkt", widget: "string" }
+          - { label: "Festsaal — Button-Text", name: "festsaal_button", widget: "string" }
+
+          - { label: "── MARTIN STÜBLE ──", name: "_sep_stueble", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "stueble_eyebrow", widget: "string" }
+          - { label: "Titel", name: "stueble_titel", widget: "string" }
+          - { label: "Beschreibungstext", name: "stueble_text", widget: "text" }
+          - { label: "Bild (optional)", name: "stueble_bild", widget: "image", required: false }
+          - { label: "Bild-Beschreibung (Alt)", name: "stueble_bild_alt", widget: "string" }
+          - label: "Stüble — Spezifikationen / Daten"
+            name: "stueble_specs"
+            widget: "list"
+            fields:
+              - { label: "Bezeichnung", name: "label", widget: "string" }
+              - { label: "Wert", name: "wert", widget: "string" }
+          - { label: "Stüble — Button-Text", name: "stueble_button", widget: "string" }
+
+          - { label: "── AUSSENBEREICH ──", name: "_sep_aussen", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "aussen_eyebrow", widget: "string" }
+          - { label: "Titel", name: "aussen_titel", widget: "string" }
+          - { label: "Text 1 (oberer Absatz)", name: "aussen_text_1", widget: "text" }
+          - { label: "Text 2 (unterer Absatz)", name: "aussen_text_2", widget: "text" }
+
+          - { label: "── CTA UNTEN ──", name: "_sep_cta", widget: "string", required: false, default: "" }
+          - { label: "Titel", name: "cta_titel", widget: "string" }
+          - { label: "Text", name: "cta_text", widget: "text" }
+          - { label: "Button-Text", name: "cta_button", widget: "string" }
+
+  # =====================================================
+  # 🍽️ CATERING-SEITE
+  # =====================================================
+  - name: catering_seite
+    label: "🍽️ Catering"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: catering_inhalte
+        label: "Catering — Texte & Bilder"
+        file: "src/data/seiten/catering.json"
+        fields:
+          - { label: "── HERO ──", name: "_sep_hero", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Titel", name: "titel", widget: "string" }
+          - { label: "Lead-Text", name: "lead", widget: "text" }
+          - { label: "Story-Absatz", name: "story", widget: "text" }
+
+          - { label: "Hinweis unter Beispielmenüs", name: "menues_hinweis", widget: "string" }
+
+          - { label: "── BUFFET ──", name: "_sep_buffet", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "buffet_eyebrow", widget: "string" }
+          - { label: "Titel", name: "buffet_titel", widget: "string" }
+          - { label: "Text 1", name: "buffet_text_1", widget: "text" }
+          - { label: "Text 2 (mit **Beispielstationen** Markup möglich)", name: "buffet_text_2", widget: "text" }
+          - { label: "Bild (optional)", name: "buffet_bild", widget: "image", required: false }
+          - { label: "Bild-Beschreibung", name: "buffet_bild_alt", widget: "string" }
+
+          - { label: "── ALLERGIEN & DIÄT ──", name: "_sep_allergien", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "allergien_eyebrow", widget: "string" }
+          - { label: "Titel", name: "allergien_titel", widget: "string" }
+          - { label: "Text", name: "allergien_text", widget: "text" }
+
+          - { label: "── GETRÄNKE ──", name: "_sep_getraenke", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "getraenke_eyebrow", widget: "string" }
+          - { label: "Titel", name: "getraenke_titel", widget: "string" }
+          - { label: "Text", name: "getraenke_text", widget: "text" }
+
+          - { label: "── CTA UNTEN ──", name: "_sep_cta", widget: "string", required: false, default: "" }
+          - { label: "Titel", name: "cta_titel", widget: "string" }
+          - { label: "Text", name: "cta_text", widget: "text" }
+          - { label: "Button-Text", name: "cta_button", widget: "string" }
+
+  # =====================================================
+  # 📍 ANFAHRT-SEITE
+  # =====================================================
+  - name: anfahrt
+    label: "📍 Anfahrt"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: anfahrt_inhalte
+        label: "Anfahrt — Texte"
+        file: "src/data/seiten/anfahrt.json"
+        fields:
+          - { label: "── HERO ──", name: "_sep_hero", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Titel", name: "hero_titel", widget: "string" }
+
+          - { label: "── ROUTEN-KARTE ──", name: "_sep_route", widget: "string", required: false, default: "" }
+          - { label: "Adress-Titel", name: "route_titel", widget: "string" }
+          - { label: "Adress-Untertitel", name: "route_sub", widget: "string" }
+          - { label: "Heading 'Route berechnen'", name: "route_heading", widget: "string" }
+          - { label: "Button Google Maps", name: "route_button_google", widget: "string" }
+          - { label: "Button Apple Maps", name: "route_button_apple", widget: "string" }
+          - { label: "Hinweis unter Buttons", name: "route_note", widget: "text" }
+
+          - { label: "── MIT DEM AUTO ──", name: "_sep_auto", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "auto_eyebrow", widget: "string" }
+          - { label: "Titel", name: "auto_titel", widget: "string" }
+          - { label: "Text — Beschreibung", name: "auto_text", widget: "text" }
+          - { label: "Text — Distanzen-Zeile", name: "auto_distanzen", widget: "string" }
+
+          - { label: "── MIT DER BAHN ──", name: "_sep_bahn", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "bahn_eyebrow", widget: "string" }
+          - { label: "Titel", name: "bahn_titel", widget: "string" }
+          - { label: "Text", name: "bahn_text", widget: "text" }
+
+          - { label: "── MIT DEM FLUGZEUG ──", name: "_sep_flug", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "flug_eyebrow", widget: "string" }
+          - { label: "Titel", name: "flug_titel", widget: "string" }
+          - { label: "Text (mehrzeilig mit Enter)", name: "flug_text", widget: "text" }
+
+          - { label: "── PARKEN ──", name: "_sep_parken", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "parken_eyebrow", widget: "string" }
+          - { label: "Titel", name: "parken_titel", widget: "string" }
+          - { label: "Text", name: "parken_text", widget: "text" }
+
+          - { label: "── HOTELS-BEREICH ──", name: "_sep_hotels", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "hotels_eyebrow", widget: "string" }
+          - { label: "Titel", name: "hotels_titel", widget: "string" }
+          - { label: "Lead-Text", name: "hotels_lead", widget: "text" }
+          - { label: "Spalte 1 — Titel (zu Fuß)", name: "hotels_titel_zufuss", widget: "string" }
+          - { label: "Spalte 2 — Titel (mit Auto)", name: "hotels_titel_auto", widget: "string" }
+          - { label: "Hinweis unter Hotels", name: "hotels_hinweis", widget: "string" }
+
+          - { label: "── CTA UNTEN ──", name: "_sep_cta", widget: "string", required: false, default: "" }
+          - { label: "Titel", name: "cta_titel", widget: "string" }
+          - { label: "Text", name: "cta_text", widget: "text" }
+          - { label: "Button-Text", name: "cta_button", widget: "string" }
+
+  # =====================================================
+  # 👥 ÜBER UNS-SEITE
+  # =====================================================
+  - name: ueber_uns
+    label: "👥 Über uns"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: ueber_uns_inhalte
+        label: "Über uns — Texte & Bild"
+        file: "src/data/seiten/ueber-uns.json"
+        fields:
+          - { label: "── HERO ──", name: "_sep_hero", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Titel", name: "hero_titel", widget: "string" }
+          - { label: "Lead-Text", name: "hero_lead", widget: "text" }
+
+          - { label: "── WER WIR SIND ──", name: "_sep_wer", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "wer_eyebrow", widget: "string" }
+          - { label: "Titel", name: "titel", widget: "string" }
+          - { label: "Geschichte (Absätze mit doppeltem Enter trennen)", name: "geschichte", widget: "text" }
+          - { label: "Team-Bild (optional)", name: "team_bild", widget: "image", required: false }
+          - { label: "Bild-Beschreibung (Alt)", name: "team_bild_alt", widget: "string" }
+          - { label: "Bildunterschrift", name: "team_bild_caption", widget: "string", required: false }
+
+          - { label: "── DREI WERTE ──", name: "_sep_werte", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "werte_eyebrow", widget: "string" }
+          - { label: "Titel", name: "werte_titel", widget: "string" }
+          - { label: "Karte 1 — Titel", name: "werte_card_1_titel", widget: "string" }
+          - { label: "Karte 1 — Text", name: "werte_card_1_text", widget: "text" }
+          - { label: "Karte 2 — Titel", name: "werte_card_2_titel", widget: "string" }
+          - { label: "Karte 2 — Text", name: "werte_card_2_text", widget: "text" }
+          - { label: "Karte 3 — Titel", name: "werte_card_3_titel", widget: "string" }
+          - { label: "Karte 3 — Text", name: "werte_card_3_text", widget: "text" }
+
+          - { label: "── DAS HAUS ──", name: "_sep_haus", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "haus_eyebrow", widget: "string" }
+          - { label: "Titel", name: "haus_titel", widget: "string" }
+          - { label: "Text", name: "haus_text", widget: "text" }
+
+          - { label: "── CTA UNTEN ──", name: "_sep_cta", widget: "string", required: false, default: "" }
+          - { label: "Titel", name: "cta_titel", widget: "string" }
+          - { label: "Text", name: "cta_text", widget: "text" }
+          - { label: "Button-Text", name: "cta_button", widget: "string" }
+
+  # =====================================================
+  # 🎉 ANLÄSSE-ÜBERSICHTSSEITE (nur Header-Texte!)
+  # Anlass-Einträge werden separat in 'Anlässe-Einträge' verwaltet
+  # =====================================================
+  - name: anlaesse_seite
+    label: "🎉 Anlässe-Übersicht"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: anlaesse_inhalte
+        label: "Anlässe — Header & CTA"
+        file: "src/data/seiten/anlaesse.json"
+        fields:
+          - { label: "── HERO ──", name: "_sep_hero", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Titel", name: "hero_titel", widget: "string" }
+          - { label: "Lead-Text", name: "hero_lead", widget: "text" }
+
+          - { label: "── BESCHRIFTUNGEN ──", name: "_sep_labels", widget: "string", required: false, default: "" }
+          - { label: "Button-Text 'Anfragen'", name: "label_anfragen", widget: "string" }
+          - { label: "Button-Text 'Details'", name: "label_details", widget: "string" }
+          - { label: "Preis-Label 'Auf Anfrage'", name: "label_auf_anfrage", widget: "string" }
+
+          - { label: "── CTA UNTEN ──", name: "_sep_cta", widget: "string", required: false, default: "" }
+          - { label: "Titel", name: "cta_titel", widget: "string" }
+          - { label: "Text", name: "cta_text", widget: "text" }
+          - { label: "Button-Text", name: "cta_button", widget: "string" }
+
+  # =====================================================
+  # 📸 GALERIE-SEITE (Header-Texte)
+  # Bilder werden separat in 'Galerie-Bilder' verwaltet
+  # =====================================================
+  - name: galerie_seite
+    label: "📸 Galerie-Texte"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: galerie_inhalte
+        label: "Galerie — Header & CTA"
+        file: "src/data/seiten/galerie.json"
+        fields:
+          - { label: "Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Titel", name: "hero_titel", widget: "string" }
+          - { label: "Lead-Text", name: "hero_lead", widget: "text" }
+          - { label: "Hinweis (wenn keine Bilder hochgeladen)", name: "hero_hinweis", widget: "text" }
+
+          - { label: "── CTA UNTEN ──", name: "_sep_cta", widget: "string", required: false, default: "" }
+          - { label: "Titel", name: "cta_titel", widget: "string" }
+          - { label: "Text", name: "cta_text", widget: "text" }
+          - { label: "Button-Text", name: "cta_button", widget: "string" }
+
+  # =====================================================
+  # 🤝 PARTNER-SEITE (Header-Texte)
+  # Partner-Einträge werden separat in 'Partner-Einträge' verwaltet
+  # =====================================================
+  - name: partner_seite
+    label: "🤝 Partner-Texte"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: partner_inhalte
+        label: "Partner — Header"
+        file: "src/data/seiten/partner.json"
+        fields:
+          - { label: "Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Titel", name: "hero_titel", widget: "string" }
+          - { label: "Lead-Text", name: "hero_lead", widget: "text" }
+          - { label: "Section-Titel 'Lieferpartner'", name: "section_lieferpartner", widget: "string" }
+          - { label: "Section-Titel 'Dienstleister'", name: "section_dienstleister", widget: "string" }
+          - { label: "Section-Titel 'Empfehlung'", name: "section_empfehlung", widget: "string" }
+          - { label: "Logo-Alt-Prefix", name: "logo_alt_prefix", widget: "string" }
+          - { label: "Website-Link-Text", name: "website_link", widget: "string" }
+
+  # =====================================================
+  # 📋 ANFRAGE-FORMULAR
+  # =====================================================
+  - name: anfragen_seite
+    label: "📋 Anfrage-Formular"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: anfragen_inhalte
+        label: "Anfrage-Formular — Texte"
+        file: "src/data/seiten/anfragen.json"
+        fields:
+          - { label: "── HERO ──", name: "_sep_hero", widget: "string", required: false, default: "" }
+          - { label: "Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Titel", name: "hero_titel", widget: "string" }
+          - { label: "Lead-Text", name: "hero_lead", widget: "text" }
+
+          - { label: "── KONTAKT-EINLEITUNG ──", name: "_sep_kontakt", widget: "string", required: false, default: "" }
+          - { label: "Einleitung (vor Telefonnummer)", name: "kontakt_einleitung", widget: "string" }
+          - { label: "Verbindung 'oder per Mail an'", name: "kontakt_oder", widget: "string" }
+
+          - { label: "── FORMULAR-FEHLER ──", name: "_sep_error", widget: "string", required: false, default: "" }
+          - { label: "Fehler-Überschrift", name: "form_error", widget: "string" }
+          - { label: "Fehler-Beschreibung", name: "form_error_text", widget: "string" }
+
+          - { label: "── ANLASS-AUSWAHL ──", name: "_sep_anlass", widget: "string", required: false, default: "" }
+          - { label: "Frage-Überschrift", name: "anlass_legend", widget: "string" }
+          - { label: "Sonstige-Option Titel", name: "anlass_sonstiges_titel", widget: "string" }
+          - { label: "Sonstige-Option Untertitel", name: "anlass_sonstiges_sub", widget: "string" }
+
+          - { label: "── FORMULAR-FELDER ──", name: "_sep_felder", widget: "string", required: false, default: "" }
+          - { label: "Label Name", name: "label_name", widget: "string" }
+          - { label: "Label E-Mail", name: "label_email", widget: "string" }
+          - { label: "Label Telefon", name: "label_telefon", widget: "string" }
+          - { label: "Label Wunschdatum", name: "label_datum", widget: "string" }
+          - { label: "Placeholder Datum", name: "placeholder_datum", widget: "string" }
+          - { label: "Label Gästezahl", name: "label_gaeste", widget: "string" }
+          - { label: "Placeholder Gäste", name: "placeholder_gaeste", widget: "string" }
+          - { label: "Label Raum-Auswahl", name: "label_raum", widget: "string" }
+          - { label: "Raum-Option 'Egal'", name: "raum_egal", widget: "string" }
+          - { label: "Raum-Option 'Festsaal'", name: "raum_festsaal", widget: "string" }
+          - { label: "Raum-Option 'Stüble'", name: "raum_stueble", widget: "string" }
+          - { label: "Raum-Option 'Beide'", name: "raum_beide", widget: "string" }
+          - { label: "Raum-Option 'Außer Haus'", name: "raum_aussen", widget: "string" }
+          - { label: "Label Nachricht", name: "label_nachricht", widget: "string" }
+          - { label: "Placeholder Nachricht", name: "placeholder_nachricht", widget: "string" }
+          - { label: "Label Datenschutz (mit ##LINK_DATENSCHUTZ## Platzhalter)", name: "label_datenschutz", widget: "text" }
+          - { label: "Datenschutz-Linktext", name: "datenschutz_link_text", widget: "string" }
+
+          - { label: "── BUTTON ──", name: "_sep_btn", widget: "string", required: false, default: "" }
+          - { label: "Button-Text", name: "submit_button", widget: "string" }
+          - { label: "Loading-Text (beim Senden)", name: "submit_loading", widget: "string" }
+
+  # =====================================================
+  # ⚙️ NAVIGATION & FOOTER
+  # =====================================================
+  - name: navigation_inhalte
+    label: "🧭 Navigation"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: navigation
+        label: "Navigation oben"
+        file: "src/data/seiten/navigation.json"
+        fields:
+          - { label: "Menü 'Anlässe'", name: "nav_anlaesse", widget: "string" }
+          - { label: "Menü 'Hochzeit'", name: "nav_hochzeit", widget: "string" }
+          - { label: "Menü 'Räume'", name: "nav_raeume", widget: "string" }
+          - { label: "Menü 'Catering'", name: "nav_catering", widget: "string" }
+          - { label: "Menü 'Galerie'", name: "nav_galerie", widget: "string" }
+          - { label: "Menü 'Partner'", name: "nav_partner", widget: "string" }
+          - { label: "Menü 'Anfahrt'", name: "nav_anfahrt", widget: "string" }
+          - { label: "Anfrage-Button (rechts oben)", name: "nav_anfrage_button", widget: "string" }
+          - { label: "Logo Alt-Text", name: "header_logo_alt", widget: "string" }
+          - { label: "Brand-Link Beschreibung (Screenreader)", name: "header_brand_label", widget: "string" }
+          - { label: "Mobiles Menü Beschreibung (Screenreader)", name: "menu_open_label", widget: "string" }
+
+  - name: footer_inhalte
+    label: "🦶 Footer (unten)"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: footer
+        label: "Footer-Texte"
+        file: "src/data/seiten/footer.json"
+        fields:
+          - { label: "Region (unter Adresse)", name: "region", widget: "string" }
+          - { label: "Spalte 2 — Titel", name: "spalte_2_titel", widget: "string" }
+          - { label: "Spalte 3 — Titel", name: "spalte_3_titel", widget: "string" }
+          - { label: "Spalte 3 — Instagram", name: "spalte_3_instagram", widget: "string" }
+          - { label: "Spalte 3 — Facebook", name: "spalte_3_facebook", widget: "string" }
+          - { label: "Spalte 4 — Titel", name: "spalte_4_titel", widget: "string" }
+          - { label: "Spalte 4 — Button", name: "spalte_4_button", widget: "string" }
+          - { label: "Link 'Über uns'", name: "link_ueber_uns", widget: "string" }
+          - { label: "Link 'Impressum'", name: "link_impressum", widget: "string" }
+          - { label: "Link 'Datenschutz'", name: "link_datenschutz", widget: "string" }
+          - { label: "Link 'Cookie-Einstellungen'", name: "link_cookies", widget: "string" }
+
+  # =====================================================
+  # 🏷️ KONTAKT & GLOBALE EINSTELLUNGEN
   # =====================================================
   - name: einstellungen
     label: "⚙️ Globale Einstellungen"
@@ -27,19 +590,19 @@ collections:
         label: "Kontakt & Adresse"
         file: "src/data/kontakt.json"
         fields:
-          - { label: "Name des Betriebs", name: "name", widget: "string", default: "Bürgerhaus Mittelberg" }
-          - { label: "Straße", name: "strasse", widget: "string", default: "Rotachstraße 8" }
-          - { label: "PLZ und Ort", name: "ort", widget: "string", default: "87466 Oy-Mittelberg" }
-          - { label: "Telefon", name: "telefon", widget: "string", default: "08366 1300" }
-          - { label: "E-Mail", name: "email", widget: "string", default: "info@buergerhaus-mittelberg.de" }
-          - { label: "Instagram-Link", name: "instagram", widget: "string", required: false, default: "https://www.instagram.com/buergerhaus_mittelberg/" }
-          - { label: "Facebook-Link", name: "facebook", widget: "string", required: false, default: "https://www.facebook.com/Buergerhaus.Mittelberg/" }
+          - { label: "Name des Betriebs", name: "name", widget: "string" }
+          - { label: "Straße", name: "strasse", widget: "string" }
+          - { label: "PLZ und Ort", name: "ort", widget: "string" }
+          - { label: "Telefon", name: "telefon", widget: "string" }
+          - { label: "E-Mail", name: "email", widget: "string" }
+          - { label: "Instagram-Link", name: "instagram", widget: "string", required: false }
+          - { label: "Facebook-Link", name: "facebook", widget: "string", required: false }
 
   # =====================================================
-  # FAQ — Hochzeit
+  # ❓ FAQ — HOCHZEIT (Sammlung)
   # =====================================================
   - name: faq
-    label: "❓ FAQ Hochzeit"
+    label: "❓ FAQ-Einträge (Hochzeit)"
     folder: "src/data/faq"
     create: true
     delete: true
@@ -51,10 +614,10 @@ collections:
       - { label: "Antwort", name: "antwort", widget: "text" }
 
   # =====================================================
-  # Hotels (Anfahrt-Seite)
+  # 🏨 HOTELS (Sammlung)
   # =====================================================
   - name: hotels
-    label: "🏨 Hotels & Pensionen"
+    label: "🏨 Hotels-Einträge"
     folder: "src/data/hotels"
     create: true
     delete: true
@@ -70,10 +633,10 @@ collections:
       - { label: "Beschreibung (optional)", name: "beschreibung", widget: "string", required: false }
 
   # =====================================================
-  # Anlässe — Hochzeit, Tagung, Geburtstag etc.
+  # 🎉 ANLÄSSE-EINTRÄGE (Sammlung)
   # =====================================================
   - name: anlaesse
-    label: "🎉 Anlässe"
+    label: "🎉 Anlässe-Einträge"
     folder: "src/data/anlaesse"
     create: true
     delete: true
@@ -91,10 +654,10 @@ collections:
       - { label: "Detail-Link (z.B. /hochzeit oder /anfragen?anlass=tagung)", name: "detail_link", widget: "string" }
 
   # =====================================================
-  # Partner & Lieferanten
+  # 🤝 PARTNER-EINTRÄGE (Sammlung)
   # =====================================================
   - name: partner
-    label: "🤝 Partner & Lieferanten"
+    label: "🤝 Partner-Einträge"
     folder: "src/data/partner"
     create: true
     delete: true
@@ -110,10 +673,10 @@ collections:
       - { label: "Logo (optional)", name: "logo", widget: "image", required: false }
 
   # =====================================================
-  # Speisekarten / Beispielmenüs
+  # 🍴 BEISPIELMENÜS (Sammlung)
   # =====================================================
   - name: menues
-    label: "🍽️ Beispielmenüs"
+    label: "🍴 Beispielmenüs-Einträge"
     folder: "src/data/menues"
     create: true
     delete: true
@@ -128,10 +691,10 @@ collections:
       - { label: "Als 'Beliebt' markieren?", name: "highlight", widget: "boolean", default: false }
 
   # =====================================================
-  # Galerie-Bilder
+  # 📸 GALERIE-BILDER (Sammlung)
   # =====================================================
   - name: galerie
-    label: "📸 Galerie"
+    label: "📸 Galerie-Bilder"
     folder: "src/data/galerie"
     create: true
     delete: true
@@ -142,45 +705,3 @@ collections:
       - { label: "Bild", name: "bild", widget: "image" }
       - { label: "Bildbeschreibung (für SEO/Screenreader)", name: "alt", widget: "string" }
       - { label: "Beschriftung (optional, kleine Notiz)", name: "caption", widget: "string", required: false }
-
-  # =====================================================
-  # Seiten — die großen Texte pro Seite
-  # =====================================================
-  - name: seiten
-    label: "📄 Seiten-Texte"
-    delete: false
-    editor:
-      preview: false
-    files:
-      - name: startseite
-        label: "Startseite"
-        file: "src/data/seiten/startseite.json"
-        fields:
-          - { label: "Hero — Hauptüberschrift Teil 1", name: "hero_titel_1", widget: "string", default: "Eure Hochzeit." }
-          - { label: "Hero — Hauptüberschrift Teil 2 (klein, kursiv)", name: "hero_titel_2", widget: "string", default: "Mitten im" }
-          - { label: "Hero — Hauptüberschrift Teil 3 (Akzent)", name: "hero_titel_3", widget: "string", default: "Allgäu" }
-          - { label: "Hero — Untertitel", name: "hero_lead", widget: "text", default: "Festsaal, Bühne, eigene Küche — alles aus einer Hand. Im Bürgerhaus Mittelberg in Oy-Mittelberg." }
-          - { label: "USP-Sektion — Überschrift", name: "usp_titel", widget: "string", default: "Saal, Bühne, Küche." }
-          - { label: "USP-Sektion — Lead-Text", name: "usp_lead", widget: "text" }
-
-      - name: hochzeit
-        label: "Hochzeit-Seite"
-        file: "src/data/seiten/hochzeit.json"
-        fields:
-          - { label: "Überschrift", name: "titel", widget: "string", default: "Heiratet bei uns" }
-          - { label: "Lead-Text", name: "lead", widget: "text" }
-
-      - name: catering
-        label: "Catering-Seite"
-        file: "src/data/seiten/catering.json"
-        fields:
-          - { label: "Überschrift", name: "titel", widget: "string", default: "Aus unserer Küche" }
-          - { label: "Lead-Text", name: "lead", widget: "text" }
-          - { label: "Catering-Story (2-3 Sätze)", name: "story", widget: "text" }
-
-      - name: ueber_uns
-        label: "Über uns"
-        file: "src/data/seiten/ueber-uns.json"
-        fields:
-          - { label: "Überschrift", name: "titel", widget: "string", default: "Sebastian Künzel & Team" }
-          - { label: "Gastgeber-Geschichte (Absätze mit Leerzeile trennen)", name: "geschichte", widget: "text" }

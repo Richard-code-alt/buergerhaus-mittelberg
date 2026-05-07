@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 import { getCollection } from 'astro:content';
 import kontakt from '../data/kontakt.json';
+import seitentexte from '../data/seiten/anfahrt.json';
 
 const title = 'Anfahrt & Hotels — Bürgerhaus Mittelberg in Oy-Mittelberg';
 const description = 'Anfahrt zum Bürgerhaus Mittelberg per Auto, Bahn, Flughafen. Parkplätze direkt vor dem Haus. Hotel-Empfehlungen für Ihre Gäste in Oy-Mittelberg.';
@@ -18,8 +19,8 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
   </Fragment>
   <section class="section--hero">
     <div class="container--narrow text-center">
-      <span class="eyebrow">Anfahrt</span>
-      <h1>So finden Sie uns</h1>
+      <span class="eyebrow">{seitentexte.hero_eyebrow}</span>
+      <h1>{seitentexte.hero_titel}</h1>
 
       <div class="address-card mt-6">
         <p class="address-card__name">{kontakt.name}</p>
@@ -42,29 +43,29 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
             <path d="M 32 35 L 32 52 M 24 47 L 40 47" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
           </svg>
           <div>
-            <p class="route-card__title">Rotachstraße 8</p>
-            <p class="route-card__sub">87466 Oy-Mittelberg · Allgäu</p>
+            <p class="route-card__title">{seitentexte.route_titel}</p>
+            <p class="route-card__sub">{seitentexte.route_sub}</p>
           </div>
         </div>
 
         <div class="route-card__actions">
-          <p class="route-card__heading">Route berechnen</p>
+          <p class="route-card__heading">{seitentexte.route_heading}</p>
           <div class="route-card__buttons">
             <a
               href="https://www.google.com/maps/dir/?api=1&destination=Bürgerhaus+Mittelberg+Rotachstraße+8+Oy-Mittelberg&destination_place_id=B%C3%BCrgerhaus+Mittelberg"
               target="_blank"
               rel="noopener"
               class="btn btn--primary btn--arrow"
-            >Google Maps</a>
+            >{seitentexte.route_button_google}</a>
             <a
               href="https://maps.apple.com/?daddr=Bürgerhaus+Mittelberg+Rotachstraße+8+Oy-Mittelberg&dirflg=d"
               target="_blank"
               rel="noopener"
               class="btn btn--secondary btn--arrow"
-            >Apple Maps</a>
+            >{seitentexte.route_button_apple}</a>
           </div>
           <p class="route-card__note">
-            Klick auf einen Button öffnet Ihre Navi-App mit der Route ab Ihrem Standort.
+            {seitentexte.route_note}
           </p>
         </div>
       </div>
@@ -75,31 +76,26 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
     <div class="container">
       <div class="grid grid-3">
         <div>
-          <span class="eyebrow">Mit dem Auto</span>
-          <h3>Über die A7</h3>
+          <span class="eyebrow">{seitentexte.auto_eyebrow}</span>
+          <h3>{seitentexte.auto_titel}</h3>
           <p>
-            A7 Ausfahrt Nesselwang, dann B309 Richtung Wertach, in Oy-Mittelberg ins Ortsteil
-            Mittelberg abbiegen. Wir liegen direkt an der Hauptstraße im Ortskern.
+            {seitentexte.auto_text}
           </p>
           <p style="font-size: var(--t-sm); color: var(--c-mid);">
-            München 1:45 h · Stuttgart 2:15 h · Friedrichshafen 1:00 h · Innsbruck 1:30 h
+            {seitentexte.auto_distanzen}
           </p>
         </div>
         <div>
-          <span class="eyebrow">Mit der Bahn</span>
-          <h3>Bahnhof Oy-Mittelberg</h3>
+          <span class="eyebrow">{seitentexte.bahn_eyebrow}</span>
+          <h3>{seitentexte.bahn_titel}</h3>
           <p>
-            Drei Minuten mit dem Auto entfernt. Stündlich Verbindungen Richtung Kempten und Pfronten.
+            {seitentexte.bahn_text}
           </p>
         </div>
         <div>
-          <span class="eyebrow">Mit dem Flugzeug</span>
-          <h3>FMM, MUC oder INN</h3>
-          <p>
-            Memmingen Allgäu (FMM): 50 km · 50 min<br/>
-            München (MUC): 175 km · 1:45 h<br/>
-            Innsbruck (INN): 110 km · 1:30 h
-          </p>
+          <span class="eyebrow">{seitentexte.flug_eyebrow}</span>
+          <h3>{seitentexte.flug_titel}</h3>
+          <p set:html={seitentexte.flug_text.replace(/\n/g, '<br/>')}></p>
         </div>
       </div>
     </div>
@@ -107,11 +103,10 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
 
   <section class="section">
     <div class="container--narrow">
-      <span class="eyebrow">Parken</span>
-      <h2>Direkt vor dem Haus</h2>
+      <span class="eyebrow">{seitentexte.parken_eyebrow}</span>
+      <h2>{seitentexte.parken_titel}</h2>
       <p>
-        Direkt vor dem Bürgerhaus stehen ausreichend kostenfreie Parkplätze für Ihre Gäste.
-        Bei sehr großen Hochzeiten weisen wir Zusatzflächen aus.
+        {seitentexte.parken_text}
       </p>
     </div>
   </section>
@@ -119,17 +114,16 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
   <section class="section section--cream-warm">
     <div class="container">
       <div class="text-center mb-8">
-        <span class="eyebrow">Übernachten</span>
-        <h2>Hotels in Oy-Mittelberg</h2>
+        <span class="eyebrow">{seitentexte.hotels_eyebrow}</span>
+        <h2>{seitentexte.hotels_titel}</h2>
         <p class="lead mx-auto">
-          Damit Ihre Gäste nicht weit fahren müssen, hier eine Auswahl an Häusern in Gehweite oder
-          kurzer Fahrt. Reservierungen laufen direkt mit den Häusern.
+          {seitentexte.hotels_lead}
         </p>
       </div>
 
       <div class="grid grid-2">
         <div>
-          <h3>Im Ortskern (zu Fuß)</h3>
+          <h3>{seitentexte.hotels_titel_zufuss}</h3>
           <ul class="hotels">
             {hotelsZuFuss.map((h) => (
               <li>
@@ -147,7 +141,7 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
           </ul>
         </div>
         <div>
-          <h3>Wenige Minuten Fahrt</h3>
+          <h3>{seitentexte.hotels_titel_auto}</h3>
           <ul class="hotels">
             {hotelsAuto.map((h) => (
               <li>
@@ -167,18 +161,18 @@ const hotelsAuto = allHotels.filter((h) => h.data.kategorie === 'Mit Auto').sort
       </div>
 
       <p class="text-center mt-6" style="color: var(--c-soft); font-size: var(--t-sm);">
-        <em>Auf Wunsch melden wir Ihre Hochzeitsgesellschaft bei den Häusern an.</em>
+        <em>{seitentexte.hotels_hinweis}</em>
       </p>
     </div>
   </section>
 
   <section class="section section--blue">
     <div class="container--narrow text-center">
-      <h2 class="text-balance">Vorbeikommen, Saal anschauen</h2>
+      <h2 class="text-balance">{seitentexte.cta_titel}</h2>
       <p class="lead mx-auto">
-        Persönliche Eindrücke schlagen jede Website. Vereinbart einen Besichtigungstermin.
+        {seitentexte.cta_text}
       </p>
-      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">Termin anfragen</a>
+      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">{seitentexte.cta_button}</a>
     </div>
   </section>
 </BaseLayout>

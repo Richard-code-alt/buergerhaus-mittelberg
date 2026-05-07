@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 import kontakt from '../data/kontakt.json';
 import { getCollection } from 'astro:content';
+import seitentexte from '../data/seiten/anfragen.json';
 
 const title = 'Anfragen — Termin & Veranstaltung | Bürgerhaus Mittelberg';
 const description = 'Schreiben Sie uns Ihre Wünsche — Hochzeit, Tagung, Geburtstag, Catering. Wir antworten innerhalb von 48 Stunden.';
@@ -18,11 +19,10 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
 
   <section class="section--hero">
     <div class="container--narrow text-center">
-      <span class="eyebrow">Anfrage</span>
-      <h1>Anfrage stellen</h1>
+      <span class="eyebrow">{seitentexte.hero_eyebrow}</span>
+      <h1>{seitentexte.hero_titel}</h1>
       <p class="lead mx-auto">
-        Schreiben Sie uns, was Sie feiern möchten — Hochzeit, Tagung, Geburtstag oder etwas anderes.
-        Wir melden uns innerhalb von 48 Stunden mit einem konkreten Vorschlag.
+        {seitentexte.hero_lead}
       </p>
     </div>
   </section>
@@ -31,9 +31,9 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
     <div class="container--narrow">
       <div class="contact-info">
         <p>
-          Lieber direkt anrufen?
+          {seitentexte.kontakt_einleitung}
           <a href={`tel:+49${tel}`}><strong>{kontakt.telefon}</strong></a>
-          oder per Mail an
+          {seitentexte.kontakt_oder}
           <a href={`mailto:${kontakt.email}`}><strong>{kontakt.email}</strong></a>.
         </p>
       </div>
@@ -51,12 +51,12 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
         <p class="hp"><label>Bitte leer lassen: <input name="bot-field" /></label></p>
 
         <div class="form__error" id="form-error" hidden>
-          <strong>Es ist ein Fehler aufgetreten.</strong>
-          Bitte versucht es nochmal oder ruft uns direkt an.
+          <strong>{seitentexte.form_error}</strong>
+          {seitentexte.form_error_text}
         </div>
 
         <fieldset class="form__group">
-          <legend class="form__legend">Was wollen Sie feiern?</legend>
+          <legend class="form__legend">{seitentexte.anlass_legend}</legend>
           <div class="form__radio-grid">
             {anlaesse.map((a) => (
               <label class="form__radio-card">
@@ -67,64 +67,64 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
             ))}
             <label class="form__radio-card">
               <input type="radio" name="anlass" value="Sonstiges" required />
-              <span class="form__radio-card__title">Etwas anderes</span>
-              <span class="form__radio-card__sub">Konzert, Vereinsfest, Spezielles — schreibt's unten</span>
+              <span class="form__radio-card__title">{seitentexte.anlass_sonstiges_titel}</span>
+              <span class="form__radio-card__sub">{seitentexte.anlass_sonstiges_sub}</span>
             </label>
           </div>
         </fieldset>
 
         <div class="form__row">
           <div class="form__field">
-            <label for="name">Name *</label>
+            <label for="name">{seitentexte.label_name}</label>
             <input type="text" id="name" name="name" required autocomplete="name" />
           </div>
           <div class="form__field">
-            <label for="email">E-Mail *</label>
+            <label for="email">{seitentexte.label_email}</label>
             <input type="email" id="email" name="email" required autocomplete="email" />
           </div>
         </div>
 
         <div class="form__row">
           <div class="form__field">
-            <label for="telefon">Telefon (optional)</label>
+            <label for="telefon">{seitentexte.label_telefon}</label>
             <input type="tel" id="telefon" name="telefon" autocomplete="tel" />
           </div>
           <div class="form__field">
-            <label for="datum">Wunschdatum oder Zeitraum</label>
-            <input type="text" id="datum" name="datum" placeholder="z.B. 15.06.2027 oder Sommer 2027" />
+            <label for="datum">{seitentexte.label_datum}</label>
+            <input type="text" id="datum" name="datum" placeholder={seitentexte.placeholder_datum} />
           </div>
         </div>
 
         <div class="form__row">
           <div class="form__field">
-            <label for="gaeste">Gästezahl ungefähr</label>
-            <input type="text" id="gaeste" name="gaeste" placeholder="z.B. 80" />
+            <label for="gaeste">{seitentexte.label_gaeste}</label>
+            <input type="text" id="gaeste" name="gaeste" placeholder={seitentexte.placeholder_gaeste} />
           </div>
           <div class="form__field">
-            <label for="raum">Welcher Raum?</label>
+            <label for="raum">{seitentexte.label_raum}</label>
             <select id="raum" name="raum">
-              <option value="">— Egal / unsicher</option>
-              <option value="Festsaal">Festsaal</option>
-              <option value="Stüble">Martin Stüble</option>
-              <option value="Beide">Beide</option>
-              <option value="Außer-Haus">Außer Haus (Catering)</option>
+              <option value="">{seitentexte.raum_egal}</option>
+              <option value="Festsaal">{seitentexte.raum_festsaal}</option>
+              <option value="Stüble">{seitentexte.raum_stueble}</option>
+              <option value="Beide">{seitentexte.raum_beide}</option>
+              <option value="Außer-Haus">{seitentexte.raum_aussen}</option>
             </select>
           </div>
         </div>
 
         <div class="form__field">
-          <label for="nachricht">Was ist Ihnen wichtig? (Wünsche, Fragen, Sonstiges)</label>
-          <textarea id="nachricht" name="nachricht" rows="6" placeholder="z.B. freie Trauung im Freien geplant, vegane Hauptspeisen, DJ schon gebucht ..."></textarea>
+          <label for="nachricht">{seitentexte.label_nachricht}</label>
+          <textarea id="nachricht" name="nachricht" rows="6" placeholder={seitentexte.placeholder_nachricht}></textarea>
         </div>
 
         <div class="form__field form__field--check">
           <label>
             <input type="checkbox" name="datenschutz" required />
-            Ich habe die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> gelesen und stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage gespeichert werden. *
+            {seitentexte.label_datenschutz.split('##LINK_DATENSCHUTZ##')[0]}<a href="/datenschutz" target="_blank">{seitentexte.datenschutz_link_text}</a>{seitentexte.label_datenschutz.split('##LINK_DATENSCHUTZ##')[1]}
           </label>
         </div>
 
-        <button type="submit" class="btn btn--primary btn--arrow form__submit">Anfrage abschicken</button>
+        <button type="submit" class="btn btn--primary btn--arrow form__submit">{seitentexte.submit_button}</button>
       </form>
     </div>
   </section>

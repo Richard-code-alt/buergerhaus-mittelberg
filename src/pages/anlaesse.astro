@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 import { getCollection } from 'astro:content';
+import seitentexte from '../data/seiten/anlaesse.json';
 
 const title = 'Anlässe — Hochzeit, Tagung, Geburtstag, Catering | Bürgerhaus Mittelberg';
 const description = 'Hochzeiten, Tagungen, Geburtstage, Kommunion, Firmenfeiern und Catering außer Haus. Alle Anlässe im Bürgerhaus Mittelberg in Oy-Mittelberg.';
@@ -17,11 +18,10 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
 
   <section class="section--hero">
     <div class="container--narrow text-center">
-      <span class="eyebrow">Anlässe</span>
-      <h1>Was bei uns gefeiert wird</h1>
+      <span class="eyebrow">{seitentexte.hero_eyebrow}</span>
+      <h1>{seitentexte.hero_titel}</h1>
       <p class="lead mx-auto">
-        Hochzeiten, Tagungen, Geburtstage, Kommunion, Firmenfeiern.
-        Wir richten Veranstaltungen mit gleichem Anspruch aus — egal ob 20 oder 200 Gäste.
+        {seitentexte.hero_lead}
       </p>
     </div>
   </section>
@@ -50,10 +50,10 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
                   </p>
                 )}
                 {!a.data.ab_preis && (
-                  <p class="anlass-card__price"><strong>Auf Anfrage</strong></p>
+                  <p class="anlass-card__price"><strong>{seitentexte.label_auf_anfrage}</strong></p>
                 )}
                 <a href={a.data.detail_link} class="btn btn--secondary btn--arrow">
-                  {a.data.detail_link.startsWith('/anfragen') ? 'Anfragen' : 'Details'}
+                  {a.data.detail_link.startsWith('/anfragen') ? seitentexte.label_anfragen : seitentexte.label_details}
                 </a>
               </div>
             </div>
@@ -65,12 +65,11 @@ const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenf
 
   <section class="section section--blue">
     <div class="container--narrow text-center">
-      <h2 class="text-balance">Andere Idee?</h2>
+      <h2 class="text-balance">{seitentexte.cta_titel}</h2>
       <p class="lead mx-auto">
-        Egal ob Vereinsfest, Konzert oder etwas Besonderes — fragt einfach an.
-        Was wir nicht im Angebot haben, finden wir gemeinsam.
+        {seitentexte.cta_text}
       </p>
-      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">Termin anfragen</a>
+      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">{seitentexte.cta_button}</a>
     </div>
   </section>
 </BaseLayout>

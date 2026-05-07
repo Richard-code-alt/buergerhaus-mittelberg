@@ -18,25 +18,6 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: f.data.antwort.trim() },
   })),
 };
-
-const enthalten = [
-  'Festsaal exklusiv für Sie und Ihre Gäste',
-  'Mehr-Gänge-Menü aus unserer Küche, gutbürgerlich und regional',
-  'Sektempfang vor dem Haus oder im Saal',
-  'Service-Personal über die gesamte Veranstaltung',
-  'Tanzfläche, Bühne und Bar',
-  'Mitternachtssnack: Käse- oder Wurstplatte',
-  'Getränke nach Verbrauch — keine Pauschalen',
-  'Reinigung im Anschluss',
-  'Feier bis 3 Uhr morgens — ohne Aufpreis',
-];
-
-const selbst = [
-  'Musik (DJ oder Band) — gerne empfehlen wir Ihnen jemanden',
-  'Hochzeitstorte — auf Wunsch über unsere Konditorei-Partnerin',
-  'Floristik und Tischschmuck',
-  'Fotograf',
-];
 ---
 
 <BaseLayout title={title} description={description}>
@@ -47,7 +28,7 @@ const selbst = [
 
   <section class="section--hero">
     <div class="container--narrow text-center">
-      <span class="eyebrow">Hochzeit</span>
+      <span class="eyebrow">{seitentexte.hero_eyebrow}</span>
       <h1>{seitentexte.titel}</h1>
       <p class="lead mx-auto">{seitentexte.lead}</p>
     </div>
@@ -57,10 +38,10 @@ const selbst = [
   <section class="section" id="leistungen">
     <div class="container">
       <div class="text-center mb-8">
-        <span class="eyebrow">Hochzeitsfeier im Festsaal</span>
-        <h2 class="text-balance">Alles aus einer Hand</h2>
+        <span class="eyebrow">{seitentexte.leistungen_eyebrow}</span>
+        <h2 class="text-balance">{seitentexte.leistungen_titel}</h2>
         <p class="lead mx-auto">
-          Von 50 bis 250 Gästen, vom Sektempfang bis zur durchgetanzten Nacht. Wir kümmern uns um Saal, Küche und Service — Sie und Ihre Gäste feiern.
+          {seitentexte.leistungen_lead}
         </p>
       </div>
 
@@ -68,34 +49,33 @@ const selbst = [
         <div class="leistungs-block leistungs-block--enthalten">
           <h3>
             <span class="leistungs-block__icon" aria-hidden="true">✓</span>
-            Was wir leisten
+            {seitentexte.leistungen_unsere_titel}
           </h3>
           <ul class="leistungs-list">
-            {enthalten.map((punkt) => <li>{punkt}</li>)}
+            {seitentexte.leistungen_unsere.map((item: { punkt: string }) => <li>{item.punkt}</li>)}
           </ul>
         </div>
 
         <div class="leistungs-block leistungs-block--selbst">
           <h3>
             <span class="leistungs-block__icon" aria-hidden="true">→</span>
-            Was Sie selbst mitbringen
+            {seitentexte.leistungen_selbst_titel}
           </h3>
           <ul class="leistungs-list">
-            {selbst.map((punkt) => <li>{punkt}</li>)}
+            {seitentexte.leistungen_selbst.map((item: { punkt: string }) => <li>{item.punkt}</li>)}
           </ul>
           <p class="leistungs-block__note">
-            Auf Wunsch geben wir Ihnen Empfehlungen für Musik, Floristik und Konditorei aus unserem Allgäuer Netzwerk.
+            {seitentexte.leistungen_selbst_note}
           </p>
         </div>
       </div>
 
       <div class="leistungs-cta">
-        <p class="leistungs-cta__price">Preis auf Anfrage</p>
+        <p class="leistungs-cta__price">{seitentexte.preis_label}</p>
         <p class="leistungs-cta__desc">
-          Jede Hochzeit ist anders — Gästezahl, Menü und Wünsche bestimmen den Preis.
-          Wir machen Ihnen gerne ein konkretes Angebot nach einem persönlichen Vorgespräch.
+          {seitentexte.preis_text}
         </p>
-        <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg">Termin anfragen</a>
+        <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg">{seitentexte.preis_button}</a>
       </div>
     </div>
   </section>
@@ -103,93 +83,26 @@ const selbst = [
   <!-- Tagesablauf — als Phasen, nicht Uhrzeiten -->
   <section class="section section--cream-warm" id="tagesablauf">
     <div class="container--narrow">
-      <span class="eyebrow">Tagesablauf</span>
-      <h2>Wie eine Hochzeit bei uns abläuft</h2>
+      <span class="eyebrow">{seitentexte.ablauf_eyebrow}</span>
+      <h2>{seitentexte.ablauf_titel}</h2>
       <p class="lead">
-        Ein klassischer Ablauf — alternative Wünsche besprechen wir gerne im Vorgespräch.
+        {seitentexte.ablauf_lead}
       </p>
 
       <div class="ablauf">
-        <div class="ablauf__item">
-          <span class="ablauf__marker">1</span>
-          <div>
-            <h4>Tag vorher</h4>
-            <p>
-              Falls keine andere Veranstaltung im Haus ist, können Sie bereits am Vortag dekorieren und aufbauen.
-              So beginnt der Hochzeitstag entspannt.
-            </p>
+        {seitentexte.ablauf_phasen.map((phase: { titel: string; text: string }, idx: number) => (
+          <div class="ablauf__item">
+            <span class="ablauf__marker">{idx + 1}</span>
+            <div>
+              <h4>{phase.titel}</h4>
+              <p>{phase.text}</p>
+            </div>
           </div>
-        </div>
-
-        <div class="ablauf__item">
-          <span class="ablauf__marker">2</span>
-          <div>
-            <h4>Vormittag — Hochzeitskuchen</h4>
-            <p>
-              Sie können Ihren eigenen Hochzeitskuchen am Vormittag bei uns vorbeibringen.
-              Wir kümmern uns um die Aufbewahrung bis zum Servieren.
-            </p>
-          </div>
-        </div>
-
-        <div class="ablauf__item">
-          <span class="ablauf__marker">3</span>
-          <div>
-            <h4>Sektempfang nach der Trauung</h4>
-            <p>
-              Nach der Trauung in Standesamt oder Kirche kommen Sie und Ihre Gäste zu uns.
-              Sektempfang vor dem Haus — bei schlechtem Wetter im Saal.
-            </p>
-          </div>
-        </div>
-
-        <div class="ablauf__item">
-          <span class="ablauf__marker">4</span>
-          <div>
-            <h4>Kaffee & Kuchen</h4>
-            <p>
-              Vom Buffet, in entspannter Runde. Zeit für Fotos, Begrüßungen und ein erstes Durchatmen.
-            </p>
-          </div>
-        </div>
-
-        <div class="ablauf__item">
-          <span class="ablauf__marker">5</span>
-          <div>
-            <h4>Brautstehlen — wenn Sie mögen</h4>
-            <p>
-              Der Allgäuer Brauch darf bei einer Hochzeit nicht fehlen. Im nahegelegenen Partystadel
-              werden Wein und Brot von uns gestellt.
-              Alternativ gibt es zwei weitere Wirtschaften in Mittelberg, die das Brautstehlen ebenfalls ausrichten.
-            </p>
-          </div>
-        </div>
-
-        <div class="ablauf__item">
-          <span class="ablauf__marker">6</span>
-          <div>
-            <h4>Abendessen im Festsaal</h4>
-            <p>
-              Mehr-Gänge-Menü aus unserer Küche — gutbürgerlich, regional und auf Wunsch zusammengestellt.
-              Auf Allergien, vegetarische und vegane Gäste gehen wir gerne ein.
-            </p>
-          </div>
-        </div>
-
-        <div class="ablauf__item">
-          <span class="ablauf__marker">7</span>
-          <div>
-            <h4>Feier bis in die Nacht</h4>
-            <p>
-              Tanzfläche, Bühne, Bar. Mitternachtssnack mit Käse- oder Wurstplatte.
-              Die Feier geht bis 3 Uhr morgens — ohne Aufpreis.
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
 
       <p class="ablauf__hinweis">
-        Sie wünschen einen anderen Ablauf? Sagen Sie uns, was Sie sich vorstellen — wir richten uns nach Ihnen.
+        {seitentexte.ablauf_hinweis}
       </p>
     </div>
   </section>
@@ -197,8 +110,8 @@ const selbst = [
   <!-- FAQ aus Backend -->
   <section class="section" id="faq">
     <div class="container--narrow">
-      <span class="eyebrow">Häufige Fragen</span>
-      <h2>FAQ Hochzeit</h2>
+      <span class="eyebrow">{seitentexte.faq_eyebrow}</span>
+      <h2>{seitentexte.faq_titel}</h2>
 
       {faqs.map((f) => (
         <details class="faq">
@@ -211,11 +124,11 @@ const selbst = [
 
   <section class="section section--blue">
     <div class="container--narrow text-center">
-      <h2 class="text-balance">Sprechen Sie mit uns</h2>
+      <h2 class="text-balance">{seitentexte.cta_titel}</h2>
       <p class="lead mx-auto">
-        Schreiben Sie uns Ihr Wunschdatum, die Gästezahl und Ihre Fragen. Wir antworten innerhalb von 48 Stunden mit einem konkreten Vorschlag.
+        {seitentexte.cta_text}
       </p>
-      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">Anfrage stellen</a>
+      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">{seitentexte.cta_button}</a>
     </div>
   </section>
 </BaseLayout>

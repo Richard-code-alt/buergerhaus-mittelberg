@@ -69,29 +69,30 @@ const schema = {
     </div>
     <div class="hero__inner">
       <div class="hero__copy">
-        <span class="eyebrow hero__eyebrow">Eventlocation Allgäu</span>
+        <span class="eyebrow hero__eyebrow">{seitentexte.hero_eyebrow}</span>
         <h1 class="hero__title">
-          Eure Hochzeit<br/>
-          im <span class="hero__title-accent">Allgäu</span>
+          {seitentexte.hero_titel_zeile_1}<br/>
+          {seitentexte.hero_titel_zeile_2_text} <span class="hero__title-accent">{seitentexte.hero_titel_zeile_2_akzent}</span>
         </h1>
         <p class="hero__lead">{seitentexte.hero_lead}</p>
         <div class="hero__actions">
-          <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg">Termin anfragen</a>
-          <a href="/raeume" class="btn btn--secondary">Räume ansehen</a>
+          <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg">{seitentexte.hero_button_primaer}</a>
+          <a href="/raeume" class="btn btn--secondary">{seitentexte.hero_button_sekundaer}</a>
         </div>
 
         <div class="hero__stats">
-          <div><strong>250</strong><span>Plätze im Festsaal</span></div>
-          <div><strong>9 × 6 m</strong><span>Profibühne</span></div>
-          <div><strong>1</strong><span>Ansprechpartner</span></div>
+          <div><strong>{seitentexte.hero_stat_1_zahl}</strong><span>{seitentexte.hero_stat_1_label}</span></div>
+          <div><strong>{seitentexte.hero_stat_2_zahl}</strong><span>{seitentexte.hero_stat_2_label}</span></div>
+          <div><strong>{seitentexte.hero_stat_3_zahl}</strong><span>{seitentexte.hero_stat_3_label}</span></div>
         </div>
       </div>
       <div class="hero__visual">
         <ImagePlaceholder
-          alt="Bürgerhaus Mittelberg in Oy-Mittelberg vor den Allgäuer Bergen"
+          alt={seitentexte.hero_bild_alt}
           variant="hero"
           scene="mountain"
-          caption="Mitten im Allgäu"
+          caption={seitentexte.hero_bild_caption}
+          src={seitentexte.hero_bild || null}
         />
       </div>
     </div>
@@ -100,12 +101,12 @@ const schema = {
   <section class="section">
     <div class="container">
       <div class="text-center mb-8">
-        <span class="eyebrow">Anlässe</span>
-        <h2 class="text-balance">Hochzeit, Tagung,<br/>Geburtstag & mehr</h2>
+        <span class="eyebrow">{seitentexte.anlaesse_eyebrow}</span>
+        <h2 class="text-balance">{seitentexte.anlaesse_titel}</h2>
         <p class="lead text-balance mx-auto" style="margin: var(--s-5) auto 0;">
-          Hochzeit ist unser Schwerpunkt, aber bei uns finden auch Tagungen, Geburtstage, Kommunion und Firmenfeiern den passenden Rahmen. Catering bieten wir auf Wunsch auch außer Haus.
+          {seitentexte.anlaesse_text}
         </p>
-        <a href="/anlaesse" class="btn btn--secondary btn--arrow mt-6">Alle Anlässe</a>
+        <a href="/anlaesse" class="btn btn--secondary btn--arrow mt-6">{seitentexte.anlaesse_button}</a>
       </div>
     </div>
   </section>
@@ -113,26 +114,26 @@ const schema = {
   <section class="section section--cream-warm">
     <div class="container">
       <div class="text-center mb-8">
-        <span class="eyebrow">Aus einer Hand</span>
-        <h2 class="text-balance">{seitentexte.usp_titel}<br/><span style="color: var(--c-mokka);">Alles unter einem Dach.</span></h2>
+        <span class="eyebrow">{seitentexte.usp_eyebrow}</span>
+        <h2 class="text-balance">{seitentexte.usp_titel}<br/><span style="color: var(--c-mokka);">{seitentexte.usp_titel_zusatz}</span></h2>
         <p class="lead text-balance mx-auto" style="margin: var(--s-5) auto 0;">{seitentexte.usp_lead}</p>
       </div>
 
       <div class="grid grid-3">
         <article class="card">
           <span class="divider"></span>
-          <h3>Festsaal mit Bühne</h3>
-          <p>Bis zu 250 Gäste, Bühne 9 × 6 m, Tonanlage und Licht. Alpenländischer Charakter mit gemütlich-rustikaler Atmosphäre und moderner Technik.</p>
+          <h3>{seitentexte.usp_card_1_titel}</h3>
+          <p>{seitentexte.usp_card_1_text}</p>
         </article>
         <article class="card">
           <span class="divider"></span>
-          <h3>Eigene Küche</h3>
-          <p>Wir kochen selbst — regional und frisch, abgestimmt auf Ihre Wünsche. Ihre Gäste merken, dass jemand für sie gekocht hat, der weiß, was er tut.</p>
+          <h3>{seitentexte.usp_card_2_titel}</h3>
+          <p>{seitentexte.usp_card_2_text}</p>
         </article>
         <article class="card">
           <span class="divider"></span>
-          <h3>Persönliche Gastgeber</h3>
-          <p>Sebastian Künzel und sein Team sind vom ersten Telefonat bis zum Abschiedskaffee am Sonntagmorgen für Sie da — immer dieselben Gesichter.</p>
+          <h3>{seitentexte.usp_card_3_titel}</h3>
+          <p>{seitentexte.usp_card_3_text}</p>
         </article>
       </div>
     </div>
@@ -141,30 +142,32 @@ const schema = {
   <section class="section">
     <div class="container">
       <div class="text-center mb-8">
-        <span class="eyebrow">Unsere Räume</span>
-        <h2 class="text-balance">Zwei Räume.<br/>Für jeden Anlass der passende.</h2>
+        <span class="eyebrow">{seitentexte.raeume_eyebrow}</span>
+        <h2 class="text-balance">{seitentexte.raeume_titel}</h2>
       </div>
 
       <div class="grid grid-2">
         <div>
           <ImagePlaceholder
-            alt="Festsaal mit Bühne und Tanzfläche"
+            alt={seitentexte.raeume_festsaal_bild_alt}
             scene="venue"
-            caption="Festsaal"
+            caption={seitentexte.raeume_festsaal_bild_caption}
+            src={seitentexte.raeume_festsaal_bild || null}
           />
-          <h3 class="mt-5">Festsaal</h3>
-          <p>250 Plätze, große Bühne, Tanzfläche, Bar. Für die große Feier ab etwa 80 Gästen — egal ob Ihre Live-Band, ein DJ oder Reden auf der Bühne, der Saal trägt jede Stimmung mit.</p>
-          <a href="/raeume#festsaal" class="btn btn--secondary btn--arrow mt-3">Mehr zum Festsaal</a>
+          <h3 class="mt-5">{seitentexte.raeume_festsaal_titel}</h3>
+          <p>{seitentexte.raeume_festsaal_text}</p>
+          <a href="/raeume#festsaal" class="btn btn--secondary btn--arrow mt-3">{seitentexte.raeume_festsaal_button}</a>
         </div>
         <div>
           <ImagePlaceholder
-            alt="Martin Stüble, holzvertäfelte Sitzgruppe"
+            alt={seitentexte.raeume_stueble_bild_alt}
             scene="table"
-            caption="Martin Stüble"
+            caption={seitentexte.raeume_stueble_bild_caption}
+            src={seitentexte.raeume_stueble_bild || null}
           />
-          <h3 class="mt-5">Martin Stüble</h3>
-          <p>Bis 50 Plätze, intim und stimmungsvoll. Für Geburtstage, Kommunion, Konfirmation und Familienfeiern — oder als Sektempfang vor der Hochzeit.</p>
-          <a href="/raeume#stueble" class="btn btn--secondary btn--arrow mt-3">Mehr zum Stüble</a>
+          <h3 class="mt-5">{seitentexte.raeume_stueble_titel}</h3>
+          <p>{seitentexte.raeume_stueble_text}</p>
+          <a href="/raeume#stueble" class="btn btn--secondary btn--arrow mt-3">{seitentexte.raeume_stueble_button}</a>
         </div>
       </div>
     </div>
@@ -173,26 +176,25 @@ const schema = {
   <section class="section section--cream-warm">
     <div class="container">
       <div class="text-center mb-8">
-        <span class="eyebrow">Hochzeit</span>
-        <h2 class="text-balance">Hochzeitsfeier im Festsaal</h2>
+        <span class="eyebrow">{seitentexte.hochzeit_eyebrow}</span>
+        <h2 class="text-balance">{seitentexte.hochzeit_titel}</h2>
         <p class="lead mx-auto">
-          Von 50 bis 250 Gästen. Festsaal, Sektempfang, Mehr-Gänge-Menü aus eigener Küche, Service, Bar und Tanzfläche — Mitternachtssnack inklusive. Feier bis 3 Uhr morgens ohne Aufpreis.
+          {seitentexte.hochzeit_text}
         </p>
       </div>
 
       <div class="text-center">
-        <a href="/hochzeit" class="btn btn--primary btn--arrow btn--lg">Mehr zur Hochzeit</a>
+        <a href="/hochzeit" class="btn btn--primary btn--arrow btn--lg">{seitentexte.hochzeit_button}</a>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container--narrow text-center">
-      <span class="eyebrow">Trauung</span>
-      <h2 class="text-balance">Standesamtlich, kirchlich oder frei.</h2>
+      <span class="eyebrow">{seitentexte.trauung_eyebrow}</span>
+      <h2 class="text-balance">{seitentexte.trauung_titel}</h2>
       <p class="lead text-pretty mx-auto">
-        Im Bürgerhaus wird gefeiert, nicht standesamtlich getraut. Die Trauung findet im Standesamt Oy-Mittelberg, in der Kirche oder als freie Trauung statt — die Feier dann bei uns.
-        Standesamt und Kirche sind in wenigen Minuten mit dem Auto erreichbar.
+        {seitentexte.trauung_text}
       </p>
     </div>
   </section>
@@ -200,16 +202,18 @@ const schema = {
   <section class="section section--cream-warm">
     <div class="container">
       <div class="grid grid-2" style="align-items: center;">
-        <ImagePlaceholder alt="Aus unserer Küche — Hochzeitsmenü" scene="food" caption="Aus unserer Küche" />
+        <ImagePlaceholder
+          alt={seitentexte.catering_bild_alt}
+          scene="food"
+          caption={seitentexte.catering_bild_caption}
+          src={seitentexte.catering_bild || null}
+        />
         <div>
-          <span class="eyebrow">Catering</span>
-          <h2 class="text-balance">Wir kochen selbst.</h2>
-          <p>
-            Sebastian Künzel kocht persönlich für Ihre Feier. Allgäuer Wurzeln,
-            regional und frisch — Drei-Gänge-Menüs, Buffets oder etwas dazwischen.
-          </p>
-          <p>Allergien, vegetarische oder vegane Gäste? Sagen Sie uns rechtzeitig Bescheid, wir kochen für jeden separat.</p>
-          <a href="/catering" class="btn btn--secondary btn--arrow mt-3">Menüs ansehen</a>
+          <span class="eyebrow">{seitentexte.catering_eyebrow}</span>
+          <h2 class="text-balance">{seitentexte.catering_titel}</h2>
+          <p>{seitentexte.catering_text_1}</p>
+          <p>{seitentexte.catering_text_2}</p>
+          <a href="/catering" class="btn btn--secondary btn--arrow mt-3">{seitentexte.catering_button}</a>
         </div>
       </div>
     </div>
@@ -218,16 +222,17 @@ const schema = {
   <section class="section">
     <div class="container">
       <div class="grid grid-2" style="align-items: center;">
-        <ImagePlaceholder alt="Sebastian Künzel und Team vor dem Bürgerhaus Mittelberg" scene="venue" caption="Unser Team" />
+        <ImagePlaceholder
+          alt={seitentexte.team_bild_alt}
+          scene="venue"
+          caption={seitentexte.team_bild_caption}
+          src={seitentexte.team_bild || null}
+        />
         <div>
-          <span class="eyebrow">Wir</span>
-          <h2 class="text-balance">Sebastian Künzel & Team</h2>
-          <p>
-            Persönlich, herzlich, mit Wurzeln im Allgäu. Wir kochen selbst, kümmern uns um jedes Detail und sind vom ersten Telefonat bis zum Abschiedskaffee am Sonntagmorgen für Sie da.
-          </p>
-          <p>
-            Schauen Sie auch gerne auf unseren Social-Media-Kanälen vorbei — dort zeigen wir Eindrücke aus dem Alltag im Bürgerhaus.
-          </p>
+          <span class="eyebrow">{seitentexte.team_eyebrow}</span>
+          <h2 class="text-balance">{seitentexte.team_titel}</h2>
+          <p>{seitentexte.team_text_1}</p>
+          <p>{seitentexte.team_text_2}</p>
           <div class="social-links mt-4">
             {kontakt.instagram && (
               <a href={kontakt.instagram} target="_blank" rel="noopener" class="social-link">
@@ -246,7 +251,7 @@ const schema = {
               </a>
             )}
           </div>
-          <a href="/ueber-uns" class="btn btn--secondary btn--arrow mt-5">Mehr über uns</a>
+          <a href="/ueber-uns" class="btn btn--secondary btn--arrow mt-5">{seitentexte.team_button}</a>
         </div>
       </div>
     </div>
@@ -254,23 +259,23 @@ const schema = {
 
   <section class="section section--cream-warm">
     <div class="container--narrow text-center">
-      <span class="eyebrow">Anfahrt</span>
-      <h2 class="text-balance">Mitten im Ort.</h2>
+      <span class="eyebrow">{seitentexte.anfahrt_eyebrow}</span>
+      <h2 class="text-balance">{seitentexte.anfahrt_titel}</h2>
       <p class="lead text-pretty mx-auto">
-        {kontakt.strasse}, {kontakt.ort.replace(/\d+\s+/, '')}. Direkt an der Hauptstraße im Ortsteil Mittelberg, mit kostenfreien Parkplätzen vor dem Haus. Standesamt und Bahnhof Oy-Mittelberg sind in drei Minuten mit dem Auto erreichbar.
+        {kontakt.strasse}, {kontakt.ort.replace(/\d+\s+/, '')}. {seitentexte.anfahrt_text}
       </p>
-      <a href="/anfahrt" class="btn btn--secondary btn--arrow mt-5">Anfahrt & Hotels</a>
+      <a href="/anfahrt" class="btn btn--secondary btn--arrow mt-5">{seitentexte.anfahrt_button}</a>
     </div>
   </section>
 
   <section class="section section--blue">
     <div class="container--narrow text-center">
-      <span class="eyebrow">Anfrage</span>
-      <h2 class="text-balance">Bereit, Ihre Feier zu planen?</h2>
+      <span class="eyebrow">{seitentexte.cta_eyebrow}</span>
+      <h2 class="text-balance">{seitentexte.cta_titel}</h2>
       <p class="lead mx-auto">
-        Schreiben Sie uns Ihr Wunschdatum, die ungefähre Gästezahl und was Ihnen wichtig ist. Wir melden uns innerhalb von 48 Stunden mit einem konkreten Vorschlag.
+        {seitentexte.cta_text}
       </p>
-      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">Termin anfragen</a>
+      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">{seitentexte.cta_button}</a>
     </div>
   </section>
 </BaseLayout>

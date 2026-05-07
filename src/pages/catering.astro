@@ -17,7 +17,7 @@ const menues = (await getCollection('menues')).sort((a, b) => a.data.reihenfolge
   </Fragment>
   <section class="section--hero">
     <div class="container--narrow text-center">
-      <span class="eyebrow">Catering</span>
+      <span class="eyebrow">{seitentexte.hero_eyebrow}</span>
       <h1>{seitentexte.titel}</h1>
       <p class="lead mx-auto">{seitentexte.lead}</p>
       <p class="mt-4">{seitentexte.story}</p>
@@ -39,7 +39,7 @@ const menues = (await getCollection('menues')).sort((a, b) => a.data.reihenfolge
       </div>
 
       <p class="text-center mt-6" style="color: var(--c-soft); font-size: var(--t-sm);">
-        <em>Beispielmenüs. Unsere aktuellen saisonalen Vorschläge bekommen Sie im Vorgespräch.</em>
+        <em>{seitentexte.menues_hinweis}</em>
       </p>
     </div>
   </section>
@@ -48,24 +48,18 @@ const menues = (await getCollection('menues')).sort((a, b) => a.data.reihenfolge
     <div class="container">
       <div class="grid grid-2" style="align-items: center;">
         <ImagePlaceholder
-          alt="Festlich gedeckter Tisch mit Hochzeitsmenü im Bürgerhaus Mittelberg"
+          alt={seitentexte.buffet_bild_alt}
           scene="food"
           variant="tall"
+          src={seitentexte.buffet_bild || null}
         />
         <div>
-          <span class="eyebrow">Buffet</span>
-          <h2>Wenn Sie Vielfalt wollen</h2>
+          <span class="eyebrow">{seitentexte.buffet_eyebrow}</span>
+          <h2>{seitentexte.buffet_titel}</h2>
           <p>
-            Ein Buffet ist die schönste Form, wenn sich Ihre Gäste austauschen sollen, statt drei
-            Stunden am Platz zu sitzen. Vor- und Nachspeisen als kalte und warme Stationen, der
-            Hauptgang heiß. Die Gäste suchen sich aus, wir füllen nach. Allergiker und Vegetarier
-            bekommen ihre eigene Station.
+            {seitentexte.buffet_text_1}
           </p>
-          <p>
-            <strong>Beispielstationen:</strong> Allgäuer Käseplatte mit Bergkäse, Brotvielfalt vom regionalen Bäcker,
-            Salatbar mit hausgemachten Dressings, warme Hauptspeisen-Station mit Allgäuer Klassikern und
-            modernen Akzenten, Antipasti-Station, Dessert-Tisch mit Topfenmousse und Apfelküchle.
-          </p>
+          <p set:html={seitentexte.buffet_text_2.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}></p>
         </div>
       </div>
     </div>
@@ -73,35 +67,31 @@ const menues = (await getCollection('menues')).sort((a, b) => a.data.reihenfolge
 
   <section class="section">
     <div class="container--narrow">
-      <span class="eyebrow">Allergien & Diät</span>
-      <h2>Vegan, glutenfrei, individuell</h2>
+      <span class="eyebrow">{seitentexte.allergien_eyebrow}</span>
+      <h2>{seitentexte.allergien_titel}</h2>
       <p>
-        Sagt uns spätestens 14 Tage vor der Hochzeit Bescheid, wer was braucht. Wir kochen separat,
-        nicht „kann ja vom Hauptgang weglassen". Vegane Hauptspeisen, glutenfrei, laktosefrei,
-        halal — alles geht, mit Vorlauf.
+        {seitentexte.allergien_text}
       </p>
     </div>
   </section>
 
   <section class="section section--cream-warm">
     <div class="container--narrow">
-      <span class="eyebrow">Getränke</span>
-      <h2>Bei uns auf Verbrauch</h2>
+      <span class="eyebrow">{seitentexte.getraenke_eyebrow}</span>
+      <h2>{seitentexte.getraenke_titel}</h2>
       <p>
-        Getränke laufen über uns. Wir kalkulieren keinen Pauschalpreis pro Person, sondern rechnen
-        nach Verbrauch ab. Bier vom Fass, Wein nach Ihren Wünschen ausgewählt, Sekt für den
-        Empfang. Spirituosen-Auswahl an der Bar. Faire Margen, kein Wucher.
+        {seitentexte.getraenke_text}
       </p>
     </div>
   </section>
 
   <section class="section section--blue">
     <div class="container--narrow text-center">
-      <h2 class="text-balance">Menüs für Ihre Hochzeit zusammenstellen</h2>
+      <h2 class="text-balance">{seitentexte.cta_titel}</h2>
       <p class="lead mx-auto">
-        Wir besprechen Menü, Allergien und Wünsche persönlich.
+        {seitentexte.cta_text}
       </p>
-      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">Anfrage stellen</a>
+      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">{seitentexte.cta_button}</a>
     </div>
   </section>
 </BaseLayout>

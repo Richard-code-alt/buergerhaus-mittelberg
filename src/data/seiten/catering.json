@@ -1,5 +1,27 @@
 {
-  "titel": "Aus unserer Küche, von uns gekocht",
-  "lead": "Wir machen das Catering selbst. Ein Team, eine Küche, ein Tag — Ihrer.",
-  "story": "Sebastian Künzel kocht persönlich für Ihre Feier. Allgäuer Wurzeln, regional verwurzelt, mit Anspruch an Saisonalität und Frische. Was auf den Tisch kommt, kommt aus unserer eigenen Küche im Bürgerhaus."
+  "hero_eyebrow": "Catering",
+  "titel": "Aus unserer Küche",
+  "lead": "Sebastian Künzel kocht persönlich für Ihre Feier — aus eigener Küche, regional und frisch.",
+  "story": "Wir kochen seit Jahrzehnten selbst. Von der Hochzeitstafel über die Faschingsfeier bis zur Kommunion. Allgäuer Wurzeln, ohne Schnickschnack — aber durchdacht.",
+
+  "menues_hinweis": "Beispielmenüs. Unsere aktuellen saisonalen Vorschläge bekommen Sie im Vorgespräch.",
+
+  "buffet_eyebrow": "Buffet",
+  "buffet_titel": "Wenn Sie Vielfalt wollen",
+  "buffet_text_1": "Ein Buffet ist die schönste Form, wenn sich Ihre Gäste austauschen sollen, statt drei Stunden am Platz zu sitzen. Vor- und Nachspeisen als kalte und warme Stationen, der Hauptgang heiß. Die Gäste suchen sich aus, wir füllen nach. Allergiker und Vegetarier bekommen ihre eigene Station.",
+  "buffet_text_2": "**Beispielstationen:** Allgäuer Käseplatte mit Bergkäse, Brotvielfalt vom regionalen Bäcker, Salatbar mit hausgemachten Dressings, warme Hauptspeisen-Station mit Allgäuer Klassikern und modernen Akzenten, Antipasti-Station, Dessert-Tisch mit Topfenmousse und Apfelküchle.",
+  "buffet_bild": "",
+  "buffet_bild_alt": "Festlich gedeckter Tisch mit Hochzeitsmenü im Bürgerhaus Mittelberg",
+
+  "allergien_eyebrow": "Allergien & Diät",
+  "allergien_titel": "Vegan, glutenfrei, individuell",
+  "allergien_text": "Sagt uns spätestens 14 Tage vor der Hochzeit Bescheid, wer was braucht. Wir kochen separat, nicht „kann ja vom Hauptgang weglassen\". Vegane Hauptspeisen, glutenfrei, laktosefrei, halal — alles geht, mit Vorlauf.",
+
+  "getraenke_eyebrow": "Getränke",
+  "getraenke_titel": "Bei uns auf Verbrauch",
+  "getraenke_text": "Getränke laufen über uns. Wir kalkulieren keinen Pauschalpreis pro Person, sondern rechnen nach Verbrauch ab. Bier vom Fass, Wein nach Ihren Wünschen ausgewählt, Sekt für den Empfang. Spirituosen-Auswahl an der Bar. Faire Margen, kein Wucher.",
+
+  "cta_titel": "Menüs für Ihre Hochzeit zusammenstellen",
+  "cta_text": "Wir besprechen Menü, Allergien und Wünsche persönlich.",
+  "cta_button": "Anfrage stellen"
 }

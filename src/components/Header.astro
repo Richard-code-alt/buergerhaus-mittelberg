@@ -1,23 +1,25 @@
 ---
+import nav from '../data/seiten/navigation.json';
+
 const navItems = [
-  { href: '/anlaesse',   label: 'Anlässe' },
-  { href: '/hochzeit',   label: 'Hochzeit' },
-  { href: '/raeume',     label: 'Räume' },
-  { href: '/catering',   label: 'Catering' },
-  { href: '/galerie',    label: 'Galerie' },
-  { href: '/partner',    label: 'Partner' },
-  { href: '/anfahrt',    label: 'Anfahrt' },
+  { href: '/anlaesse',   label: nav.nav_anlaesse },
+  { href: '/hochzeit',   label: nav.nav_hochzeit },
+  { href: '/raeume',     label: nav.nav_raeume },
+  { href: '/catering',   label: nav.nav_catering },
+  { href: '/galerie',    label: nav.nav_galerie },
+  { href: '/partner',    label: nav.nav_partner },
+  { href: '/anfahrt',    label: nav.nav_anfahrt },
 ];
 const currentPath = Astro.url.pathname;
 ---
 
 <header class="header" data-header>
   <div class="header__inner">
-    <a href="/" class="header__brand" aria-label="Bürgerhaus Mittelberg — Startseite">
-      <img src="/logo.svg" alt="Bürgerhaus Mittelberg" width="280" height="80" />
+    <a href="/" class="header__brand" aria-label={nav.header_brand_label}>
+      <img src="/logo.svg" alt={nav.header_logo_alt} width="280" height="80" />
     </a>
 
-    <button class="header__toggle" data-menu-toggle aria-expanded="false" aria-controls="primary-nav" aria-label="Menü öffnen">
+    <button class="header__toggle" data-menu-toggle aria-expanded="false" aria-controls="primary-nav" aria-label={nav.menu_open_label}>
       <span></span><span></span><span></span>
     </button>
 
@@ -33,7 +35,7 @@ const currentPath = Astro.url.pathname;
           </li>
         ))}
       </ul>
-      <a href="/anfragen" class="btn btn--secondary header__cta">Anfrage</a>
+      <a href="/anfragen" class="btn btn--secondary header__cta">{nav.nav_anfrage_button}</a>
     </nav>
   </div>
 </header>

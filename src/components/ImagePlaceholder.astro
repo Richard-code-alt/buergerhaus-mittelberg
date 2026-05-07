@@ -4,8 +4,9 @@ export interface Props {
   caption?: string;
   variant?: 'default' | 'wide' | 'tall' | 'hero';
   scene?: 'mountain' | 'table' | 'food' | 'wedding' | 'venue';
+  src?: string | null;
 }
-const { alt, caption, variant = 'default', scene = 'mountain' } = Astro.props as Props;
+const { alt, caption, variant = 'default', scene = 'mountain', src } = Astro.props as Props;
 
 // Verschiedene SVG-Szenen — Allgäuer Berge, Hochzeitstafel, Catering-Stillleben, Hochzeitskranz
 const scenes: Record<string, string> = {
@@ -153,8 +154,14 @@ const scenes: Record<string, string> = {
 ---
 
 <figure class={`imgph imgph--${variant}`} role="img" aria-label={alt}>
-  <div class="imgph__bg"></div>
-  <svg class="imgph__svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" set:html={scenes[scene]} />
-  <div class="imgph__noise"></div>
+  {src ? (
+    <img class="imgph__img" src={src} alt={alt} loading="lazy" />
+  ) : (
+    <>
+      <div class="imgph__bg"></div>
+      <svg class="imgph__svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" set:html={scenes[scene]} />
+      <div class="imgph__noise"></div>
+    </>
+  )}
   {caption && <figcaption class="imgph__caption">{caption}</figcaption>}
 </figure>

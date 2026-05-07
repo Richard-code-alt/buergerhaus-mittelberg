@@ -1,4 +1,77 @@
 {
+  "hero_eyebrow": "Hochzeit",
   "titel": "Heiraten bei uns",
-  "lead": "Im Bürgerhaus Mittelberg feiern Sie Ihre Hochzeit von 50 bis 250 Gästen. Festsaal, eigene Küche, persönlicher Service — bis 3 Uhr morgens, ohne Aufpreis."
+  "lead": "Im Bürgerhaus Mittelberg feiern Sie Ihre Hochzeit von 50 bis 250 Gästen. Festsaal, eigene Küche, persönlicher Service — bis 3 Uhr morgens, ohne Aufpreis.",
+
+  "leistungen_eyebrow": "Hochzeitsfeier im Festsaal",
+  "leistungen_titel": "Alles aus einer Hand",
+  "leistungen_lead": "Von 50 bis 250 Gästen, vom Sektempfang bis zur durchgetanzten Nacht. Wir kümmern uns um Saal, Küche und Service — Sie und Ihre Gäste feiern.",
+
+  "leistungen_unsere_titel": "Was wir leisten",
+  "leistungen_unsere": [
+    { "punkt": "Festsaal exklusiv für Sie und Ihre Gäste" },
+    { "punkt": "Mehr-Gänge-Menü aus unserer Küche, gutbürgerlich und regional" },
+    { "punkt": "Sektempfang vor dem Haus oder im Saal" },
+    { "punkt": "Service-Personal über die gesamte Veranstaltung" },
+    { "punkt": "Tanzfläche, Bühne und Bar" },
+    { "punkt": "Mitternachtssnack: Käse- oder Wurstplatte" },
+    { "punkt": "Getränke nach Verbrauch — keine Pauschalen" },
+    { "punkt": "Reinigung im Anschluss" },
+    { "punkt": "Feier bis 3 Uhr morgens — ohne Aufpreis" }
+  ],
+
+  "leistungen_selbst_titel": "Was Sie selbst mitbringen",
+  "leistungen_selbst": [
+    { "punkt": "Musik (DJ oder Band) — gerne empfehlen wir Ihnen jemanden" },
+    { "punkt": "Hochzeitstorte — auf Wunsch über unsere Konditorei-Partnerin" },
+    { "punkt": "Floristik und Tischschmuck" },
+    { "punkt": "Fotograf" }
+  ],
+  "leistungen_selbst_note": "Auf Wunsch geben wir Ihnen Empfehlungen für Musik, Floristik und Konditorei aus unserem Allgäuer Netzwerk.",
+
+  "preis_label": "Preis auf Anfrage",
+  "preis_text": "Jede Hochzeit ist anders — Gästezahl, Menü und Wünsche bestimmen den Preis. Wir machen Ihnen gerne ein konkretes Angebot nach einem persönlichen Vorgespräch.",
+  "preis_button": "Termin anfragen",
+
+  "ablauf_eyebrow": "Tagesablauf",
+  "ablauf_titel": "Wie eine Hochzeit bei uns abläuft",
+  "ablauf_lead": "Ein klassischer Ablauf — alternative Wünsche besprechen wir gerne im Vorgespräch.",
+  "ablauf_phasen": [
+    {
+      "titel": "Tag vorher",
+      "text": "Falls keine andere Veranstaltung im Haus ist, können Sie bereits am Vortag dekorieren und aufbauen. So beginnt der Hochzeitstag entspannt."
+    },
+    {
+      "titel": "Vormittag — Hochzeitskuchen",
+      "text": "Sie können Ihren eigenen Hochzeitskuchen am Vormittag bei uns vorbeibringen. Wir kümmern uns um die Aufbewahrung bis zum Servieren."
+    },
+    {
+      "titel": "Sektempfang nach der Trauung",
+      "text": "Nach der Trauung in Standesamt oder Kirche kommen Sie und Ihre Gäste zu uns. Sektempfang vor dem Haus — bei schlechtem Wetter im Saal."
+    },
+    {
+      "titel": "Kaffee & Kuchen",
+      "text": "Vom Buffet, in entspannter Runde. Zeit für Fotos, Begrüßungen und ein erstes Durchatmen."
+    },
+    {
+      "titel": "Brautstehlen — wenn Sie mögen",
+      "text": "Der Allgäuer Brauch darf bei einer Hochzeit nicht fehlen. Im nahegelegenen Partystadel werden Wein und Brot von uns gestellt. Alternativ gibt es zwei weitere Wirtschaften in Mittelberg, die das Brautstehlen ebenfalls ausrichten."
+    },
+    {
+      "titel": "Abendessen im Festsaal",
+      "text": "Mehr-Gänge-Menü aus unserer Küche — gutbürgerlich, regional und auf Wunsch zusammengestellt. Auf Allergien, vegetarische und vegane Gäste gehen wir gerne ein."
+    },
+    {
+      "titel": "Feier bis in die Nacht",
+      "text": "Tanzfläche, Bühne, Bar. Mitternachtssnack mit Käse- oder Wurstplatte. Die Feier geht bis 3 Uhr morgens — ohne Aufpreis."
+    }
+  ],
+  "ablauf_hinweis": "Sie wünschen einen anderen Ablauf? Sagen Sie uns, was Sie sich vorstellen — wir richten uns nach Ihnen.",
+
+  "faq_eyebrow": "Häufige Fragen",
+  "faq_titel": "FAQ Hochzeit",
+
+  "cta_titel": "Sprechen Sie mit uns",
+  "cta_text": "Schreiben Sie uns Ihr Wunschdatum, die Gästezahl und Ihre Fragen. Wir antworten innerhalb von 48 Stunden mit einem konkreten Vorschlag.",
+  "cta_button": "Anfrage stellen"
 }

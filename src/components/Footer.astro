@@ -1,5 +1,6 @@
 ---
 import kontakt from '../data/kontakt.json';
+import footer from '../data/seiten/footer.json';
 const year = new Date().getFullYear();
 const tel = kontakt.telefon.replace(/\s/g, '').replace(/^0/, '');
 ---
@@ -9,11 +10,11 @@ const tel = kontakt.telefon.replace(/\s/g, '').replace(/^0/, '');
     <div class="footer__grid">
       <div class="footer__col">
         <p class="footer__brand">{kontakt.name}</p>
-        <p>{kontakt.strasse}<br/>{kontakt.ort}<br/>Allgäu, Bayern</p>
+        <p>{kontakt.strasse}<br/>{kontakt.ort}<br/>{footer.region}</p>
       </div>
 
       <div class="footer__col">
-        <p class="footer__head">Kontakt</p>
+        <p class="footer__head">{footer.spalte_2_titel}</p>
         <p>
           <a href={`tel:+49${tel}`}>{kontakt.telefon}</a><br/>
           <a href={`mailto:${kontakt.email}`}>{kontakt.email}</a>
@@ -21,26 +22,26 @@ const tel = kontakt.telefon.replace(/\s/g, '').replace(/^0/, '');
       </div>
 
       <div class="footer__col">
-        <p class="footer__head">Folgen</p>
+        <p class="footer__head">{footer.spalte_3_titel}</p>
         <ul class="footer__social">
-          {kontakt.instagram && <li><a href={kontakt.instagram} rel="noopener" target="_blank">Instagram</a></li>}
-          {kontakt.facebook && <li><a href={kontakt.facebook} rel="noopener" target="_blank">Facebook</a></li>}
+          {kontakt.instagram && <li><a href={kontakt.instagram} rel="noopener" target="_blank">{footer.spalte_3_instagram}</a></li>}
+          {kontakt.facebook && <li><a href={kontakt.facebook} rel="noopener" target="_blank">{footer.spalte_3_facebook}</a></li>}
         </ul>
       </div>
 
       <div class="footer__col">
-        <p class="footer__head">Anfrage</p>
-        <a href="/anfragen" class="btn btn--ghost btn--arrow">Termin anfragen</a>
+        <p class="footer__head">{footer.spalte_4_titel}</p>
+        <a href="/anfragen" class="btn btn--ghost btn--arrow">{footer.spalte_4_button}</a>
       </div>
     </div>
 
     <div class="footer__legal">
       <p>© {year} {kontakt.name}</p>
       <ul>
-        <li><a href="/ueber-uns">Über uns</a></li>
-        <li><a href="/impressum">Impressum</a></li>
-        <li><a href="/datenschutz">Datenschutz</a></li>
-        <li><button type="button" data-cookie-settings>Cookie-Einstellungen</button></li>
+        <li><a href="/ueber-uns">{footer.link_ueber_uns}</a></li>
+        <li><a href="/impressum">{footer.link_impressum}</a></li>
+        <li><a href="/datenschutz">{footer.link_datenschutz}</a></li>
+        <li><button type="button" data-cookie-settings>{footer.link_cookies}</button></li>
       </ul>
     </div>
   </div>

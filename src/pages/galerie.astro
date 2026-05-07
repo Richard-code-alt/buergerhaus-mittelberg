@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 import { getCollection } from 'astro:content';
+import seitentexte from '../data/seiten/galerie.json';
 
 const title = 'Galerie — Hochzeiten im Bürgerhaus Mittelberg';
 const description = 'Bilder echter Hochzeiten im Bürgerhaus Mittelberg — Festsaal, Trauungen, Tanzfläche, Catering. Eindrücke aus dem Allgäu.';
@@ -41,15 +42,14 @@ const placeholders = [
   </Fragment>
   <section class="section--hero">
     <div class="container--narrow text-center">
-      <span class="eyebrow">Galerie</span>
-      <h1>Echte Feiern. Echte Bilder.</h1>
+      <span class="eyebrow">{seitentexte.hero_eyebrow}</span>
+      <h1>{seitentexte.hero_titel}</h1>
       <p class="lead mx-auto">
-        Bilder aus echten Hochzeiten und Festen bei uns. Kein Stockfoto, kein Stadium-Marketing.
+        {seitentexte.hero_lead}
       </p>
       {bilder.length === 0 && (
         <p style="color: var(--c-soft); font-size: var(--t-sm);">
-          <em>Hinweis: Aktuell zeigen wir Beispiel-Visuals. Profi-Fotos vom Sommer-Shoot
-          ergänzen wir hier laufend.</em>
+          <em>{seitentexte.hero_hinweis}</em>
         </p>
       )}
     </div>
@@ -76,9 +76,9 @@ const placeholders = [
 
   <section class="section section--blue">
     <div class="container--narrow text-center">
-      <h2 class="text-balance">Ihre Hochzeit, Ihre Bilder</h2>
-      <p class="lead mx-auto">Lassen Sie uns persönlich sprechen, was wir für Ihren Tag möglich machen.</p>
-      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">Termin anfragen</a>
+      <h2 class="text-balance">{seitentexte.cta_titel}</h2>
+      <p class="lead mx-auto">{seitentexte.cta_text}</p>
+      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">{seitentexte.cta_button}</a>
     </div>
   </section>
 </BaseLayout>

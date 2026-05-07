@@ -1,4 +1,29 @@
 {
+  "hero_eyebrow": "Über uns",
+  "hero_titel": "Ihre Gastgeber",
+  "hero_lead": "Damit Sie wissen, mit wem Sie es zu tun haben — bevor wir uns kennenlernen.",
+
+  "wer_eyebrow": "Wer wir sind",
   "titel": "Sebastian Künzel & Team",
-  "geschichte": "Sebastian Künzel ist seit Jahren Gastgeber im Bürgerhaus Mittelberg, verwurzelt in der Allgäuer Gastronomie. Was er und sein Team Ihnen zusagen, gilt auch — vom ersten Vorgespräch bis zum Abschiedskaffee am Sonntagmorgen.\n\nWir nehmen uns Zeit für Sie, hören zu, kochen selbst und haben ein Auge fürs Detail. Was im Vorgespräch besprochen wird, finden Sie am Tag der Veranstaltung genau so wieder.\n\nDas Bürgerhaus ist seit Jahrzehnten der Treffpunkt der Region — eine familiengeführte Gastronomie, in der Hochzeiten gefeiert, Mädeleball getanzt, Konzerte gehört und Geburtstage erinnert werden. Schön, dass Sie sich für uns interessieren."
+  "geschichte": "Sebastian Künzel ist seit Jahren Gastgeber im Bürgerhaus Mittelberg, verwurzelt in der Allgäuer Gastronomie. Was er und sein Team Ihnen zusagen, gilt auch — vom ersten Vorgespräch bis zum Abschiedskaffee am Sonntagmorgen.\n\nWir nehmen uns Zeit für Sie, hören zu, kochen selbst und haben ein Auge fürs Detail. Was im Vorgespräch besprochen wird, finden Sie am Tag der Veranstaltung genau so wieder.\n\nDas Bürgerhaus ist seit Jahrzehnten der Treffpunkt der Region — eine familiengeführte Gastronomie, in der Hochzeiten gefeiert, Mädeleball getanzt, Konzerte gehört und Geburtstage erinnert werden. Schön, dass Sie sich für uns interessieren.",
+  "team_bild": "",
+  "team_bild_alt": "Gastgeber-Team Bürgerhaus Mittelberg vor dem Haus",
+  "team_bild_caption": "Unser Team",
+
+  "werte_eyebrow": "Was uns wichtig ist",
+  "werte_titel": "Drei Dinge, auf die Sie sich verlassen können",
+  "werte_card_1_titel": "Verlässlich",
+  "werte_card_1_text": "Was wir am Telefon vereinbaren, gilt auch am Tag der Veranstaltung. Sie bekommen keine Aufschläge in letzter Sekunde und keine vergessenen Zusagen.",
+  "werte_card_2_titel": "Eigene Küche",
+  "werte_card_2_text": "Wir kochen selbst — auch für 200 Gäste so, als wäre jeder Teller einzeln gedacht. Für uns ist das eine Frage des Anspruchs, nicht des Aufwands.",
+  "werte_card_3_titel": "Persönlich",
+  "werte_card_3_text": "Sie haben einen Ansprechpartner. Vom ersten Telefonat bis zum Abschiedskaffee am Sonntagmorgen sind es immer dieselben Gesichter.",
+
+  "haus_eyebrow": "Das Haus",
+  "haus_titel": "Mehr als nur ein Festsaal",
+  "haus_text": "Das Bürgerhaus Mittelberg ist seit Jahrzehnten der Treffpunkt der Region. Hier werden Hochzeiten gefeiert, der traditionsreiche Mädeleball im Fasching getanzt, Konzerte gegeben und Vereinsfeste ausgerichtet. Wir führen das Haus mit dem Anspruch, dass das so bleibt — und freuen uns, wenn Ihre Veranstaltung dazu gehört.",
+
+  "cta_titel": "Lernen Sie uns kennen",
+  "cta_text": "Beim Besichtigungstermin haben Sie uns 30 bis 60 Minuten ganz für sich.",
+  "cta_button": "Termin anfragen"
 }

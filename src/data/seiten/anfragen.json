@@ -1,0 +1,36 @@
+{
+  "hero_eyebrow": "Anfrage",
+  "hero_titel": "Anfrage stellen",
+  "hero_lead": "Schreiben Sie uns, was Sie feiern möchten — Hochzeit, Tagung, Geburtstag oder etwas anderes. Wir melden uns innerhalb von 48 Stunden mit einem konkreten Vorschlag.",
+
+  "kontakt_einleitung": "Lieber direkt anrufen?",
+  "kontakt_oder": "oder per Mail an",
+
+  "form_error": "Es ist ein Fehler aufgetreten.",
+  "form_error_text": "Bitte versucht es nochmal oder ruft uns direkt an.",
+
+  "anlass_legend": "Was wollen Sie feiern?",
+  "anlass_sonstiges_titel": "Etwas anderes",
+  "anlass_sonstiges_sub": "Konzert, Vereinsfest, Spezielles — schreibt's unten",
+
+  "label_name": "Name *",
+  "label_email": "E-Mail *",
+  "label_telefon": "Telefon (optional)",
+  "label_datum": "Wunschdatum oder Zeitraum",
+  "placeholder_datum": "z.B. 15.06.2027 oder Sommer 2027",
+  "label_gaeste": "Gästezahl ungefähr",
+  "placeholder_gaeste": "z.B. 80",
+  "label_raum": "Welcher Raum?",
+  "raum_egal": "— Egal / unsicher",
+  "raum_festsaal": "Festsaal",
+  "raum_stueble": "Martin Stüble",
+  "raum_beide": "Beide",
+  "raum_aussen": "Außer Haus (Catering)",
+  "label_nachricht": "Was ist Ihnen wichtig? (Wünsche, Fragen, Sonstiges)",
+  "placeholder_nachricht": "z.B. freie Trauung im Freien geplant, vegane Hauptspeisen, DJ schon gebucht ...",
+  "label_datenschutz": "Ich habe die ##LINK_DATENSCHUTZ## gelesen und stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage gespeichert werden. *",
+  "datenschutz_link_text": "Datenschutzerklärung",
+
+  "submit_button": "Anfrage abschicken",
+  "submit_loading": "Wird gesendet …"
+}

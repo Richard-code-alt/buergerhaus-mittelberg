@@ -1,0 +1,55 @@
+{
+  "hero_eyebrow": "Räume",
+  "hero_titel": "Unsere Räume",
+  "hero_lead": "Zwei Räume unter einem Dach: Den großen Festsaal mit Profibühne für die große Feier, und das Martin Stüble für die intime Runde — Geburtstage, Kommunion, Sektempfang oder Familienfeier nach der Trauung. Beide Räume können Sie einzeln oder kombiniert mieten.",
+
+  "festsaal_eyebrow": "Festsaal",
+  "festsaal_titel": "250 Plätze, große Bühne",
+  "festsaal_text": "Der Festsaal ist das Herzstück des Bürgerhauses. Alpenländischer Charakter mit gemütlich-rustikaler Atmosphäre, moderne Technik, eine Bühne, auf der schon Bigbands, Allgäuer Tanzgruppen und DJs gestanden haben. Für Ihre Hochzeit, Tagung, Geburtstag oder Versammlung: Platz, Akustik und Atmosphäre für jeden Anlass — vom feierlichen Drei-Gänge-Menü mit Tischreden bis zur durchgetanzten Nacht, vom Faschingsball bis zum Konzert.",
+  "festsaal_bild": "",
+  "festsaal_bild_alt": "Festsaal Bürgerhaus Mittelberg, Innenansicht mit Bühne und Tanzfläche",
+  "festsaal_specs": [
+    { "label": "Kapazität bestuhlt", "wert": "bis 200 Personen" },
+    { "label": "Kapazität (Stehempfang/Konzert)", "wert": "bis 250 Personen" },
+    { "label": "Fläche", "wert": "ca. 280 m²" },
+    { "label": "Bühne", "wert": "9 × 6 m, fest verbaut" },
+    { "label": "Tanzfläche", "wert": "ja, vor der Bühne" },
+    { "label": "Bar", "wert": "ja, im Saal integriert" },
+    { "label": "Tonanlage", "wert": "fest installiert, mehrkanalig, für Live-Bands geeignet" },
+    { "label": "Beamer / Leinwand", "wert": "auf Anfrage" },
+    { "label": "Bühnenlicht", "wert": "DMX-Steuerung, Saalbeleuchtung dimmbar" },
+    { "label": "Belüftung", "wert": "Lüftungsanlage, beheizbar" },
+    { "label": "Barrierefrei", "wert": "ebenerdig, Rollstuhl-Zugang am Eingang und Parkplatz, behindertengerechtes WC" },
+    { "label": "Parkplätze", "wert": "kostenfrei direkt am Haus, zusätzlich Straße" }
+  ],
+  "festsaal_bestuhlung_titel": "Bestuhlungsoptionen",
+  "festsaal_bestuhlung": [
+    { "punkt": "Bankett (lange Tafeln) — bis 200 Personen" },
+    { "punkt": "Runde Tische à 8–10 — bis 180 Personen" },
+    { "punkt": "Reihenbestuhlung (für freie Trauung) — bis 220 Personen" },
+    { "punkt": "Stehempfang / Konzert — bis 250 Personen" }
+  ],
+  "festsaal_button": "Festsaal anfragen",
+
+  "stueble_eyebrow": "Martin Stüble",
+  "stueble_titel": "Bis 50 Plätze, intim",
+  "stueble_text": "Das Stüble ist der kleine Bruder des Festsaals. Holzvertäfelt, warm, mit Platz für bis zu 50 Personen an Tischen. Wir richten hier Geburtstage, Kommunion, Konfirmation, Familienfeiern und kleine Hochzeitsfeiern aus — auch parallel zum Festsaal als Sektempfang, Trauzeugen-Raum oder Spielzimmer für die Kinder.",
+  "stueble_bild": "",
+  "stueble_bild_alt": "Martin Stüble im Bürgerhaus Mittelberg, holzvertäfelt",
+  "stueble_specs": [
+    { "label": "Kapazität bestuhlt", "wert": "bis 50 Personen" },
+    { "label": "Fläche", "wert": "ca. 60 m²" },
+    { "label": "Charakter", "wert": "Holzvertäfelung, gemütlich" },
+    { "label": "Geeignet für", "wert": "Geburtstage, Kommunion, Familienfeier, Sektempfang, Brunch, freie Trauung" }
+  ],
+  "stueble_button": "Stüble anfragen",
+
+  "aussen_eyebrow": "Außenbereich",
+  "aussen_titel": "Vor dem Haus",
+  "aussen_text_1": "Vor dem Bürgerhaus liegt unser Vorplatz mit Blick in die Allgäuer Berge. Geeignet für den Sektempfang nach der Trauung, für die Hochzeitsfotos oder als Raucherbereich am Abend.",
+  "aussen_text_2": "Eine freie Trauung im Freien ist bei gutem Wetter möglich. Falls das Wetter nicht mitspielt, weichen wir ins Stüble oder den Festsaal aus — Plan B haben wir immer parat.",
+
+  "cta_titel": "Räume besichtigen",
+  "cta_text": "Persönliche Eindrücke gewinnen. Einfach Termin vereinbaren — wir nehmen uns Zeit.",
+  "cta_button": "Termin anfragen"
+}

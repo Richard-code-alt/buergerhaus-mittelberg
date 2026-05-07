@@ -1,0 +1,39 @@
+{
+  "hero_eyebrow": "Anfahrt",
+  "hero_titel": "So finden Sie uns",
+
+  "route_titel": "Rotachstraße 8",
+  "route_sub": "87466 Oy-Mittelberg · Allgäu",
+  "route_heading": "Route berechnen",
+  "route_button_google": "Google Maps",
+  "route_button_apple": "Apple Maps",
+  "route_note": "Klick auf einen Button öffnet Ihre Navi-App mit der Route ab Ihrem Standort.",
+
+  "auto_eyebrow": "Mit dem Auto",
+  "auto_titel": "Über die A7",
+  "auto_text": "A7 Ausfahrt Nesselwang, dann B309 Richtung Wertach, in Oy-Mittelberg ins Ortsteil Mittelberg abbiegen. Wir liegen direkt an der Hauptstraße im Ortskern.",
+  "auto_distanzen": "München 1:45 h · Stuttgart 2:15 h · Friedrichshafen 1:00 h · Innsbruck 1:30 h",
+
+  "bahn_eyebrow": "Mit der Bahn",
+  "bahn_titel": "Bahnhof Oy-Mittelberg",
+  "bahn_text": "Drei Minuten mit dem Auto entfernt. Stündlich Verbindungen Richtung Kempten und Pfronten.",
+
+  "flug_eyebrow": "Mit dem Flugzeug",
+  "flug_titel": "FMM, MUC oder INN",
+  "flug_text": "Memmingen Allgäu (FMM): 50 km · 50 min\nMünchen (MUC): 175 km · 1:45 h\nInnsbruck (INN): 110 km · 1:30 h",
+
+  "parken_eyebrow": "Parken",
+  "parken_titel": "Direkt vor dem Haus",
+  "parken_text": "Direkt vor dem Bürgerhaus stehen ausreichend kostenfreie Parkplätze für Ihre Gäste. Bei sehr großen Hochzeiten weisen wir Zusatzflächen aus.",
+
+  "hotels_eyebrow": "Übernachten",
+  "hotels_titel": "Hotels in Oy-Mittelberg",
+  "hotels_lead": "Damit Ihre Gäste nicht weit fahren müssen, hier eine Auswahl an Häusern in Gehweite oder kurzer Fahrt. Reservierungen laufen direkt mit den Häusern.",
+  "hotels_titel_zufuss": "Im Ortskern (zu Fuß)",
+  "hotels_titel_auto": "Wenige Minuten Fahrt",
+  "hotels_hinweis": "Auf Wunsch melden wir Ihre Hochzeitsgesellschaft bei den Häusern an.",
+
+  "cta_titel": "Vorbeikommen, Saal anschauen",
+  "cta_text": "Persönliche Eindrücke schlagen jede Website. Vereinbart einen Besichtigungstermin.",
+  "cta_button": "Termin anfragen"
+}
