@@ -5,6 +5,6 @@ ort: Kaufbeuren
 kategorie: Lieferpartner
 beschreibung: |
   Traditionsbrauerei aus Kaufbeuren — unser Bier vom Fass für die Hochzeitsfeier.
-website: ""
+website: "https://www.aktienbrauerei.de/"
 logo: ""
 ---

@@ -37,7 +37,7 @@ const partnerByCategory = partner.reduce((acc, p) => {
       <div class="container">
         <div class="text-center mb-8">
           <span class="eyebrow">{kategorie}</span>
-          <h2>{kategorie === 'Lieferpartner' ? 'Was unsere Küche füllt' : kategorie === 'Dienstleister' ? 'Wer mit uns arbeitet' : 'Wen wir empfehlen'}</h2>
+          <h2>{kategorie === 'Lieferpartner' ? 'Unsere Partner' : kategorie === 'Dienstleister' ? 'Wer mit uns arbeitet' : 'Wen wir empfehlen'}</h2>
         </div>
 
         <div class="partner-grid">
@@ -66,17 +66,6 @@ const partnerByCategory = partner.reduce((acc, p) => {
       </div>
     </section>
   ))}
-
-  <section class="section section--blue">
-    <div class="container--narrow text-center">
-      <h2 class="text-balance">Auch Partner werden?</h2>
-      <p class="lead mx-auto">
-        Floristen, DJs, Fotografen, Konditoreien aus der Region — wenn Sie mit uns
-        zusammenarbeiten möchtet, schreibt uns gerne.
-      </p>
-      <a href="/anfragen" class="btn btn--primary btn--arrow btn--lg mt-6">Kontakt aufnehmen</a>
-    </div>
-  </section>
 </BaseLayout>
 
 <style>
