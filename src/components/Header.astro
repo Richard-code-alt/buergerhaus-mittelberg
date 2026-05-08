@@ -64,14 +64,20 @@ const currentPath = Astro.url.pathname;
     .header__inner { min-height: 100px; }
   }
 
+  .header__brand {
+    /* Brand-Wrapper: Logo darf aus dem Header rausragen */
+    display: flex;
+    align-items: center;
+    line-height: 0;
+  }
   .header__brand img {
-    height: 80px; max-height: 80px; width: auto; display: block;
+    height: 173px; width: auto; display: block;
   }
   @media (min-width: 720px) {
-    .header__brand img { height: 90px; max-height: 90px; }
+    .header__brand img { height: 208px; }
   }
   @media (min-width: 1100px) {
-    .header__brand img { height: 100px; max-height: 100px; }
+    .header__brand img { height: 242px; }
   }
 
   .header__list {
