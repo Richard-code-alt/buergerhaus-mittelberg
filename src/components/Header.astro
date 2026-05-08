@@ -45,7 +45,7 @@ const currentPath = Astro.url.pathname;
     position: sticky; top: 0; z-index: 50;
     background: var(--c-cream-warm);
     border-bottom: 1px solid var(--c-line);
-    padding: 4px 0;
+    padding: var(--s-3) 0;
     box-shadow: 0 1px 0 rgba(31, 31, 31, 0.04);
   }
   .header__inner {
@@ -56,7 +56,7 @@ const currentPath = Astro.url.pathname;
     max-width: var(--w-wide);
   }
   @media (min-width: 720px) {
-    .header { padding: 6px 0; }
+    .header { padding: var(--s-3) 0; }
     .header__inner { padding: 0 var(--s-6); gap: var(--s-5); }
   }
 
@@ -66,13 +66,13 @@ const currentPath = Astro.url.pathname;
     line-height: 0;
   }
   .header__brand img {
-    height: 173px; width: auto; display: block;
+    height: 90px; width: auto; display: block;
   }
   @media (min-width: 720px) {
-    .header__brand img { height: 208px; }
+    .header__brand img { height: 110px; }
   }
   @media (min-width: 1100px) {
-    .header__brand img { height: 242px; }
+    .header__brand img { height: 130px; }
   }
 
   .header__list {
@@ -98,7 +98,7 @@ const currentPath = Astro.url.pathname;
   .header__toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   .header__nav {
-    position: fixed; top: 185px; left: 0; right: 0; bottom: 0;
+    position: fixed; top: 120px; left: 0; right: 0; bottom: 0;
     background: var(--c-cream-warm);
     padding: var(--s-7) var(--s-5);
     flex-direction: column; align-items: stretch; gap: var(--s-5);
